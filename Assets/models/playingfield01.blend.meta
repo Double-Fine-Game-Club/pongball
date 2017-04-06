@@ -1,0 +1,223 @@
+fileFormatVersion: 2
+guid: 13ac9cc01ef1c654cb9ad4fff4d37d3c
+timeCreated: 1491429067
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Plane
+    100004: Sphere
+    100006: Cube
+    100008: Cube_001
+    100010: background
+    100012: ball
+    100014: paddle01
+    100016: paddle02
+    100018: walls
+    100020: Cube_002
+    100022: Cube_003
+    100024: wall
+    100026: wall_001
+    100028: wall_002
+    100030: wall_003
+    100032: bumper
+    100034: wall_004
+    100036: wall_005
+    100038: bumper_001
+    100040: bumper_002
+    100042: bumper_003
+    100044: bumper_004
+    100046: bumper_005
+    100048: bumper_006
+    100050: bumper_007
+    100052: bumper_008
+    100054: bumper_009
+    100056: glass
+    400000: //RootNode
+    400002: Plane
+    400004: Sphere
+    400006: Cube
+    400008: Cube_001
+    400010: background
+    400012: ball
+    400014: paddle01
+    400016: paddle02
+    400018: walls
+    400020: Cube_002
+    400022: Cube_003
+    400024: wall
+    400026: wall_001
+    400028: wall_002
+    400030: wall_003
+    400032: bumper
+    400034: wall_004
+    400036: wall_005
+    400038: bumper_001
+    400040: bumper_002
+    400042: bumper_003
+    400044: bumper_004
+    400046: bumper_005
+    400048: bumper_006
+    400050: bumper_007
+    400052: bumper_008
+    400054: bumper_009
+    400056: glass
+    2300000: //RootNode
+    2300002: Plane
+    2300004: Sphere
+    2300006: Cube
+    2300008: Cube_001
+    2300010: background
+    2300012: ball
+    2300014: paddle01
+    2300016: paddle02
+    2300018: walls
+    2300020: Cube_002
+    2300022: Cube_003
+    2300024: wall
+    2300026: wall_001
+    2300028: wall_002
+    2300030: wall_003
+    2300032: bumper
+    2300034: wall_004
+    2300036: wall_005
+    2300038: bumper_001
+    2300040: bumper_002
+    2300042: bumper_003
+    2300044: bumper_004
+    2300046: bumper_005
+    2300048: bumper_006
+    2300050: bumper_007
+    2300052: bumper_008
+    2300054: bumper_009
+    2300056: glass
+    3300000: //RootNode
+    3300002: Plane
+    3300004: Sphere
+    3300006: Cube
+    3300008: Cube_001
+    3300010: background
+    3300012: ball
+    3300014: paddle01
+    3300016: paddle02
+    3300018: walls
+    3300020: Cube_002
+    3300022: Cube_003
+    3300024: wall
+    3300026: wall_001
+    3300028: wall_002
+    3300030: wall_003
+    3300032: bumper
+    3300034: wall_004
+    3300036: wall_005
+    3300038: bumper_001
+    3300040: bumper_002
+    3300042: bumper_003
+    3300044: bumper_004
+    3300046: bumper_005
+    3300048: bumper_006
+    3300050: bumper_007
+    3300052: bumper_008
+    3300054: bumper_009
+    3300056: glass
+    4300000: Plane
+    4300002: Sphere
+    4300004: Cube
+    4300006: Cube_001
+    4300008: paddle02
+    4300010: paddle01
+    4300012: ball
+    4300014: background
+    4300016: walls
+    4300018: Cube_003
+    4300020: Cube_002
+    4300022: wall_003
+    4300024: wall_002
+    4300026: wall_001
+    4300028: wall
+    4300030: bumper
+    4300032: wall_005
+    4300034: wall_004
+    4300036: bumper_005
+    4300038: bumper_004
+    4300040: bumper_003
+    4300042: bumper_002
+    4300044: bumper_001
+    4300046: bumper_009
+    4300048: bumper_008
+    4300050: bumper_007
+    4300052: bumper_006
+    4300054: glass
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
