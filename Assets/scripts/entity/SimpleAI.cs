@@ -2,42 +2,48 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class SimpleAI : MonoBehaviour {
+public class SimpleAI : NetworkBehaviour {
 
-    private float Thrust = 100.0f;
+    private float Thrust = 20.0f;
 
     private Vector3 up = new Vector3(1, 0, 0);
     private Vector3 down = new Vector3(-1, 0, 0);
 
     private Transform TrackedBall = null;
-    private Rigidbody myRigidBody = null;
-    private Collider myCollider = null;
 
-    // Use this for initialization
-    void Start () {
-        GameObject ball = GameObject.Find("ball");
-        myRigidBody = GetComponent<Rigidbody>();
-        myCollider = GetComponent<Collider>();
+    public override void OnStartLocalPlayer()
+    {
+        FindBall();
+        if(isLocalPlayer)
+        {
+            GetComponent<MeshRenderer>().material.color = Color.cyan;
+        }
+    }
 
+    private void FindBall()
+    {
+        GameObject ball = GameObject.FindGameObjectWithTag("Ball");
         if (ball)
         {
             TrackedBall = ball.transform;
         }
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	}
+    }
 
     private void FixedUpdate()
     {
+        if (!isLocalPlayer) return;
+
         if(TrackedBall)
         {
             if (TrackedBallIsOutsideBounds())
             {
                 FollowTrackedBall();
             }
+        } else
+        {
+            FindBall();
         }
     }
 
@@ -51,26 +57,30 @@ public class SimpleAI : MonoBehaviour {
 
     private void MoveUp()
     {
-        if(myRigidBody)
+        if(GetComponent<Rigidbody>())
         {
-            myRigidBody.AddForce(up * Thrust);
+            var rb = GetComponent<Rigidbody>();
+
+            GetComponent<Rigidbody>().velocity = up * Thrust;
         }
     }
 
     private void MoveDown()
     {
-        if (myRigidBody)
+        if (GetComponent<Rigidbody>())
         {
-            myRigidBody.AddForce(down * Thrust);
+            var rb = GetComponent<Rigidbody>();
+
+            GetComponent<Rigidbody>().velocity = down * Thrust;
         }
     }
 
     private bool TrackedBallIsOutsideBounds()
     {
-        if(myCollider)
+        if(GetComponent<Collider>())
         {
-            float topBounds = transform.position.x - myCollider.bounds.size.x / 2;
-            float bottomBounds = transform.position.x + myCollider.bounds.size.x / 2;
+            float topBounds = transform.position.x - GetComponent<Collider>().bounds.size.x / 2;
+            float bottomBounds = transform.position.x + GetComponent<Collider>().bounds.size.x / 2;
 
             return  TrackedBall.position.x < topBounds ||
                     TrackedBall.position.x > bottomBounds;
