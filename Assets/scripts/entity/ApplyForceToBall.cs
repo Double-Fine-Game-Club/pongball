@@ -22,7 +22,7 @@ public class ApplyForceToBall : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.name == "ball")
+        if(collision.gameObject.tag == "Ball")
         {
             Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
             Vector3 forceVector = rb.transform.forward.normalized;
