@@ -1,59 +1,38 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+/// <summary>
+/// Player controlled paddle
+/// </summary>
 
-    private float Thrust = 10.0f;
+public class Player : PaddleBase {
 
-    private Vector3 up = new Vector3(1, 0, 0);
-    private Vector3 down = new Vector3(-1, 0, 0);
-
-    private Rigidbody rigidBody;
-
-    // Use this for initialization
-    void Start()
+	// Use this for initialization
+	public override void Start()
     {
-        rigidBody = GetComponent<Rigidbody>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        float haxis = Input.GetAxis("Horizontal");
-        float vaxis = Input.GetAxis("Vertical");
-
-        if(haxis != 0)
-        {
-
-        }
-
-        if(vaxis != 0)
-        {
-            vaxis *= -1;
-            //rigidBody.AddForce(up * (Thrust * vaxis));
-            transform.Translate(up * (Thrust * vaxis) * Time.deltaTime);
-        }
+		base.Start();
+		
+		// Give the player faster movement
+		SetThrust(20);
     }
 
     private void FixedUpdate()
-    {
+	{
+		float haxis = Input.GetAxis("Horizontal");
+		float vaxis = Input.GetAxis("Vertical");
 
-    }
+		if (haxis != 0)
+		{
 
-    private void MoveUp()
-    {
-        if (rigidBody)
-        {
-            rigidBody.AddForce(up * Thrust);
+		}
+
+		if (vaxis != 0)
+		{
+			vaxis *= -1;
+			//rigidBody.AddForce(up * (Thrust * vaxis));
+			//transform.Translate(up * (Thrust * vaxis) * Time.deltaTime);
+			MovePaddles(vaxis);
         }
-    }
-
-    private void MoveDown()
-    {
-        if (rigidBody)
-        {
-            rigidBody.AddForce(down * Thrust);
-        }
-    }
+	}
 }
