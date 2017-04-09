@@ -4,16 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class SimpleAI : NetworkBehaviour {
+/// <summary>
+/// Class for AI controlled paddles
+/// </summary>
 
-    private float Thrust = 20.0f;
-
-    private Vector3 up = new Vector3(1, 0, 0);
-    private Vector3 down = new Vector3(-1, 0, 0);
+public class SimpleAI : PaddleBase {
 
     private Transform TrackedBall = null;
 
-    public override void OnStartLocalPlayer()
+	public override void OnStartLocalPlayer()
     {
         FindBall();
         if(isLocalPlayer)
@@ -49,30 +48,8 @@ public class SimpleAI : NetworkBehaviour {
 
     private void FollowTrackedBall()
     {
-        if (TrackedBall.transform.position.x < transform.position.x)
-            MoveDown();
-        else
-            MoveUp();
-    }
-
-    private void MoveUp()
-    {
-        if(GetComponent<Rigidbody>())
-        {
-            var rb = GetComponent<Rigidbody>();
-
-            GetComponent<Rigidbody>().velocity = up * Thrust;
-        }
-    }
-
-    private void MoveDown()
-    {
-        if (GetComponent<Rigidbody>())
-        {
-            var rb = GetComponent<Rigidbody>();
-
-            GetComponent<Rigidbody>().velocity = down * Thrust;
-        }
+		float dir = TrackedBall.transform.position.x - transform.position.x;
+		MovePaddles(dir);
     }
 
     private bool TrackedBallIsOutsideBounds()
