@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ApplyForceToBall : MonoBehaviour {
 
-    private float force = 50.0f;
+    private float force = 10.0f;
 
     private Vector3 myStartingScale = Vector3.zero;
     private float scaleFactor = 1.2f;

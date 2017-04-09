@@ -49,6 +49,8 @@ public class CameraFocus : MonoBehaviour {
 
 	void RecalculateOffset()
 	{
+        if (currentFocus == null) return;
+
 		Camera camera = GetComponent<Camera>();
         Vector3 normal = new Vector3(0, 1, 0);  // HACK: assuming we're always looking down
 
