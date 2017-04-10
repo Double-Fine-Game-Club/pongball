@@ -248,6 +248,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2a7f435ebae1b4ca457d0431a85d4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneAssetBundle: tables-bundle
+  sceneName: Table01
+  textAssetBundle: 
+  textAssetName: 
 --- !u!1 &1294986265
 GameObject:
   m_ObjectHideFlags: 0
