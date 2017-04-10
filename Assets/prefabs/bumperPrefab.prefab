@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 64447266638017336}
   - component: {fileID: 114351652613839056}
   m_Layer: 0
-  m_Name: bumper01
+  m_Name: bumperPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

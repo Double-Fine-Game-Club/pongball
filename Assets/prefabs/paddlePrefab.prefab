@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114389078707064244}
   - component: {fileID: 136224915192230348}
   m_Layer: 0
-  m_Name: paddle01
+  m_Name: paddlePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

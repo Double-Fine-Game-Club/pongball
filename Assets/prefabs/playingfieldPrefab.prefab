@@ -56,7 +56,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4713443121910552}
   m_Layer: 0
-  m_Name: playingfield01
+  m_Name: playingfieldPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

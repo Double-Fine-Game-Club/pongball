@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 114414362373515110}
   - component: {fileID: 96876373601753738}
   m_Layer: 0
-  m_Name: ball01
+  m_Name: ballPrefab
   m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
