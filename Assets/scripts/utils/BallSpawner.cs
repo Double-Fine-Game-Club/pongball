@@ -7,11 +7,18 @@ public class BallSpawner : NetworkBehaviour {
 
     public GameObject ballPrefab;
 
-    public override void OnStartServer()
+    private void Update()
     {
-        var ball = (GameObject)Instantiate(ballPrefab, transform.position, transform.rotation);
-        ball.GetComponent<Rigidbody>().velocity = ball.transform.forward * 5;
-        NetworkServer.Spawn(ball);
+        // HACK: Ball wont respawn when re-hosting...
+        if (!isServer) return;
+
+        var ball = GameObject.FindGameObjectWithTag("Ball");
+        if(ball == null)
+        {
+            ball = (GameObject)Instantiate(ballPrefab, transform.position, transform.rotation);
+            ball.GetComponent<Rigidbody>().velocity = ball.transform.forward * 5;
+            NetworkServer.Spawn(ball);
+        }
     }
 
 }

@@ -2,8 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class Ball : MonoBehaviour {
+public class Ball : NetworkBehaviour {
 
     private Rigidbody rb = null;
     private Vector3 startingPosition = Vector3.zero;
@@ -13,6 +14,8 @@ public class Ball : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        if (!isServer) return;
+
         rb = GetComponent<Rigidbody>();
         startingPosition = transform.position;
 
@@ -21,6 +24,7 @@ public class Ball : MonoBehaviour {
 
     private void LaunchBall()
     {
+        /*
         transform.position = startingPosition;
 
         float startingXForce = UnityEngine.Random.Range(startingMinVelocity, startingMaxVelocity);
@@ -32,21 +36,23 @@ public class Ball : MonoBehaviour {
         }
 
         rb.AddForce(new Vector3(startingXForce, 0, startingZForce));
+        */
     }
-
-    // Update is called once per frame
-    void Update () {
-		//if(Input.GetKeyDown("space"))
-        //{
-        //    LaunchBall();
-        //}
-	}
 
     private void FixedUpdate()
     {
-        if(rb.velocity.magnitude < minimumVelocity)
+        if (!isServer) return;
+
+        if (rb.velocity.magnitude < minimumVelocity)
         {
             rb.AddForce(rb.velocity.normalized * minimumVelocity);
         }
+    }
+
+    public void ResetPosition()
+    {
+        if (!isServer) return;
+
+        transform.position = startingPosition;
     }
 }
