@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 365614d7c91ecec44a964b1b554fd87f
-timeCreated: 1491764360
+guid: 60ae63c42fa87c74ead05c0ffbd53a0c
+timeCreated: 1491935359
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,9 +9,8 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: bumper02
-    4300002: bumper
-    4300004: bumper.001
+    4300000: Cylinder
+    4300002: ramp01
   materials:
     importMaterials: 1
     materialName: 0
@@ -55,9 +54,9 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 0
+    normalImportMode: 1
     tangentImportMode: 3
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2

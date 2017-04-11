@@ -70,6 +70,7 @@ ModelImporter:
     4300020: ball
     4300022: background
     4300024: Cylinder
+    4300026: bumper01
   materials:
     importMaterials: 1
     materialName: 0

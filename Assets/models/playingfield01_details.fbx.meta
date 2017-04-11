@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 365614d7c91ecec44a964b1b554fd87f
-timeCreated: 1491764360
+guid: 02a84fb0135819a4fa4e53dfaba961fe
+timeCreated: 1491933762
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,9 +9,8 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: bumper02
-    4300002: bumper
-    4300004: bumper.001
+    4300000: Cube
+    4300002: details
   materials:
     importMaterials: 1
     materialName: 0
@@ -57,7 +56,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2

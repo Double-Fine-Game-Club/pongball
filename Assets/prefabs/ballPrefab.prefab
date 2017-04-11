@@ -134,7 +134,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 5
+  m_Time: 1
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 1
@@ -143,7 +143,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: 0.72340584
+        value: 0.51688576
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -265,5 +265,5 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.48
+  m_Radius: 0.25
   m_Center: {x: 0.000000029802322, y: 0, z: -0.00000023841858}

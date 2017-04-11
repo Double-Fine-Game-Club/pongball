@@ -8,7 +8,7 @@ public class Ball : NetworkBehaviour {
 
     private Rigidbody rb = null;
     private Vector3 startingPosition = Vector3.zero;
-    float minimumVelocity = 3;
+    float minimumVelocity = 5;
     float startingMinVelocity = -10;
     float startingMaxVelocity = 10;
 
@@ -45,7 +45,7 @@ public class Ball : NetworkBehaviour {
 
         if (rb.velocity.magnitude < minimumVelocity)
         {
-            rb.AddForce(rb.velocity.normalized * minimumVelocity);
+            rb.velocity = rb.velocity * 1.25f;
         }
     }
 
