@@ -31,3 +31,7 @@ sysinfo.txt
 *.unitypackage
 
 *.blend*
+
+# AssetBundleManager host IP
+# This is overwritten on every launch of Unity
+/Assets/AssetBundleManager/Resources/AssetBundleServerURL.bytes
