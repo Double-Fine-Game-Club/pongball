@@ -35,3 +35,4 @@ sysinfo.txt
 # AssetBundleManager host IP
 # This is overwritten on every launch of Unity
 /Assets/AssetBundleManager/Resources/AssetBundleServerURL.bytes
+/Assets/AssetBundleManager/Resources/AssetBundleServerURL.bytes.meta
