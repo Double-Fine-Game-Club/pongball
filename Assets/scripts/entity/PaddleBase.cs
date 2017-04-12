@@ -9,10 +9,9 @@ using UnityEngine.Networking;
 
 public class PaddleBase : NetworkBehaviour {
 	
-    private float Thrust = 10.0f;
+    private float thrust = 10.0f;
 
     private Vector3 up = new Vector3(1, 0, 0);
-    //private Vector3 down = new Vector3(-1, 0, 0);
 
     private Rigidbody rigidBody;
 
@@ -25,7 +24,7 @@ public class PaddleBase : NetworkBehaviour {
 
 	protected void SetThrust(float thrust)
 	{
-		Thrust = thrust;
+		this.thrust = thrust;
 	}
 
 	// +ve for "up"
@@ -39,7 +38,7 @@ public class PaddleBase : NetworkBehaviour {
 			dir = Mathf.Clamp(dir, -1.0f, 1.0f);
 
 			//rigidBody.AddForce(dir * up * Thrust);
-			transform.Translate(dir * up * Thrust * Time.fixedDeltaTime);
+			transform.Translate(dir * up * thrust * Time.fixedDeltaTime);
 		}
     }
 }

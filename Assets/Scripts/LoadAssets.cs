@@ -121,34 +121,5 @@ public class LoadAssets : MonoBehaviour {
         float elapsedTime = Time.realtimeSinceStartup - startTime;
         Debug.Log("Finished loading scene " + levelName + " in " + elapsedTime + " seconds");
     }
-
-    /*
-    protected IEnumerator InstantiateGameObjectAsync(string assetBundleName, string assetName)
-    {
-        // This is simply to get the elapsed time for this phase of AssetLoading.
-        float startTime = Time.realtimeSinceStartup;
-
-        // Load asset from assetBundle.
-        AssetBundleLoadAssetOperation request = AssetBundleManager.LoadAssetAsync(assetBundleName, assetName, typeof(GameObject));
-        if (request == null)
-        {
-            Debug.LogError("Failed AssetBundleLoadAssetOperation on " + assetName + " from the AssetBundle " + assetBundleName + ".");
-            yield break;
-        }
-        yield return StartCoroutine(request);
-
-        // Get the Asset.
-        GameObject prefab = request.GetAsset<GameObject>();
-
-        // Instantiate the Asset, or log an error.
-        if (prefab != null)
-            GameObject.Instantiate(prefab);
-        else
-            Debug.LogError("Failed to GetAsset from request");
-
-        // Calculate and display the elapsed time.
-        float elapsedTime = Time.realtimeSinceStartup - startTime;
-        Debug.Log(assetName + (prefab == null ? " was not" : " was") + " loaded successfully in " + elapsedTime + " seconds");
-    }
-    */
+    
 }

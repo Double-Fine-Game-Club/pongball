@@ -24,10 +24,10 @@ public class ApplyForceToBall : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Ball")
         {
-            Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
-            Vector3 forceVector = rb.transform.forward.normalized;
+            Rigidbody rigidBody = collision.gameObject.GetComponent<Rigidbody>();
+            Vector3 forceVector = rigidBody.transform.forward.normalized;
             forceVector.y = 0;
-            rb.AddForce(forceVector * force);
+            rigidBody.AddForce(forceVector * force);
 
             Vector3 newScale = new Vector3(
                 myStartingScale.x * scaleFactor,

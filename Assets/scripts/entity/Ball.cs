@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 
 public class Ball : NetworkBehaviour {
 
-    private Rigidbody rb = null;
+    private Rigidbody rigidBody = null;
     private Vector3 startingPosition = Vector3.zero;
     float minimumVelocity = 5;
     float startingMinVelocity = -10;
@@ -16,7 +16,7 @@ public class Ball : NetworkBehaviour {
     void Start () {
         if (!isServer) return;
 
-        rb = GetComponent<Rigidbody>();
+        rigidBody = GetComponent<Rigidbody>();
         startingPosition = transform.position;
     }
 
@@ -24,9 +24,9 @@ public class Ball : NetworkBehaviour {
     {
         if (!isServer) return;
 
-        if (rb.velocity.magnitude < minimumVelocity)
+        if (rigidBody.velocity.magnitude < minimumVelocity)
         {
-            rb.velocity = rb.velocity * 1.25f;
+            rigidBody.velocity = rigidBody.velocity * 1.25f;
         }
     }
 

@@ -19,9 +19,6 @@ public class ResetBallUI : NetworkBehaviour {
     [Command]
     private void CmdResetBallPosition()
     {
-        // Should never happen since Commands are run on the server
-        //if (!isServer) return;
-
         var ball = GameObject.FindGameObjectWithTag("Ball");
         if(ball != null)
         {
