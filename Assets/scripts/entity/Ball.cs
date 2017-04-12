@@ -18,25 +18,6 @@ public class Ball : NetworkBehaviour {
 
         rb = GetComponent<Rigidbody>();
         startingPosition = transform.position;
-
-        LaunchBall();
-    }
-
-    private void LaunchBall()
-    {
-        /*
-        transform.position = startingPosition;
-
-        float startingXForce = UnityEngine.Random.Range(startingMinVelocity, startingMaxVelocity);
-        float startingZForce = UnityEngine.Random.Range(startingMinVelocity, startingMaxVelocity);
-
-        if (startingXForce * startingZForce < 50)
-        {
-            startingXForce = startingMaxVelocity;
-        }
-
-        rb.AddForce(new Vector3(startingXForce, 0, startingZForce));
-        */
     }
 
     private void FixedUpdate()
