@@ -10,7 +10,7 @@ using UnityEngine.Networking;
 
 public class SimpleAI : PaddleBase {
 
-    private Transform TrackedBall = null;
+    private Transform trackedBall = null;
 
 	public override void OnStartLocalPlayer()
     {
@@ -26,7 +26,7 @@ public class SimpleAI : PaddleBase {
         GameObject ball = GameObject.FindGameObjectWithTag("Ball");
         if (ball)
         {
-            TrackedBall = ball.transform;
+            trackedBall = ball.transform;
         }
     }
 
@@ -34,7 +34,7 @@ public class SimpleAI : PaddleBase {
     {
         if (!isLocalPlayer) return;
 
-        if(TrackedBall)
+        if(trackedBall)
         {
             if (TrackedBallIsOutsideBounds())
             {
@@ -48,7 +48,7 @@ public class SimpleAI : PaddleBase {
 
     private void FollowTrackedBall()
     {
-		float dir = TrackedBall.transform.position.x - transform.position.x;
+		float dir = trackedBall.transform.position.x - transform.position.x;
 		MovePaddles(dir);
     }
 
@@ -59,9 +59,9 @@ public class SimpleAI : PaddleBase {
             float topBounds = transform.position.x - GetComponent<Collider>().bounds.size.x / 2;
             float bottomBounds = transform.position.x + GetComponent<Collider>().bounds.size.x / 2;
 
-            return  TrackedBall.position.x < topBounds ||
-                    TrackedBall.position.x > bottomBounds;
+            return  trackedBall.position.x < topBounds ||
+                    trackedBall.position.x > bottomBounds;
         }
-        return TrackedBall.position.x < transform.position.x;
+        return trackedBall.position.x < transform.position.x;
     }
 }

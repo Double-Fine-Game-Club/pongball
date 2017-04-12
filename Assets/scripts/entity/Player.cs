@@ -30,8 +30,6 @@ public class Player : PaddleBase {
 		if (vaxis != 0)
 		{
 			vaxis *= -1;
-			//rigidBody.AddForce(up * (Thrust * vaxis));
-			//transform.Translate(up * (Thrust * vaxis) * Time.deltaTime);
 			MovePaddles(vaxis);
         }
 	}
