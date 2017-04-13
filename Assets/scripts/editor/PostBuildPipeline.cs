@@ -11,6 +11,7 @@ public class MyBuildPostprocessor
         var targetPath = pathToBuiltProject.Substring(0, pathToBuiltProject.LastIndexOf('/') + 1);
         var sourcePath = Application.dataPath + "/../AssetBundles";
         Debug.Log("Copying AssetBundles to " + targetPath);
+        FileUtil.DeleteFileOrDirectory(targetPath + "AssetBundles");
         FileUtil.CopyFileOrDirectory(sourcePath, targetPath + "AssetBundles");
     }
 }
