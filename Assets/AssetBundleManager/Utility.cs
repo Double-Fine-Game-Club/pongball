@@ -19,7 +19,7 @@ namespace AssetBundles
 		}
 	
 	#if UNITY_EDITOR
-		private static string GetPlatformForAssetBundles(BuildTarget target)
+		public static string GetPlatformForAssetBundles(BuildTarget target)
 		{
 			switch(target)
 			{
@@ -38,38 +38,38 @@ namespace AssetBundles
 			case BuildTarget.StandaloneOSXIntel64:
 			case BuildTarget.StandaloneOSXUniversal:
 				return "OSX";
-            case BuildTarget.StandaloneLinux:
-            case BuildTarget.StandaloneLinux64:
-            case BuildTarget.StandaloneLinuxUniversal:
-                return "Linux";
+			case BuildTarget.StandaloneLinux:
+			case BuildTarget.StandaloneLinux64:
+			case BuildTarget.StandaloneLinuxUniversal:
+				return "Linux";
 			default:
 				return null;
 			}
 		}
-	#endif
-	
-		private static string GetPlatformForAssetBundles(RuntimePlatform platform)
+		#endif
+
+		public static string GetPlatformForAssetBundles(RuntimePlatform platform)
 		{
 			switch(platform)
 			{
-			case RuntimePlatform.Android:
-				return "Android";
-			case RuntimePlatform.IPhonePlayer:
-				return "iOS";
-			case RuntimePlatform.WebGLPlayer:
-				return "WebGL";
-			case RuntimePlatform.OSXWebPlayer:
-			case RuntimePlatform.WindowsWebPlayer:
-				return "WebPlayer";
-			case RuntimePlatform.WindowsPlayer:
-				return "Windows";
-			case RuntimePlatform.OSXPlayer:
-				return "OSX";
-            case RuntimePlatform.LinuxEditor:
-            case RuntimePlatform.LinuxPlayer:
-                return "Linux";
-            default:
-				return null;
+				case RuntimePlatform.Android:
+					return "Android";
+				case RuntimePlatform.IPhonePlayer:
+					return "iOS";
+				case RuntimePlatform.WebGLPlayer:
+					return "WebGL";
+				case RuntimePlatform.OSXWebPlayer:
+				case RuntimePlatform.WindowsWebPlayer:
+					return "WebPlayer";
+				case RuntimePlatform.WindowsPlayer:
+					return "Windows";
+				case RuntimePlatform.OSXPlayer:
+					return "OSX";
+				case RuntimePlatform.LinuxEditor:
+				case RuntimePlatform.LinuxPlayer:
+					return "Linux";
+				default:
+					return null;
 			}
 		}
 	}
