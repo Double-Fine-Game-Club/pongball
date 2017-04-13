@@ -33,7 +33,8 @@ public class Ball : NetworkBehaviour {
     public void ResetPosition()
     {
         if (!isServer) return;
-
+        rigidBody.velocity = Vector3.zero;
+        transform.forward = new Vector3(1, 0, 1);
         transform.position = startingPosition;
     }
 }
