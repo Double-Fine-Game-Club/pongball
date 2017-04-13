@@ -86,17 +86,7 @@ public class LoadAssets : MonoBehaviour {
         // Don't destroy this gameObject as we depend on it to run the loading script.
         DontDestroyOnLoad(gameObject);
 
-        // With this code, when in-editor or using a development builds: Always use the AssetBundle Server
-        // (This is very dependent on the production workflow of the project. 
-        // 	Another approach would be to make this configurable in the standalone player.)
-#if DEVELOPMENT_BUILD || UNITY_EDITOR
-        AssetBundleManager.SetDevelopmentAssetBundleServer();
-#else
-		// Use the following code if AssetBundles are side-by-side with web deployment:
-		AssetBundleManager.SetSourceAssetBundleURL(Application.dataPath + "/");
-		// Or customize the URL based on your deployment or configuration
-		//AssetBundleManager.SetSourceAssetBundleURL("http://www.MyWebsite/MyAssetBundles");
-#endif
+        AssetBundleManager.BaseDownloadingURL = "file:///" + Application.dataPath + "/../AssetBundles/" + Utility.GetPlatformName() + "/";
 
         // Initialize AssetBundleManifest which loads the AssetBundleManifest object.
         var request = AssetBundleManager.Initialize();
