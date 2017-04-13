@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Tables/playing.unity
+    path: 
     guid: 4fe97ebdd1e02ff4b8b28652b07df5f0
   - enabled: 1
-    path: Assets/Tables/BaseTable.unity
+    path: Assets/tables/BaseTable.unity
     guid: f45a33469dd0b714b96b3a4b351bbe07
   - enabled: 1
-    path: Assets/Tables/Table01.unity
+    path: Assets/tables/Table01.unity
     guid: 6b061c905875c6744b0db0c02baa3b8b
