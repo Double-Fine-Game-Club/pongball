@@ -2,21 +2,32 @@
 using System.Collections;
 using UnityEngine;
 using System;
+using System.Collections.Generic;
 
 public class LoadAssets : MonoBehaviour {
     public string sceneAssetBundle;
-    public string sceneName;
+
+    // TODO: Can we display dictionaries in the editor??
+    public Dictionary<string, bool> variantNames = new Dictionary<string, bool>() {
+        { "lightsoda", false },
+        { "kgunn", false }
+    };
+    public Dictionary<string, bool> tableNames = new Dictionary<string, bool>() {
+        { "Table01", false },
+        { "Table02", false }
+    };
 
     private string[] activeVariants;
 
     private bool bundlesLoaded;
-    private bool normal, alternate;
-    private string tableStyle;
 
     void Awake()
     {
         activeVariants = new string[2];
         bundlesLoaded = false;
+
+        Debug.Assert(variantNames != null, "No variant names assigned");
+        Debug.Assert(tableNames != null, "No table names assigned");
     }
 
     // Creating the Temp UI for the demo in IMGui.
@@ -30,18 +41,7 @@ public class LoadAssets : MonoBehaviour {
             GUILayout.Space(20);
             GUILayout.BeginVertical();
 
-            // GUI Buttons
-            // New Line - Get HD/SD
-            GUILayout.BeginHorizontal();
-            // Display the choice
-            GUILayout.Toggle(normal, "");
-            // Get player choice
-            if (GUILayout.Button("Normal Table")) { normal = true; alternate = false; tableStyle = "normal"; }
-            // Display the choice
-            GUILayout.Toggle(alternate, "");
-            // Get player choice
-            if (GUILayout.Button("Alternate Table")) { normal = false; alternate = true; tableStyle = "alternate"; }
-            GUILayout.EndHorizontal();
+            AddGUIButtons();
 
             // GUI Padding
             GUILayout.Space(15);
@@ -52,7 +52,7 @@ public class LoadAssets : MonoBehaviour {
                 // Remove the buttons
                 bundlesLoaded = true;
                 // Set the activeVariant
-                activeVariants[0] = "table-" + tableStyle;
+                activeVariants[0] = "table-" + GetActiveFromDictionary(variantNames);
                 // Show this in the log to make sure it is correct
                 Debug.Log(activeVariants[0]);
                 // Load the scene now!
@@ -63,6 +63,53 @@ public class LoadAssets : MonoBehaviour {
             GUILayout.EndVertical();
             GUILayout.EndHorizontal();
         }
+    }
+
+    private void AddGUIButtons()
+    {
+        GUILayout.BeginVertical();
+        foreach(KeyValuePair<string,bool> variant in variantNames)
+        {
+            GUILayout.Toggle(variant.Value, "");
+            if(GUILayout.Button(variant.Key))
+            {
+                SetActiveInDictionary(variant.Key, variantNames);
+            }
+        }
+        GUILayout.EndVertical();
+
+        GUILayout.BeginVertical();
+        foreach (KeyValuePair<string, bool> table in tableNames)
+        {
+            GUILayout.Toggle(table.Value, "");
+            if (GUILayout.Button(table.Key))
+            {
+                SetActiveInDictionary(table.Key, tableNames);
+            }
+        }
+        GUILayout.EndVertical();
+    }
+
+    private void SetActiveInDictionary(string activeKey, Dictionary<string, bool> dict)
+    {
+        foreach (string key in new List<string>(dict.Keys))
+            dict[key] = false;
+
+        dict[activeKey] = true;
+    }
+
+    private string GetActiveFromDictionary(Dictionary<string, bool> dict)
+    {
+        string selectedValue = "";
+
+        foreach (KeyValuePair<string, bool> kvp in dict)
+        {
+            if (kvp.Value) selectedValue = kvp.Key;
+        }
+
+        Debug.Assert(selectedValue.Length > 0, "Returning empty selected value from dictionary");
+
+        return selectedValue;
     }
 
     // Use this for initialization
@@ -77,7 +124,7 @@ public class LoadAssets : MonoBehaviour {
         Debug.Log(AssetBundleManager.ActiveVariants[0]);
 
         // Load variant level which depends on variants.
-        yield return StartCoroutine(InitializeLevelAsync(sceneName, true));
+        yield return StartCoroutine(InitializeLevelAsync(GetActiveFromDictionary(tableNames), true));
     }
 
     // Initialize the downloading url and AssetBundleManifest object.
