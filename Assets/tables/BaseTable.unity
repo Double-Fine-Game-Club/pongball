@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872716, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_OfflineScene: 
   m_OnlineScene: 
   m_SpawnPrefabs:
-  - {fileID: 1961451582403544, guid: d0149fc98ca99b64aabb4debcd053b57, type: 2}
+  - {fileID: 0}
   - {fileID: 1590068067264468, guid: 097876309fa797142a215e7e10edc0de, type: 2}
   m_CustomConfig: 0
   m_MaxConnections: 4
@@ -264,6 +264,7 @@ GameObject:
   - component: {fileID: 1294986267}
   - component: {fileID: 1294986266}
   - component: {fileID: 1294986271}
+  - component: {fileID: 1294986272}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -352,6 +353,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fec8251a66de8334fb90ac66caf09892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1294986272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1294986265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1ddd2a9d742c44658cbc228b1d2e728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1714844354
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,6 +413,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1844418449}
   - component: {fileID: 1844418450}
+  - component: {fileID: 1844418451}
   m_Layer: 0
   m_Name: Paddle Spawn Position 1
   m_TagString: Untagged
@@ -430,5 +443,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1050975500, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1844418451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1844418448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1ddd2a9d742c44658cbc228b1d2e728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
