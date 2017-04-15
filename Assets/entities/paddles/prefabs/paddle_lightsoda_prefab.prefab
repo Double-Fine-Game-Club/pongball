@@ -27,7 +27,6 @@ GameObject:
   - component: {fileID: 114389078707064244}
   - component: {fileID: 136224915192230348}
   - component: {fileID: 114442914418636928}
-  - component: {fileID: 114457066642314660}
   m_Layer: 0
   m_Name: paddle_lightsoda_prefab
   m_TagString: Untagged
@@ -145,28 +144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3357c6c602746414dac7339d18529069, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114457066642314660
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1015282142749604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc7c7622f853344d6bc5de59008a2d5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_LastSendTime: 0
-  m_SyncVarGuard: 0
-  m_MyView: {fileID: 0}
-  version: 0
-  deviceName: 
-  deviceId: 
-  peerId: 
-  playerIndex: 0
-  ready: 0
-  slot: 0
-  networkManager: {fileID: 0}
 --- !u!114 &114585313225954178
 MonoBehaviour:
   m_ObjectHideFlags: 1
