@@ -14,7 +14,10 @@ public class UGUIButtons : MonoBehaviour {
     {
         Debug.Log("This does nothing currently");
     }
-
+	public void CreditsButton()
+	{
+		SceneManager.LoadScene("Credits");
+	}
     public void QuitButton()
     {
         //this should open a menu confirming your selection

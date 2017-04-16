@@ -10,14 +10,18 @@ public class BallSpawner : NetworkBehaviour {
     private void Update()
     {
         // HACK: Ball wont respawn when re-hosting...
-        if (!isServer) return;
+		if (NetworkManager.singleton.isNetworkActive &&  NetworkServer.connections.Count == 0) return;
 
         var ball = GameObject.FindGameObjectWithTag("Ball");
         if(ball == null)
         {
             ball = (GameObject)Instantiate(ballPrefab, transform.position, transform.rotation);
             ball.GetComponent<Rigidbody>().velocity = ball.transform.forward * 5;
-            NetworkServer.Spawn(ball);
+            
+			if (NetworkManager.singleton.isNetworkActive)
+			{
+				NetworkServer.Spawn(ball);
+			}
         }
     }
 

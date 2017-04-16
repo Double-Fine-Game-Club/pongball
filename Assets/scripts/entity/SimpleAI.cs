@@ -32,7 +32,7 @@ public class SimpleAI : PaddleBase {
 
     private void FixedUpdate()
     {
-        if (!isLocalPlayer) return;
+		if (NetworkManager.singleton.isNetworkActive &&  NetworkServer.connections.Count == 0) return;
 
         if(trackedBall)
         {

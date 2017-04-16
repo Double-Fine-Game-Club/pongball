@@ -10,6 +10,7 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: paddle03_GEO
+    4300002: paddle
   materials:
     importMaterials: 1
     materialName: 0
