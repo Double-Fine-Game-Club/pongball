@@ -10,6 +10,7 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: sphereBumper10_GEO
+    4300002: bumper
   materials:
     importMaterials: 1
     materialName: 0
