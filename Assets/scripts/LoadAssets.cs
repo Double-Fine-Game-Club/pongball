@@ -68,31 +68,40 @@ public class LoadAssets : MonoBehaviour {
     private void AddGUIButtons()
     {
         GUILayout.BeginVertical();
-        foreach(KeyValuePair<string,bool> variant in variantNames)
+        GUILayout.Label("Select variant:");
+        Dictionary<string,bool> kvpCopies = new Dictionary<string, bool>(variantNames);
+        foreach (KeyValuePair<string, bool> variant in kvpCopies)
         {
-            GUILayout.Toggle(variant.Value, "");
+            GUILayout.BeginHorizontal();
             if(GUILayout.Button(variant.Key))
             {
                 SetActiveInDictionary(variant.Key, variantNames);
             }
+            GUILayout.TextField(variant.Value.ToString());
+            GUILayout.EndHorizontal();
         }
         GUILayout.EndVertical();
 
         GUILayout.BeginVertical();
-        foreach (KeyValuePair<string, bool> table in tableNames)
+        GUILayout.Label("Select Table:");
+        kvpCopies = new Dictionary<string, bool>(tableNames);
+        foreach (KeyValuePair<string, bool> table in kvpCopies)
         {
-            GUILayout.Toggle(table.Value, "");
+            GUILayout.BeginHorizontal();
             if (GUILayout.Button(table.Key))
             {
                 SetActiveInDictionary(table.Key, tableNames);
             }
+            GUILayout.TextField(table.Value.ToString());
+            GUILayout.EndHorizontal();
         }
         GUILayout.EndVertical();
     }
 
     private void SetActiveInDictionary(string activeKey, Dictionary<string, bool> dict)
     {
-        foreach (string key in new List<string>(dict.Keys))
+        List<string> keys = new List<string>(dict.Keys);
+        foreach (string key in keys)
             dict[key] = false;
 
         dict[activeKey] = true;
