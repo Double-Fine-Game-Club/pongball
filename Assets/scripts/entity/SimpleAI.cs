@@ -48,20 +48,20 @@ public class SimpleAI : PaddleBase {
 
     private void FollowTrackedBall()
     {
-		float dir = trackedBall.transform.position.x - transform.position.x;
-		MovePaddles(dir);
+		float dir = trackedBall.transform.position.z - transform.position.z;
+		MovePaddles(-dir);
     }
 
     private bool TrackedBallIsOutsideBounds()
     {
         if(GetComponent<Collider>())
         {
-            float topBounds = transform.position.x - GetComponent<Collider>().bounds.size.x / 2;
-            float bottomBounds = transform.position.x + GetComponent<Collider>().bounds.size.x / 2;
+            float topBounds = transform.position.z - GetComponent<Collider>().bounds.size.z / 2;
+            float bottomBounds = transform.position.z + GetComponent<Collider>().bounds.size.z / 2;
 
-            return  trackedBall.position.x < topBounds ||
-                    trackedBall.position.x > bottomBounds;
+            return  trackedBall.position.z < topBounds ||
+                    trackedBall.position.z > bottomBounds;
         }
-        return trackedBall.position.x < transform.position.x;
+        return trackedBall.position.z < transform.position.z;
     }
 }
