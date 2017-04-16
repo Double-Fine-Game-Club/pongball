@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37305924, g: 0.38069162, b: 0.35868883, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 709551605}
   - component: {fileID: 709551604}
   - component: {fileID: 709551607}
+  - component: {fileID: 709551608}
   m_Layer: 0
   m_Name: Network Manager
   m_TagString: Untagged
@@ -132,7 +133,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 709551603}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 227461547, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
   m_Name: 
@@ -163,7 +164,7 @@ MonoBehaviour:
   m_LogLevel: 2
   m_PlayerPrefab: {fileID: 1015282142749604, guid: 2d31cd2f22c199d4ca0814827eacfe3f,
     type: 2}
-  m_AutoCreatePlayer: 1
+  m_AutoCreatePlayer: 0
   m_PlayerSpawnMethod: 1
   m_OfflineScene: 
   m_OnlineScene: 
@@ -244,12 +245,24 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 709551603}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea2a7f435ebae1b4ca457d0431a85d4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sceneAssetBundle: tables-bundle
+  bundlesLoaded: 0
+--- !u!114 &709551608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 709551603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da02a64dd33a346a8846e57bd5657097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1294986265
 GameObject:
   m_ObjectHideFlags: 0

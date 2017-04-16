@@ -19,7 +19,10 @@ public class LoadAssets : MonoBehaviour {
 
     private string[] activeVariants;
 
-    private bool bundlesLoaded;
+	public bool bundlesLoaded;
+
+	public delegate void FinishedCallback(bool success);
+	public FinishedCallback OnFinished;
 
     void Awake()
     {
@@ -162,6 +165,9 @@ public class LoadAssets : MonoBehaviour {
             yield break;
 
         yield return StartCoroutine(request);
+
+		// Trigger callbacks once the scene has loaded
+		OnFinished(true);
 
         // Calculate and display the elapsed time.
         float elapsedTime = Time.realtimeSinceStartup - startTime;

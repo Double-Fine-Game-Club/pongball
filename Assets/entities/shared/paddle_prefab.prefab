@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 136224915192230348}
   - component: {fileID: 114442914418636928}
   - component: {fileID: 114889014047957614}
+  - component: {fileID: 114926957746133038}
   m_Layer: 0
   m_Name: paddle_prefab
   m_TagString: Untagged
@@ -176,7 +177,7 @@ MonoBehaviour:
     i14: 254
     i15: 63
   m_ServerOnly: 0
-  m_LocalPlayerAuthority: 1
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114889014047957614
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -186,6 +187,17 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de954ce9e42c3f848bc2ba60cc5816b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114926957746133038
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1015282142749604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2275ac37e67904bc79427cc4f5875617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!136 &136224915192230348
