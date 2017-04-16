@@ -24,4 +24,9 @@ public class UGUIButtons : MonoBehaviour {
         Application.Quit();
     }
 
+	public void GoBackButton()
+	{
+		SceneManager.LoadScene("MainMenu");
+	}
+
 }
