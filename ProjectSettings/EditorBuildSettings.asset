@@ -17,3 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/tables/Table02.unity
     guid: 06675c8c913684895a5bf9f12892b00b
+  - enabled: 1
+    path: Assets/credits/Credits.unity
+    guid: 00000000000000000000000000000000
