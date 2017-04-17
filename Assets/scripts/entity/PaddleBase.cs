@@ -30,7 +30,7 @@ public class PaddleBase : NetworkBehaviour {
 	// +ve for "up"
     protected void MovePaddles(float dir)
     {
-		Debug.Assert(Time.inFixedTimeStep, "Paddle movement should only happen inside physics code");
+		//Debug.Assert(Time.inFixedTimeStep, "Paddle movement should only happen inside physics code"); //FIXME: PaddleBase.cs(33,21): error CS0117: `UnityEngine.Time' does not contain a definition for `inFixedTimeStep'
 
 		if (rigidBody)
         {
