@@ -11,12 +11,14 @@ public class LogoSwitcher : MonoBehaviour
     void Start()
     {
         RandomLogo();
-        Debug.Log(logoArray.Length);
+        //Debug.Log(logoArray.Length);
     }
 
     public void RandomLogo()
     {
-        randomLogo = Random.Range(0, logoArray.Length-1);
+        logoArray[currentLogo].SetActive(false);
+        randomLogo = Random.Range(0, logoArray.Length);
+        //Debug.Log("randomLogo is " + randomLogo);
         logoArray[randomLogo].SetActive(true);
         currentLogo = randomLogo;
 
