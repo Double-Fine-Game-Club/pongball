@@ -21,4 +21,13 @@ public class UGUIButtons : MonoBehaviour {
         Application.Quit();
     }
 
+	public void CreditsButton()
+	{
+		SceneManager.LoadScene("Credits");
+	}
+
+	public void GoBackButton()
+	{
+		SceneManager.LoadScene("MainMenu");
+	}
 }
