@@ -10,6 +10,8 @@ public class Ball : NetworkBehaviour {
     private Vector3 startingPosition = Vector3.zero;
     float minimumVelocity = 5;
 
+
+
     // Use this for initialization
     void Start () {
         if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count == 0) return;
@@ -36,4 +38,6 @@ public class Ball : NetworkBehaviour {
         transform.forward = new Vector3(1, 0, 1);
         transform.position = startingPosition;
     }
+
+
 }
