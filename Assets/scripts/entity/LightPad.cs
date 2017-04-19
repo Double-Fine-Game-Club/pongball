@@ -7,19 +7,27 @@ using UnityEngine;
 /// </summary>
 public class LightPad : MonoBehaviour {
 
-	public Color baseColour;
-	public Color lightColour;
+	public Color baseColor;
+	public Color lightColor;
 	private int balls;
+	private float fadeTime;
+	public float fadeDuration;
 
 	void Start () 
 	{
 		balls = 0;
-		SetColor(baseColour);
+		fadeTime = 0.0f;
+		SetColor(baseColor);
 	}
 
 	void Update () 
 	{
-		
+		if (balls <= 0 && GetColor() != baseColor)
+		{
+			fadeTime = Mathf.Min(fadeTime + Time.deltaTime, fadeDuration);
+
+			SetColor(Color.Lerp(lightColor, baseColor, fadeTime / fadeDuration));
+		}
 	}
 
 	void OnTriggerEnter(Collider collider)
@@ -30,7 +38,7 @@ public class LightPad : MonoBehaviour {
 
 			if (balls > 0)
 			{
-				SetColor(lightColour);
+				SetColor(lightColor);
 			}
 		}
 	}
@@ -43,9 +51,14 @@ public class LightPad : MonoBehaviour {
 
 			if (balls <= 0)
 			{
-				SetColor(baseColour);
+				fadeTime = 0.0f;
 			}
 		}
+	}
+
+	Color GetColor()
+	{
+		return GetComponent<Renderer>().material.color;
 	}
 
 	void SetColor(Color color)

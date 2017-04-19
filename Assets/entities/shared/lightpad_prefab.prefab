@@ -20,10 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4851905553675122}
   - component: {fileID: 33354773398721500}
-  - component: {fileID: 136615576255758272}
   - component: {fileID: 23662866170921970}
   - component: {fileID: 54232083401612512}
   - component: {fileID: 114177671598386676}
+  - component: {fileID: 135120206430534784}
   m_Layer: 0
   m_Name: lightpad_prefab
   m_TagString: Untagged
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1326987117730462}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.075, z: 0}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 0.05, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -109,10 +109,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75b23c6d9468f4f7280500d4058394f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseColour: {r: 0.19117647, g: 0.19117647, b: 0.19117647, a: 0}
-  lightColour: {r: 1, g: 0.47586206, b: 0, a: 0}
---- !u!136 &136615576255758272
-CapsuleCollider:
+  baseColor: {r: 0.27205884, g: 0.27205884, b: 0.27205884, a: 0}
+  lightColor: {r: 1, g: 0.5586207, b: 0, a: 0}
+  fadeDuration: 0.25
+--- !u!135 &135120206430534784
+SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -120,7 +121,6 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 1.5
-  m_Height: 30
-  m_Direction: 1
+  serializedVersion: 2
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
