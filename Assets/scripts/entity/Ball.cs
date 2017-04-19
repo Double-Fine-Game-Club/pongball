@@ -39,5 +39,21 @@ public class Ball : NetworkBehaviour {
         transform.position = startingPosition;
     }
 
+    void OnTriggerEnter(Collider Col)
+    {
+        if (Col.gameObject.tag == "Goal1" || Col.gameObject.tag == "Goal2")
+        {
+            if (Col.gameObject.tag == "Goal1")
+            {
+                Debug.Log("Collided with Goal1");
+            }
+            else
+            {
+                Debug.Log("Collided with Goal2");
+            }
 
+            //yield return new WaitForSeconds(5); // We need to add some sort of wait time and "Goal!" text eventually.
+            ResetPosition();
+        }
+    }
 }
