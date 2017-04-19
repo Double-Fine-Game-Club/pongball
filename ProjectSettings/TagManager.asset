@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ball
   - BallSpawner
+  - Wall
+  - Paddle
   layers:
   - Default
   - TransparentFX
