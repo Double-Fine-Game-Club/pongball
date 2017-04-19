@@ -8,6 +8,8 @@ TagManager:
   - BallSpawner
   - Wall
   - Paddle
+  - Goal1
+  - Goal2
   layers:
   - Default
   - TransparentFX
