@@ -1,16 +1,39 @@
 fileFormatVersion: 2
-guid: fab388a79a48d8648a136851dd128f9e
-timeCreated: 1492299139
+guid: 78a084a2a7ab64b12ab58c2bafd3605b
+timeCreated: 1492576792
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: sphereBumper10_GEO
-    4300002: bumper
+    100000: flipper01_GEO_TestTable01_kgunn
+    100002: flipper01_GRP_TestTable01_kgunn
+    100004: flipper02_GEO_TestTable01_kgunn
+    100006: flipper03_GEO_TestTable01_kgunn
+    100008: flipper04_GEO_TestTable01_kgunn
+    100010: //RootNode
+    400000: flipper01_GEO_TestTable01_kgunn
+    400002: flipper01_GRP_TestTable01_kgunn
+    400004: flipper02_GEO_TestTable01_kgunn
+    400006: flipper03_GEO_TestTable01_kgunn
+    400008: flipper04_GEO_TestTable01_kgunn
+    400010: //RootNode
+    2300000: flipper01_GEO_TestTable01_kgunn
+    2300002: flipper02_GEO_TestTable01_kgunn
+    2300004: flipper03_GEO_TestTable01_kgunn
+    2300006: flipper04_GEO_TestTable01_kgunn
+    3300000: flipper01_GEO_TestTable01_kgunn
+    3300002: flipper02_GEO_TestTable01_kgunn
+    3300004: flipper03_GEO_TestTable01_kgunn
+    3300006: flipper04_GEO_TestTable01_kgunn
+    4300000: flipper01_GEO_TestTable01_kgunn
+    4300002: flipper02_GEO_TestTable01_kgunn
+    4300004: flipper03_GEO_TestTable01_kgunn
+    4300006: flipper04_GEO_TestTable01_kgunn
+    6400000: flipper01_GEO_TestTable01_kgunn
+    6400002: flipper02_GEO_TestTable01_kgunn
+    6400004: flipper03_GEO_TestTable01_kgunn
+    6400006: flipper04_GEO_TestTable01_kgunn
+    9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -39,7 +62,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -75,7 +98,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

@@ -1,16 +1,39 @@
 fileFormatVersion: 2
-guid: 1548cbffb951d9742acf311df20d6572
-timeCreated: 1492299138
+guid: 1d119c39052434cd797fc3500f1f5a29
+timeCreated: 1492576791
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: paddle03_GEO
-    4300002: paddle
+    100000: slingshot01_GEO_TestTable01_kgunn
+    100002: slingshot01_GRP_TestTable01_kgunn
+    100004: slingshot02_GEO_TestTable01_kgunn
+    100006: slingshot03_GEO_TestTable01_kgunn
+    100008: slingshot04_GEO_TestTable01_kgunn
+    100010: //RootNode
+    400000: slingshot01_GEO_TestTable01_kgunn
+    400002: slingshot01_GRP_TestTable01_kgunn
+    400004: slingshot02_GEO_TestTable01_kgunn
+    400006: slingshot03_GEO_TestTable01_kgunn
+    400008: slingshot04_GEO_TestTable01_kgunn
+    400010: //RootNode
+    2300000: slingshot01_GEO_TestTable01_kgunn
+    2300002: slingshot02_GEO_TestTable01_kgunn
+    2300004: slingshot03_GEO_TestTable01_kgunn
+    2300006: slingshot04_GEO_TestTable01_kgunn
+    3300000: slingshot01_GEO_TestTable01_kgunn
+    3300002: slingshot02_GEO_TestTable01_kgunn
+    3300004: slingshot03_GEO_TestTable01_kgunn
+    3300006: slingshot04_GEO_TestTable01_kgunn
+    4300000: slingshot01_GEO_TestTable01_kgunn
+    4300002: slingshot02_GEO_TestTable01_kgunn
+    4300004: slingshot03_GEO_TestTable01_kgunn
+    4300006: slingshot04_GEO_TestTable01_kgunn
+    6400000: slingshot01_GEO_TestTable01_kgunn
+    6400002: slingshot02_GEO_TestTable01_kgunn
+    6400004: slingshot03_GEO_TestTable01_kgunn
+    6400006: slingshot04_GEO_TestTable01_kgunn
+    9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -39,7 +62,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -75,7 +98,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
