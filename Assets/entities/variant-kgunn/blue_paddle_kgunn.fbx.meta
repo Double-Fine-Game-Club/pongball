@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: a7cc6f6fe7e49477cbd49c982fb17fea
-timeCreated: 1492591760
+guid: 50980f8140c534910ac5dda1635c727c
+timeCreated: 1492607981
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
-    100002: flipper01_GRP_TestTable01_kgunn
-    100004: flipper02_GEO_TestTable01_kgunn
+    100002: Paddle01_GRP_TestTable01_kgunn
+    100004: paddle04_GEO_TestTable01_kgunn
     400000: //RootNode
-    400002: flipper01_GRP_TestTable01_kgunn
-    400004: flipper02_GEO_TestTable01_kgunn
-    2300000: flipper02_GEO_TestTable01_kgunn
-    3300000: flipper02_GEO_TestTable01_kgunn
-    4300000: flipper02_GEO_TestTable01_kgunn
+    400002: Paddle01_GRP_TestTable01_kgunn
+    400004: paddle04_GEO_TestTable01_kgunn
+    2300000: paddle04_GEO_TestTable01_kgunn
+    3300000: paddle04_GEO_TestTable01_kgunn
+    4300000: paddle04_GEO_TestTable01_kgunn
     9500000: //RootNode
   materials:
     importMaterials: 1
