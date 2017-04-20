@@ -77,6 +77,39 @@ ModelImporter:
     100138: sphereBumper16_GEO
     100140: sphereBumper17_GEO
     100142: sphereBumper18_GEO
+    100144: box01_GEO_TestTable01_kgunn
+    100146: box01_GRP_TestTable01_kgunn
+    100148: box02_GEO_TestTable01_kgunn
+    100150: box03_GEO_TestTable01_kgunn
+    100152: box04_GEO_TestTable01_kgunn
+    100154: flipper01_GEO_TestTable01_kgunn
+    100156: flipper01_GRP_TestTable01_kgunn
+    100158: flipper02_GEO_TestTable01_kgunn
+    100160: flipper03_GEO_TestTable01_kgunn
+    100162: flipper04_GEO_TestTable01_kgunn
+    100164: floor_GEO_TestTable01_kgunn
+    100166: Glass01_GEO_TestTable01_kgunn
+    100168: goalDivider01_GEO1_TestTable01_kgunn
+    100170: goalDivider01_GEO_TestTable01_kgunn
+    100172: goalDivider01_GRP_TestTable01_kgunn
+    100174: ramp01_GEO_TestTable01_kgunn
+    100176: ramp01_GRP_TestTable01_kgunn
+    100178: ramp02_GEO_TestTable01_kgunn
+    100180: sideBox01_GEO_TestTable01_kgunn
+    100182: sideBox01_GRP_TestTable01_kgunn
+    100184: sideBox02_GEO_TestTable01_kgunn
+    100186: slingshot01_GEO_TestTable01_kgunn
+    100188: slingshot01_GRP_TestTable01_kgunn
+    100190: slingshot02_GEO_TestTable01_kgunn
+    100192: slingshot03_GEO_TestTable01_kgunn
+    100194: slingshot04_GEO_TestTable01_kgunn
+    100196: table_GRP_TestTable01_kgunn
+    100198: tunnel01_GEO_TestTable01_kgunn
+    100200: tunnel01_GRP_TestTable01_kgunn
+    100202: wall01_GEO_TestTable01_kgunn
+    100204: wall02_GEO_TestTable01_kgunn
+    100206: wall03_GEO_TestTable01_kgunn
+    100208: wall04_GEO_TestTable01_kgunn
     400000: box01_GEO
     400002: box02_GEO
     400004: box03_GEO
@@ -149,6 +182,39 @@ ModelImporter:
     400138: sphereBumper16_GEO
     400140: sphereBumper17_GEO
     400142: sphereBumper18_GEO
+    400144: box01_GEO_TestTable01_kgunn
+    400146: box01_GRP_TestTable01_kgunn
+    400148: box02_GEO_TestTable01_kgunn
+    400150: box03_GEO_TestTable01_kgunn
+    400152: box04_GEO_TestTable01_kgunn
+    400154: flipper01_GEO_TestTable01_kgunn
+    400156: flipper01_GRP_TestTable01_kgunn
+    400158: flipper02_GEO_TestTable01_kgunn
+    400160: flipper03_GEO_TestTable01_kgunn
+    400162: flipper04_GEO_TestTable01_kgunn
+    400164: floor_GEO_TestTable01_kgunn
+    400166: Glass01_GEO_TestTable01_kgunn
+    400168: goalDivider01_GEO1_TestTable01_kgunn
+    400170: goalDivider01_GEO_TestTable01_kgunn
+    400172: goalDivider01_GRP_TestTable01_kgunn
+    400174: ramp01_GEO_TestTable01_kgunn
+    400176: ramp01_GRP_TestTable01_kgunn
+    400178: ramp02_GEO_TestTable01_kgunn
+    400180: sideBox01_GEO_TestTable01_kgunn
+    400182: sideBox01_GRP_TestTable01_kgunn
+    400184: sideBox02_GEO_TestTable01_kgunn
+    400186: slingshot01_GEO_TestTable01_kgunn
+    400188: slingshot01_GRP_TestTable01_kgunn
+    400190: slingshot02_GEO_TestTable01_kgunn
+    400192: slingshot03_GEO_TestTable01_kgunn
+    400194: slingshot04_GEO_TestTable01_kgunn
+    400196: table_GRP_TestTable01_kgunn
+    400198: tunnel01_GEO_TestTable01_kgunn
+    400200: tunnel01_GRP_TestTable01_kgunn
+    400202: wall01_GEO_TestTable01_kgunn
+    400204: wall02_GEO_TestTable01_kgunn
+    400206: wall03_GEO_TestTable01_kgunn
+    400208: wall04_GEO_TestTable01_kgunn
     2300000: box01_GEO
     2300002: box02_GEO
     2300004: box03_GEO
@@ -198,6 +264,31 @@ ModelImporter:
     2300092: sphereBumper16_GEO
     2300094: sphereBumper17_GEO
     2300096: sphereBumper18_GEO
+    2300098: box01_GEO_TestTable01_kgunn
+    2300100: box02_GEO_TestTable01_kgunn
+    2300102: box03_GEO_TestTable01_kgunn
+    2300104: box04_GEO_TestTable01_kgunn
+    2300106: flipper01_GEO_TestTable01_kgunn
+    2300108: flipper02_GEO_TestTable01_kgunn
+    2300110: flipper03_GEO_TestTable01_kgunn
+    2300112: flipper04_GEO_TestTable01_kgunn
+    2300114: floor_GEO_TestTable01_kgunn
+    2300116: Glass01_GEO_TestTable01_kgunn
+    2300118: goalDivider01_GEO1_TestTable01_kgunn
+    2300120: goalDivider01_GEO_TestTable01_kgunn
+    2300122: ramp01_GEO_TestTable01_kgunn
+    2300124: ramp02_GEO_TestTable01_kgunn
+    2300126: sideBox01_GEO_TestTable01_kgunn
+    2300128: sideBox02_GEO_TestTable01_kgunn
+    2300130: slingshot01_GEO_TestTable01_kgunn
+    2300132: slingshot02_GEO_TestTable01_kgunn
+    2300134: slingshot03_GEO_TestTable01_kgunn
+    2300136: slingshot04_GEO_TestTable01_kgunn
+    2300138: tunnel01_GEO_TestTable01_kgunn
+    2300140: wall01_GEO_TestTable01_kgunn
+    2300142: wall02_GEO_TestTable01_kgunn
+    2300144: wall03_GEO_TestTable01_kgunn
+    2300146: wall04_GEO_TestTable01_kgunn
     3300000: box01_GEO
     3300002: box02_GEO
     3300004: box03_GEO
@@ -247,6 +338,31 @@ ModelImporter:
     3300092: sphereBumper16_GEO
     3300094: sphereBumper17_GEO
     3300096: sphereBumper18_GEO
+    3300098: box01_GEO_TestTable01_kgunn
+    3300100: box02_GEO_TestTable01_kgunn
+    3300102: box03_GEO_TestTable01_kgunn
+    3300104: box04_GEO_TestTable01_kgunn
+    3300106: flipper01_GEO_TestTable01_kgunn
+    3300108: flipper02_GEO_TestTable01_kgunn
+    3300110: flipper03_GEO_TestTable01_kgunn
+    3300112: flipper04_GEO_TestTable01_kgunn
+    3300114: floor_GEO_TestTable01_kgunn
+    3300116: Glass01_GEO_TestTable01_kgunn
+    3300118: goalDivider01_GEO1_TestTable01_kgunn
+    3300120: goalDivider01_GEO_TestTable01_kgunn
+    3300122: ramp01_GEO_TestTable01_kgunn
+    3300124: ramp02_GEO_TestTable01_kgunn
+    3300126: sideBox01_GEO_TestTable01_kgunn
+    3300128: sideBox02_GEO_TestTable01_kgunn
+    3300130: slingshot01_GEO_TestTable01_kgunn
+    3300132: slingshot02_GEO_TestTable01_kgunn
+    3300134: slingshot03_GEO_TestTable01_kgunn
+    3300136: slingshot04_GEO_TestTable01_kgunn
+    3300138: tunnel01_GEO_TestTable01_kgunn
+    3300140: wall01_GEO_TestTable01_kgunn
+    3300142: wall02_GEO_TestTable01_kgunn
+    3300144: wall03_GEO_TestTable01_kgunn
+    3300146: wall04_GEO_TestTable01_kgunn
     4300000: wall04_GEO
     4300002: wall03_GEO
     4300004: wall02_GEO
@@ -296,6 +412,56 @@ ModelImporter:
     4300092: sphereBumper03_GEO
     4300094: sphereBumper02_GEO
     4300096: sphereBumper01_GEO
+    4300098: floor_GEO_TestTable01_kgunn
+    4300100: wall01_GEO_TestTable01_kgunn
+    4300102: wall02_GEO_TestTable01_kgunn
+    4300104: wall03_GEO_TestTable01_kgunn
+    4300106: wall04_GEO_TestTable01_kgunn
+    4300108: Glass01_GEO_TestTable01_kgunn
+    4300110: tunnel01_GEO_TestTable01_kgunn
+    4300112: ramp01_GEO_TestTable01_kgunn
+    4300114: ramp02_GEO_TestTable01_kgunn
+    4300116: box01_GEO_TestTable01_kgunn
+    4300118: box02_GEO_TestTable01_kgunn
+    4300120: box03_GEO_TestTable01_kgunn
+    4300122: box04_GEO_TestTable01_kgunn
+    4300124: flipper01_GEO_TestTable01_kgunn
+    4300126: flipper02_GEO_TestTable01_kgunn
+    4300128: flipper03_GEO_TestTable01_kgunn
+    4300130: flipper04_GEO_TestTable01_kgunn
+    4300132: slingshot01_GEO_TestTable01_kgunn
+    4300134: slingshot02_GEO_TestTable01_kgunn
+    4300136: slingshot03_GEO_TestTable01_kgunn
+    4300138: slingshot04_GEO_TestTable01_kgunn
+    4300140: goalDivider01_GEO_TestTable01_kgunn
+    4300142: goalDivider01_GEO1_TestTable01_kgunn
+    4300144: sideBox02_GEO_TestTable01_kgunn
+    4300146: sideBox01_GEO_TestTable01_kgunn
+    6400000: box01_GEO_TestTable01_kgunn
+    6400002: box02_GEO_TestTable01_kgunn
+    6400004: box03_GEO_TestTable01_kgunn
+    6400006: box04_GEO_TestTable01_kgunn
+    6400008: flipper01_GEO_TestTable01_kgunn
+    6400010: flipper02_GEO_TestTable01_kgunn
+    6400012: flipper03_GEO_TestTable01_kgunn
+    6400014: flipper04_GEO_TestTable01_kgunn
+    6400016: floor_GEO_TestTable01_kgunn
+    6400018: Glass01_GEO_TestTable01_kgunn
+    6400020: goalDivider01_GEO1_TestTable01_kgunn
+    6400022: goalDivider01_GEO_TestTable01_kgunn
+    6400024: ramp01_GEO_TestTable01_kgunn
+    6400026: ramp02_GEO_TestTable01_kgunn
+    6400028: sideBox01_GEO_TestTable01_kgunn
+    6400030: sideBox02_GEO_TestTable01_kgunn
+    6400032: slingshot01_GEO_TestTable01_kgunn
+    6400034: slingshot02_GEO_TestTable01_kgunn
+    6400036: slingshot03_GEO_TestTable01_kgunn
+    6400038: slingshot04_GEO_TestTable01_kgunn
+    6400040: tunnel01_GEO_TestTable01_kgunn
+    6400042: wall01_GEO_TestTable01_kgunn
+    6400044: wall02_GEO_TestTable01_kgunn
+    6400046: wall03_GEO_TestTable01_kgunn
+    6400048: wall04_GEO_TestTable01_kgunn
   materials:
     importMaterials: 1
     materialName: 0
@@ -324,7 +490,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
