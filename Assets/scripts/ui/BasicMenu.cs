@@ -166,6 +166,13 @@ public class BasicMenu : MonoBehaviour {
 				// Fill the table with AIs if offline or the server
 				if (!NetworkManager.singleton.isNetworkActive || NetworkServer.connections.Count > 0)
 				{
+					GameObject scoreManager = GameObject.Instantiate(NetworkManager.singleton.spawnPrefabs[2]);
+
+					if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count > 0)
+					{
+						NetworkServer.Spawn(scoreManager);
+					}
+
 					int paddleIndex = 0;
 
 					foreach (Transform spawnPosition in NetworkManager.singleton.startPositions)

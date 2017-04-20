@@ -46,7 +46,10 @@ public class Ball : NetworkBehaviour {
 
 
     void OnTriggerEnter(Collider Col)
-    {
+	{
+		// Only handle scoring server-side of local
+		if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count == 0) return;
+
         // If the ball collided with Goal1 or Goal2:
         if (Col.gameObject.tag == "Goal1" || Col.gameObject.tag == "Goal2")
         {
@@ -77,7 +80,7 @@ public class Ball : NetworkBehaviour {
             // We need to add some wait time and "Goal!" message eventually. The following would not work without other changes:
             //yield return new WaitForSeconds(5);
 
-            // Respawn ball at center.
+            // Respawn ball at center if on the server or local
             ResetPosition();
         }
     }

@@ -177,7 +177,7 @@ MonoBehaviour:
     i14: 254
     i15: 63
   m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
+  m_LocalPlayerAuthority: 1
 --- !u!114 &114889014047957614
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -200,6 +200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2275ac37e67904bc79427cc4f5875617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paddleClientId: 0
+  paddleIndex: 0
 --- !u!136 &136224915192230348
 CapsuleCollider:
   m_ObjectHideFlags: 1
