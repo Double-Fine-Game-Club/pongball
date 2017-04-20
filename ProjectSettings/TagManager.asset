@@ -10,6 +10,7 @@ TagManager:
   - Paddle
   - Goal1
   - Goal2
+  - Score
   layers:
   - Default
   - TransparentFX
