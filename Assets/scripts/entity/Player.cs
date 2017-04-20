@@ -17,20 +17,31 @@ public class Player : PaddleBase {
 		SetThrust(20);
     }
 
-    private void FixedUpdate()
-	{
-		float haxis = Input.GetAxis("Horizontal");
-		float vaxis = Input.GetAxis("Vertical");
+    private new void FixedUpdate()
+    {
+        base.FixedUpdate();
 
-		if (haxis != 0)
-		{
+        float haxis = Input.GetAxis("Horizontal");
+        float vaxis = Input.GetAxis("Vertical");
 
-		}
+        if (haxis != 0)
+        {
 
-		if (vaxis != 0)
-		{
-			vaxis *= -1;
-			MovePaddles(vaxis);
         }
-	}
+
+        if (vaxis != 0)
+        {
+            MovePaddles(vaxis);
+        }
+
+        // If Fire1 is pressed, trigger pull animation
+        if (Input.GetButton("Fire1"))
+        {
+            animator.SetBool("pull", true);
+        }
+        else
+        {
+            animator.SetBool("pull", false);
+        }
+    }
 }
