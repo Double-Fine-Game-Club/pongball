@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.Networking.NetworkSystem;
+using UnityEngine.SceneManagement;
 
 public class ResetBallUI : NetworkBehaviour {
 
@@ -19,10 +20,25 @@ public class ResetBallUI : NetworkBehaviour {
     {
         GUILayout.BeginArea(new Rect(Screen.width - 150, 10, 140, 40));
         if (GUILayout.Button("Reset Ball Position"))
-		{
-			ResetBallPosition();
+        {
+            ResetBallPosition();
+        }
+        if (GUILayout.Button("Exit to menu"))
+        {
+            ExitToMenu();
         }
         GUILayout.EndArea();
+    }
+
+
+    private void ExitToMenu()
+    {
+        // TODO: Proper way to exit?
+        NetworkManager.singleton.StopClient();
+        NetworkManager.singleton.StopHost();
+        Destroy(NetworkManager.singleton.gameObject);
+        NetworkServer.DisconnectAll();
+        SceneManager.LoadScene("MainMenu");
     }
 
     [Server]
