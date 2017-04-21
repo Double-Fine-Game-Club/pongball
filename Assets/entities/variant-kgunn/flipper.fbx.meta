@@ -6,10 +6,24 @@ ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: flipper01_GRP_TestTable01_kgunn
+    100004: flipper04_GEO_TestTable01_kgunn
+    100006: flipper01_GEO_TestTable01_kgunn
     400000: //RootNode
+    400002: flipper01_GRP_TestTable01_kgunn
+    400004: flipper04_GEO_TestTable01_kgunn
+    400006: flipper01_GEO_TestTable01_kgunn
     2300000: //RootNode
+    2300002: flipper04_GEO_TestTable01_kgunn
+    2300004: flipper01_GEO_TestTable01_kgunn
     3300000: //RootNode
+    3300002: flipper04_GEO_TestTable01_kgunn
+    3300004: flipper01_GEO_TestTable01_kgunn
     4300000: flipper01_GEO
+    4300002: flipper04_GEO_TestTable01_kgunn
+    4300004: flipper01_GEO_TestTable01_kgunn
+    6400000: flipper01_GEO_TestTable01_kgunn
+    6400002: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -38,7 +52,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
