@@ -13,6 +13,7 @@ public class LoadAssets : MonoBehaviour {
         { "kgunn", false }
     };
     public Dictionary<string, bool> tableNames = new Dictionary<string, bool>() {
+        { "Table_Clean", false },
         { "Table01", false },
         { "Table02", false }
     };
