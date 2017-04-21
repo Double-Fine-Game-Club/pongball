@@ -30,17 +30,20 @@ public class SimpleAI : PaddleBase {
         }
     }
 
-    private void FixedUpdate()
+    private new void FixedUpdate()
     {
-		if (NetworkManager.singleton.isNetworkActive &&  NetworkServer.connections.Count == 0) return;
+        base.FixedUpdate();
 
-        if(trackedBall)
+        if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count == 0) return;
+
+        if (trackedBall)
         {
             if (TrackedBallIsOutsideBounds())
             {
                 FollowTrackedBall();
             }
-        } else
+        }
+        else
         {
             FindBall();
         }
@@ -49,9 +52,21 @@ public class SimpleAI : PaddleBase {
     private void FollowTrackedBall()
     {
 		float dir = trackedBall.transform.position.z - transform.position.z;
-		MovePaddles(-dir);
-    }
+        MovePaddles(dir);
 
+        // TODO: Where do we put this
+        // If tracked ball is within a certain distance, trigger pull animation
+        var dist = Vector3.Distance(trackedBall.transform.position, transform.position);
+        if (dist < 2 && dist > 1f)
+        {
+            animator.SetBool("pull", true);
+        }
+        else
+        {
+            animator.SetBool("pull", false);
+        }
+    }
+    
     private bool TrackedBallIsOutsideBounds()
     {
         if(GetComponent<Collider>())

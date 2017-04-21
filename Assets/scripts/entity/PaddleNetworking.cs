@@ -9,8 +9,8 @@ using UnityEngine.Networking.NetworkSystem;
 /// </summary>
 public class PaddleNetworking : NetworkBehaviour {
 
-	// Message handle for the client id message
-	private short ID_MESSAGE = 1002;
+    // Message handle for the client id message
+    private short ID_MESSAGE = 1002;
 
 	// The id for an AI controlled paddle (-1 may be Local)
 	public static int PADDLE_AI = -2;
@@ -34,12 +34,7 @@ public class PaddleNetworking : NetworkBehaviour {
 		// The paddle is default AI, register the message callback
 		paddleClientId = PADDLE_AI;
 		NetworkServer.RegisterHandler(ID_MESSAGE, OnReceiveClientId);
-	}
-
-	void Update () 
-	{
-
-	}
+    }
 
 	// Is the paddle being controlled by an AI
 	public bool IsAIControlled()
