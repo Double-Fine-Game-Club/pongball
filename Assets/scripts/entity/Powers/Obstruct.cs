@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Obstruct : SuperPowerBase {
 
-    public static string obstruction = "entities/obstruction";
+    public static string obstruction = "entities/powers/obstruction";
     GameObject obstacle;
     public Obstruct(GameObject owner) : base(owner)
     {

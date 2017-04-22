@@ -66,7 +66,7 @@ public class PowerManager : MonoBehaviour {
             timeSinceGivenPower -= nextPowerTimer;
         }
 
-        if(Input.GetButton("Fire1"))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             currentPower.Activate();
             //TODO
@@ -85,7 +85,7 @@ public class PowerManager : MonoBehaviour {
         currentPower = powerMapping[(powerTypes)randInt];
         currentPower.Ready();
 
-        //Debug.Log("Power Granted: " + randInt.ToString() + " to player " + ownerId);
+        Debug.Log("Power Granted: " + powerMapping[(powerTypes)randInt].ToString() + " to player " + ownerId);
         //TODO
         //Tell network which power this player has
     }

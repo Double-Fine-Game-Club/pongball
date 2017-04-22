@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Obscure : SuperPowerBase {
 
-    public static string obscuration = "entities/obscuration";
+    public static string obscuration = "entities/powers/obscuration";
     GameObject obstacle;
     public Obscure(GameObject owner) : base(owner)
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Slow : SuperPowerBase {
 
-    public static string slow_zone = "entities/slow_zone";
+    public static string slow_zone = "entities/powers/slow_zone";
     GameObject zone;
 
     public Slow(GameObject owner) : base(owner)
