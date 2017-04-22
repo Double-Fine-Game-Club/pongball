@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Obstruct : SuperPowerBase {
 
+    
+    public Obstruct(PaddleBase owner) : base(owner)
+    {
+        
+    }
 	// Use this for initialization
 	void Start () {
 		

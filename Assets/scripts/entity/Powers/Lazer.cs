@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Lazer : SuperPowerBase {
 
+    public Lazer(PaddleBase owner) : base(owner)
+    {
+
+    }
 	// Use this for initialization
 	void Start () {
 		

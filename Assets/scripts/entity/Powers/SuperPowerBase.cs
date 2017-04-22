@@ -11,7 +11,13 @@ public class SuperPowerBase {
     protected float remainingDuration;
     protected bool isActive;
     protected bool isReady;
-    
+    protected PaddleBase paddle;
+
+    public SuperPowerBase(PaddleBase owner)
+    {
+        paddle = owner;
+    }
+
 	// Use this for initialization
 	void Start () {
         isReady = false;

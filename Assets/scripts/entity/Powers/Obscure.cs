@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Obscure : SuperPowerBase {
 
+    public Obscure(PaddleBase owner) : base(owner)
+    {
+
+    }
 	// Use this for initialization
 	void Start () {
 		

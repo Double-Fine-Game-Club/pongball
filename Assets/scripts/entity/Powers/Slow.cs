@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wall : SuperPowerBase {
+public class Slow : SuperPowerBase {
 
-    public Wall(PaddleBase owner) : base(owner)
+    public Slow(PaddleBase owner) : base(owner)
     {
 
     }

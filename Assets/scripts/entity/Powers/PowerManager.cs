@@ -13,13 +13,18 @@ public class PowerManager : MonoBehaviour {
     private SuperPowerBase oldPower;
     private Dictionary<powerTypes, SuperPowerBase> powerMapping;
 
+    //Debugging
+    private uint ownerId;
+
     enum powerTypes {
-        EMPTY=0,
-        OBSCURE=1,
-        OBSTRUCT=2,
-        TRIBAR=3,
-        LAZER=4,
-        WALL=5,
+        EMPTY,
+        OBSCURE,
+        OBSTRUCT,
+        TRIBAR,
+        LAZER,
+        WALL,
+        SLOW,
+        STORM,
         POWER_COUNT
     };
     
@@ -30,14 +35,18 @@ public class PowerManager : MonoBehaviour {
         paddle = GetComponent<PaddleBase>();
         timeSinceGivenPower = 0;
 
+        ownerId = paddle.netId.Value;
+
         //Build dict
         powerMapping = new Dictionary<powerTypes, SuperPowerBase>();
-        powerMapping[powerTypes.EMPTY] = new SuperPowerBase();
-        powerMapping[powerTypes.OBSCURE] = new Obscure();
-        powerMapping[powerTypes.OBSTRUCT] = new Obstruct();
-        powerMapping[powerTypes.TRIBAR] = new TriBar();
-        powerMapping[powerTypes.LAZER] = new Lazer();
-        powerMapping[powerTypes.WALL] = new Wall();
+        powerMapping[powerTypes.EMPTY] = new SuperPowerBase(paddle);
+        powerMapping[powerTypes.OBSCURE] = new Obscure(paddle);
+        powerMapping[powerTypes.OBSTRUCT] = new Obstruct(paddle);
+        powerMapping[powerTypes.TRIBAR] = new TriBar(paddle);
+        powerMapping[powerTypes.LAZER] = new Lazer(paddle);
+        powerMapping[powerTypes.WALL] = new Wall(paddle);
+        powerMapping[powerTypes.SLOW] = new Slow(paddle);
+        powerMapping[powerTypes.STORM] = new Storm(paddle);
 
         currentPower = powerMapping[powerTypes.EMPTY];
         oldPower = currentPower;
@@ -75,6 +84,7 @@ public class PowerManager : MonoBehaviour {
         currentPower = powerMapping[(powerTypes)randInt];
         currentPower.Ready();
 
+        Debug.Log("Power Granted: " + randInt.ToString() + " to player " + ownerId);
         //TODO
         //Tell network which power this player has
     }

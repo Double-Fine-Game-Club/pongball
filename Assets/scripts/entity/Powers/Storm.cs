@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wall : SuperPowerBase {
+public class Storm : SuperPowerBase {
 
-    public Wall(PaddleBase owner) : base(owner)
+    public Storm(PaddleBase owner) : base(owner)
     {
 
     }
