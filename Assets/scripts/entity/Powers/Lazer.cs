@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obscure : SuperPowerBase {
+public class Lazer : SuperPowerBase {
 
 	// Use this for initialization
 	void Start () {

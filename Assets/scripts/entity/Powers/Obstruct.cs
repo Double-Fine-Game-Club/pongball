@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstruct : MonoBehaviour {
+public class Obstruct : SuperPowerBase {
 
 	// Use this for initialization
 	void Start () {
