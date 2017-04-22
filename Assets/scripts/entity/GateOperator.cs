@@ -5,39 +5,44 @@ using UnityEngine;
 public class GateOperator : MonoBehaviour {
     public bool directionIsForward;
     public GameObject gate;
-    public float gateOpenAngle = 90.0F;
-    public float gateCloseAngle = 0.0F;
-    public float smoothMovement = 2.0F;
+    public float forwardAngle = 245.0F;
+    public float restingPosition = 0.0F;
+    public float backwardAngle = -245.0F;
+    public float smoothMovement = 10.0F;
 
-    void OnCollisionEnter(Collision col)
+
+    public void MoveGateForward()
     {
-
-        if (directionIsForward == true)
-
-        {
-            var target = Quaternion.Euler (0, gateOpenAngle, 0);
+            var target = Quaternion.Euler (0, forwardAngle, 0);
             // Dampen towards the target rotation
             transform.localRotation = Quaternion.Slerp(transform.localRotation, target,
                 Time.deltaTime * smoothMovement);
-
-        }
-        else if (directionIsForward == false)
-        {
-            var target1 = Quaternion.Euler (0, gateCloseAngle, 0);
-            // Dampen towards the target rotation
-            transform.localRotation = Quaternion.Slerp(transform.localRotation, target1,
-                Time.deltaTime * smoothMovement);
-
-        }
     }
+
+    public void MoveGateBackward()
+    {
+        var target1 = Quaternion.Euler (0, backwardAngle, 0);
+        // Dampen towards the target rotation
+        transform.localRotation = Quaternion.Slerp(transform.localRotation, target1,
+            Time.deltaTime * smoothMovement);
+    }
+
+    public void MoveGateResting()
+    {
+        var target1 = Quaternion.Euler (0, restingPosition, 0);
+        // Dampen towards the target rotation
+        transform.localRotation = Quaternion.Slerp(transform.localRotation, target1,
+            Time.deltaTime * smoothMovement);
+    }
+
 
     //For Testing
-    void Update()
+/*    void Update()
     {
         if (directionIsForward == true)
 
         {
-            var target = Quaternion.Euler (0, gateOpenAngle, 0);
+            var target = Quaternion.Euler (0, forwardAngle, 0);
             // Dampen towards the target rotation
             transform.localRotation = Quaternion.Slerp(transform.localRotation, target,
                 Time.deltaTime * smoothMovement);
@@ -45,12 +50,13 @@ public class GateOperator : MonoBehaviour {
         }
         else if (directionIsForward == false)
         {
-            var target1 = Quaternion.Euler (0, gateCloseAngle, 0);
+            var target1 = Quaternion.Euler (0, backwardAngle, 0);
             // Dampen towards the target rotation
             transform.localRotation = Quaternion.Slerp(transform.localRotation, target1,
                 Time.deltaTime * smoothMovement);
 
         }
     }
+    */
 
 }
