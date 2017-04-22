@@ -27,7 +27,6 @@ public class Obstruct : SuperPowerBase {
         {
             obstacle = Object.Instantiate(Resources.Load(obstruction)) as GameObject;
             //Get opponents paddle spawn position and block that
-            //obstacle.transform.position = paddle.transform.position;
             PaddleBase[] paddles = Object.FindObjectsOfType<PaddleBase>();
             foreach(PaddleBase p in paddles)
             {
