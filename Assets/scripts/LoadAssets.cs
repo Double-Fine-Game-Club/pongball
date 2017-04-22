@@ -15,7 +15,8 @@ public class LoadAssets : MonoBehaviour {
     public Dictionary<string, bool> tableNames = new Dictionary<string, bool>() {
         { "Table_Clean", false },
         { "Table01", false },
-        { "Table02", false }
+        { "Table02", false },
+        { "Speedster", false }
     };
 
     private string[] activeVariants;
