@@ -10,6 +10,7 @@ public class Ball : NetworkBehaviour {
     private Rigidbody rigidBody = null;
     private Vector3 startingPosition = Vector3.zero;
     float minimumVelocity = 5;
+    float maximumVelocity = 200;
 
     // Setting up an event system so that score logic can be contained to a separate script.
     // https://unity3d.com/learn/tutorials/topics/scripting/events
@@ -33,6 +34,24 @@ public class Ball : NetworkBehaviour {
         {
             rigidBody.velocity = rigidBody.velocity * 1.25f;
         }
+        if (rigidBody.velocity.magnitude > maximumVelocity)
+        {
+            rigidBody.velocity = rigidBody.velocity * 0.90f;
+        }
+    }
+
+    public void ClampSpeed(float min, float max)
+    {
+        if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count == 0) return;
+        minimumVelocity = min;
+        maximumVelocity = max;
+
+    }
+
+    public void UnClampSpeed()
+    {
+        minimumVelocity = 5;
+        maximumVelocity = 200;
     }
 
     public void ResetPosition()
