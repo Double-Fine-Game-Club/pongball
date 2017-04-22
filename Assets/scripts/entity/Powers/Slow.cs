@@ -7,7 +7,7 @@ public class Slow : SuperPowerBase {
     public static string slow_zone = "entities/slow_zone";
     GameObject zone;
 
-    public Slow(PaddleBase owner) : base(owner)
+    public Slow(GameObject owner) : base(owner)
     {
         duration = 5.0;
         powerName = "Slow";

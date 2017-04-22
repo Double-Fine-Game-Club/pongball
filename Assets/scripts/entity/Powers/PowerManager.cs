@@ -7,7 +7,7 @@ public class PowerManager : MonoBehaviour {
 
     private const double nextPowerTimer = 10.0;
 
-    private PaddleBase paddle;
+    private GameObject paddle;
     private double timeSinceGivenPower;
     private SuperPowerBase currentPower;
     private SuperPowerBase oldPower;
@@ -19,7 +19,7 @@ public class PowerManager : MonoBehaviour {
     enum powerTypes {
         EMPTY,
      //   OBSCURE,
-     //   OBSTRUCT,
+        OBSTRUCT,
      //   TRIBAR,
      //   LAZER,
      //   WALL,
@@ -32,16 +32,15 @@ public class PowerManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        paddle = GetComponent<PaddleBase>();
+        paddle = gameObject;
         timeSinceGivenPower = 0;
 
-        ownerId = paddle.netId.Value;
-
+        
         //Build dict
         powerMapping = new Dictionary<powerTypes, SuperPowerBase>();
         powerMapping[powerTypes.EMPTY] = new SuperPowerBase(paddle);
      //   powerMapping[powerTypes.OBSCURE] = new Obscure(paddle);
-     //   powerMapping[powerTypes.OBSTRUCT] = new Obstruct(paddle);
+        powerMapping[powerTypes.OBSTRUCT] = new Obstruct(paddle);
      //   powerMapping[powerTypes.TRIBAR] = new TriBar(paddle);
      //   powerMapping[powerTypes.LAZER] = new Lazer(paddle);
      //   powerMapping[powerTypes.WALL] = new Wall(paddle);
@@ -81,12 +80,12 @@ public class PowerManager : MonoBehaviour {
     void giveNewPower()
     {
         oldPower = currentPower;
-        float randFloat = Random.Range(1, (float)(powerTypes.POWER_COUNT-1));
+        float randFloat = Random.Range(1, (float)(powerTypes.POWER_COUNT));
         int randInt = Mathf.FloorToInt(randFloat);
         currentPower = powerMapping[(powerTypes)randInt];
         currentPower.Ready();
 
-        //Debug.Log("Power Granted: " + randInt.ToString() + " to player " + ownerId);
+        Debug.Log("Power Granted: " + randInt.ToString() + " to player " + ownerId);
         //TODO
         //Tell network which power this player has
     }

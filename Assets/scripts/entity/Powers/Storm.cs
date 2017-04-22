@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Storm : SuperPowerBase {
 
-    public Storm(PaddleBase owner) : base(owner)
+    public Storm(GameObject owner) : base(owner)
     {
 
     }

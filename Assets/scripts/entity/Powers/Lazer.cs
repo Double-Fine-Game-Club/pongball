@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Lazer : SuperPowerBase {
 
-    public Lazer(PaddleBase owner) : base(owner)
+    public Lazer(GameObject owner) : base(owner)
     {
 
     }

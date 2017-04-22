@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Obstruct : SuperPowerBase {
 
-    
-    public Obstruct(PaddleBase owner) : base(owner)
+    public static string obstruction = "entities/obstruction";
+    GameObject obstacle;
+    public Obstruct(GameObject owner) : base(owner)
     {
-        
+        duration = 5;
+        powerName = "Obstruct";
     }
 	// Use this for initialization
-	void Start () {
-		
-	}
+	void Start () {	}
 
     // Update is called once per frame
     override public void Update()
@@ -23,11 +23,30 @@ public class Obstruct : SuperPowerBase {
 
     override protected void TriggerEffect()
     {
-
+        try
+        {
+            obstacle = Object.Instantiate(Resources.Load(obstruction)) as GameObject;
+            //Get opponents paddle spawn position and block that
+            //obstacle.transform.position = paddle.transform.position;
+            PaddleBase[] paddles = Object.FindObjectsOfType<PaddleBase>();
+            foreach(PaddleBase p in paddles)
+            {
+                if(p.gameObject != paddle)
+                {
+                    obstacle.transform.position = p.transform.position;
+                    break;
+                }
+            }
+        }
+        catch
+        {
+            Debug.Log("Loading of \"" + obstruction + "\" failed");
+        }
     }
 
     override protected void CleanUp()
     {
+        Object.Destroy(obstacle);
         base.CleanUp();
     }
 }

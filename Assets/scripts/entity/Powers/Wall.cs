@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Wall : SuperPowerBase {
 
-    public Wall(PaddleBase owner) : base(owner)
+    public Wall(GameObject owner) : base(owner)
     {
 
     }

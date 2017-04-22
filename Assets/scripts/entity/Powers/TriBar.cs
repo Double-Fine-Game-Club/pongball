@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TriBar : SuperPowerBase {
 
-    public TriBar(PaddleBase owner) : base(owner){
+    public TriBar(GameObject owner) : base(owner){
 
     }
 	// Use this for initialization

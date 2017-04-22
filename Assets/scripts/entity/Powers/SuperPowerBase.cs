@@ -11,9 +11,9 @@ public class SuperPowerBase {
     protected double remainingDuration;
     protected bool isActive;
     protected bool isReady;
-    protected PaddleBase paddle;
+    protected GameObject paddle;
 
-    public SuperPowerBase(PaddleBase owner)
+    public SuperPowerBase(GameObject owner)
     {
         paddle = owner;
     }

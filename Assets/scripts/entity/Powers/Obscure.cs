@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Obscure : SuperPowerBase {
 
-    public Obscure(PaddleBase owner) : base(owner)
+    public Obscure(GameObject owner) : base(owner)
     {
 
     }
