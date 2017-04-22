@@ -11,6 +11,7 @@ TagManager:
   - Goal1
   - Goal2
   - Score
+  - Effect
   layers:
   - Default
   - TransparentFX

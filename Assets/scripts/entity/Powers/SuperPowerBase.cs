@@ -7,8 +7,8 @@ public class SuperPowerBase {
 
     protected string powerName;
     protected int id;
-    protected float duration;
-    protected float remainingDuration;
+    protected double duration;
+    protected double remainingDuration;
     protected bool isActive;
     protected bool isReady;
     protected PaddleBase paddle;
@@ -22,14 +22,16 @@ public class SuperPowerBase {
 	void Start () {
         isReady = false;
         isActive = false;
+        remainingDuration = 0;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	virtual public void Update () {
+        
         if (isActive)
         {
             remainingDuration -= Time.deltaTime;
-            if(remainingDuration <0)
+            if (remainingDuration <0)
             {
                 CleanUp();
             }
@@ -47,16 +49,22 @@ public class SuperPowerBase {
         if (isReady)
         {
             //Reset the duration if it is already active
-            Debug.Log("Activated");
+            remainingDuration = duration;
+            TriggerEffect();
             isActive = true;
             isReady = false;
-            remainingDuration = duration;
+            
         }
         
 
     }
 
-    private void CleanUp() {
+    virtual protected void TriggerEffect()
+    {
+
+    }
+
+    virtual protected void CleanUp() {
         isActive = false;
     }
 

@@ -18,13 +18,13 @@ public class PowerManager : MonoBehaviour {
 
     enum powerTypes {
         EMPTY,
-        OBSCURE,
-        OBSTRUCT,
-        TRIBAR,
-        LAZER,
-        WALL,
+     //   OBSCURE,
+     //   OBSTRUCT,
+     //   TRIBAR,
+     //   LAZER,
+     //   WALL,
         SLOW,
-        STORM,
+     //   STORM,
         POWER_COUNT
     };
     
@@ -40,13 +40,13 @@ public class PowerManager : MonoBehaviour {
         //Build dict
         powerMapping = new Dictionary<powerTypes, SuperPowerBase>();
         powerMapping[powerTypes.EMPTY] = new SuperPowerBase(paddle);
-        powerMapping[powerTypes.OBSCURE] = new Obscure(paddle);
-        powerMapping[powerTypes.OBSTRUCT] = new Obstruct(paddle);
-        powerMapping[powerTypes.TRIBAR] = new TriBar(paddle);
-        powerMapping[powerTypes.LAZER] = new Lazer(paddle);
-        powerMapping[powerTypes.WALL] = new Wall(paddle);
+     //   powerMapping[powerTypes.OBSCURE] = new Obscure(paddle);
+     //   powerMapping[powerTypes.OBSTRUCT] = new Obstruct(paddle);
+     //   powerMapping[powerTypes.TRIBAR] = new TriBar(paddle);
+     //   powerMapping[powerTypes.LAZER] = new Lazer(paddle);
+     //   powerMapping[powerTypes.WALL] = new Wall(paddle);
         powerMapping[powerTypes.SLOW] = new Slow(paddle);
-        powerMapping[powerTypes.STORM] = new Storm(paddle);
+     //   powerMapping[powerTypes.STORM] = new Storm(paddle);
 
         currentPower = powerMapping[powerTypes.EMPTY];
         oldPower = currentPower;
@@ -73,6 +73,8 @@ public class PowerManager : MonoBehaviour {
             //TODO
             //Tell network power has activated
         }
+        if (oldPower!=null) oldPower.Update();
+        if (currentPower!=null) currentPower.Update();
 
 	}
 
@@ -84,7 +86,7 @@ public class PowerManager : MonoBehaviour {
         currentPower = powerMapping[(powerTypes)randInt];
         currentPower.Ready();
 
-        Debug.Log("Power Granted: " + randInt.ToString() + " to player " + ownerId);
+        //Debug.Log("Power Granted: " + randInt.ToString() + " to player " + ownerId);
         //TODO
         //Tell network which power this player has
     }

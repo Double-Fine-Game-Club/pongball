@@ -13,9 +13,21 @@ public class Obstruct : SuperPowerBase {
 	void Start () {
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // Update is called once per frame
+    override public void Update()
+    {
+        base.Update();
+    }
+
+
+    override protected void TriggerEffect()
+    {
+
+    }
+
+    override protected void CleanUp()
+    {
+        base.CleanUp();
+    }
 }
