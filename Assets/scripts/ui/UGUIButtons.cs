@@ -16,6 +16,7 @@ public class UGUIButtons : MonoBehaviour {
 
     public void OptionsButton()
     {
+        CloseAllPanels();
         if (optionsPanel.activeSelf == false)
         {
             optionsPanel.SetActive(true);
@@ -28,10 +29,10 @@ public class UGUIButtons : MonoBehaviour {
 
     public void CreditsButton()
     {
+        CloseAllPanels();
         if (creditsPanel.activeSelf == false)
         {
             creditsPanel.SetActive(true);
-            optionsPanel.SetActive(false);
         }
         else if (creditsPanel.activeSelf == true)
         {
@@ -45,4 +46,9 @@ public class UGUIButtons : MonoBehaviour {
         Application.Quit();
     }
 
+    private void CloseAllPanels()
+    {
+        optionsPanel.SetActive(false);
+        creditsPanel.SetActive(false);
+    }
 }
