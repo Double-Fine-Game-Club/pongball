@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class Obscure : SuperPowerBase {
 
@@ -28,10 +29,11 @@ public class Obscure : SuperPowerBase {
 
     override protected void TriggerEffect()
     {
+        if (!isHost) { return; }
         try
         {
-            obstacle = Object.Instantiate(Resources.Load(obscuration)) as GameObject;
-            //Get opponents paddle spawn position and block that
+            obstacle = Instantiate(NetworkManager.singleton.spawnPrefabs[5]);
+             //Get opponents paddle spawn position and block that
             PaddleBase[] paddles = Object.FindObjectsOfType<PaddleBase>();
             foreach (PaddleBase p in paddles)
             {
@@ -41,6 +43,7 @@ public class Obscure : SuperPowerBase {
                     break;
                 }
             }
+            NetworkServer.Spawn(obstacle);
         }
         catch
         {
@@ -50,7 +53,11 @@ public class Obscure : SuperPowerBase {
 
     override protected void CleanUp()
     {
-        Object.Destroy(obstacle);
+        if (isHost)
+        {
+            Object.Destroy(obstacle);
+        }
+        
         base.CleanUp();
     }
 }

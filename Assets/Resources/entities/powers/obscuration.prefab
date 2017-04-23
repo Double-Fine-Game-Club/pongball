@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33945105312945662}
   - component: {fileID: 64644908670006818}
   - component: {fileID: 23597967409518666}
+  - component: {fileID: 114911616749295848}
   m_Layer: 0
   m_Name: obscuration
   m_TagString: Untagged
@@ -95,3 +96,35 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114911616749295848
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1021690674191732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 194
+    i1: 225
+    i2: 59
+    i3: 165
+    i4: 209
+    i5: 170
+    i6: 185
+    i7: 228
+    i8: 105
+    i9: 65
+    i10: 1
+    i11: 10
+    i12: 157
+    i13: 181
+    i14: 195
+    i15: 176
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0

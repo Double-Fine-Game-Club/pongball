@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 
-public class PowerManager : MonoBehaviour {
+public class PowerManager : NetworkBehaviour {
 
     private const double nextPowerTimer = 10.0;
 

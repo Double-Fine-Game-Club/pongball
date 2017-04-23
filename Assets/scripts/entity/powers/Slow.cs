@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class Slow : SuperPowerBase {
 
@@ -27,11 +28,13 @@ public class Slow : SuperPowerBase {
 
      override protected void TriggerEffect()
     {
+        if (!isHost) { return; }
+
         try
         {
-            zone = Object.Instantiate(Resources.Load(slow_zone)) as GameObject;
+            zone = Instantiate(NetworkManager.singleton.spawnPrefabs[3]);
             zone.transform.position = gameObject.transform.position;
-            
+            NetworkServer.Spawn(zone);
         }
         catch
         {
@@ -41,7 +44,11 @@ public class Slow : SuperPowerBase {
 
      override protected void CleanUp()
     {
-        Object.Destroy(zone);
+        if (isHost)
+        {
+            Object.Destroy(zone);
+        }
+        
         base.CleanUp();
     }
 }
