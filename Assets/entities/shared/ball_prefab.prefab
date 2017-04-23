@@ -205,6 +205,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallBounce: {fileID: 8300000, guid: 14632146ffa554f9481d2745b1492a09, type: 3}
   paddleBounce: {fileID: 8300000, guid: 1f30394bd9a9849268a0817449a29202, type: 3}
+  TrueForKyle3wynn: 0
+  lBumper:
+  - {fileID: 8300000, guid: 7df5376c6ac824e10b5622ec3daf158e, type: 3}
+  - {fileID: 8300000, guid: eb9f3b8300ad74325972d541259d941d, type: 3}
+  - {fileID: 8300000, guid: feb3fc13becff412cbfdd042ba1b0fd5, type: 3}
+  - {fileID: 8300000, guid: e65b99355669643d6805e5b5ffbe3022, type: 3}
+  - {fileID: 8300000, guid: 0e2d5e72edc1b4699bd3229999e06e6d, type: 3}
+  lPaddle:
+  - {fileID: 8300000, guid: b6d4b4857a00c450580889ff52887d09, type: 3}
+  - {fileID: 8300000, guid: 5f9b36c54f8444282aca7dadbd7ed233, type: 3}
+  - {fileID: 8300000, guid: 0af5070133a4e4315b3a2113a1bfe410, type: 3}
+  - {fileID: 8300000, guid: a74ac14e7a9ba487e92ee975ca217d44, type: 3}
+  - {fileID: 8300000, guid: 28004a6c1269f4ee9ad31e948a153bd8, type: 3}
+  - {fileID: 8300000, guid: 90204e606cb1344eb8ccd3182b6e9040, type: 3}
+  - {fileID: 8300000, guid: e3ed566b05b19400ab3a2dfae6c52cf4, type: 3}
+  - {fileID: 8300000, guid: 1743ad8bc9be94f698c13afc833e3413, type: 3}
+  - {fileID: 8300000, guid: 26a6173a4d578496fa6218e06afd71ef, type: 3}
+  - {fileID: 8300000, guid: aef148dcdd0634260a581253404dfb98, type: 3}
+  rampUpShort: {fileID: 8300000, guid: d372b76f9b44b4a56965dacb729b9bb3, type: 3}
+  rampUpLong: {fileID: 8300000, guid: fca3a9aceaaa2432383a7bd59b3ef92b, type: 3}
+  rampDownShort: {fileID: 8300000, guid: 8a304beb039c44fdd9a7802dc3eda4fc, type: 3}
+  rampDownLong: {fileID: 8300000, guid: 30b61f234580e4819a8a768b14902510, type: 3}
+  powerUp: {fileID: 8300000, guid: a3af3e436ab544366ac75cb6f8cbab23, type: 3}
+  goalUp: {fileID: 8300000, guid: 405e8245d9d3b4b74ac20be62442a593, type: 3}
+  goalDown: {fileID: 8300000, guid: 1b4e45f92be5b46cb8473a08843bd471, type: 3}
 --- !u!114 &114204467171639900
 MonoBehaviour:
   m_ObjectHideFlags: 1
