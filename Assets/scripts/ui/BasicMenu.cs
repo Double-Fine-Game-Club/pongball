@@ -158,6 +158,10 @@ public class BasicMenu : MonoBehaviour
 					// If this is a client wait until the server has selected a table and use it
 					else
 					{
+						DrawCentered();
+						GUILayout.Label("The host is selecting a table...");
+						UndoCentered();
+
 						TableNetworking tableNetworking = GameObject.FindGameObjectWithTag("TableNetworking").GetComponent<TableNetworking>();
 						
 						if (tableNetworking != null && tableNetworking.ServerHasSelected())
