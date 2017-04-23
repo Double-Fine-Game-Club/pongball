@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class UGUIButtons : MonoBehaviour {
+    public GameObject optionsPanel;
+    public GameObject creditsPanel;
+
+
 
     public void PlayGameButton()
     {
@@ -12,7 +16,28 @@ public class UGUIButtons : MonoBehaviour {
 
     public void OptionsButton()
     {
-        Debug.Log("This does nothing currently");
+        CloseAllPanels();
+        if (optionsPanel.activeSelf == false)
+        {
+            optionsPanel.SetActive(true);
+        }
+        else if (optionsPanel.activeSelf == true)
+        {
+            optionsPanel.SetActive(false);
+        }
+    }
+
+    public void CreditsButton()
+    {
+        CloseAllPanels();
+        if (creditsPanel.activeSelf == false)
+        {
+            creditsPanel.SetActive(true);
+        }
+        else if (creditsPanel.activeSelf == true)
+        {
+            creditsPanel.SetActive(false);
+        }
     }
 
     public void QuitButton()
@@ -21,4 +46,9 @@ public class UGUIButtons : MonoBehaviour {
         Application.Quit();
     }
 
+    private void CloseAllPanels()
+    {
+        optionsPanel.SetActive(false);
+        creditsPanel.SetActive(false);
+    }
 }
