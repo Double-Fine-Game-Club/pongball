@@ -51,9 +51,7 @@ public class PowerManager : MonoBehaviour {
      //   powerMapping[powerTypes.STORM] = //new Storm(paddle);
 
         playerList = GameObject.FindObjectsOfType<PaddleBase>();
-        //remove duplicate game objects
-        playerList = MakeUnique(playerList);
-
+       //Note: each paddle can have multiple scripts attached
 
     }
 
@@ -72,7 +70,12 @@ public class PowerManager : MonoBehaviour {
             //all powers are given at the same time
             foreach (PaddleBase player in playerList)
             {
-                giveNewPower(player);
+                //players can be swapped with AI by toggling scripts
+                if (player.enabled)
+                {
+                    giveNewPower(player);
+                }
+                
             }
             
            

@@ -13,6 +13,12 @@ public class Obscure : SuperPowerBase {
         powerName = "Obscure";
 	}
 
+    private void OnEnable()
+    {
+        duration = 8;
+        powerName = "Obscure";
+    }
+
     // Update is called once per frame
     override public void Update()
     {
@@ -31,7 +37,7 @@ public class Obscure : SuperPowerBase {
             {
                 if (p.gameObject != this.gameObject)
                 {
-                    obstacle.transform.position = p.transform.position + new Vector3(0,2,0);
+                    obstacle.transform.position = p.transform.position + new Vector3(0,3,0);
                     break;
                 }
             }

@@ -48,11 +48,9 @@ public class Player : PaddleBase {
     private new void Update()
     {
         base.Update();
-
-        if(/*Input.GetKeyDown(KeyCode.Space) &&*/ myPowers.Count>0)
+        
+        if (Input.GetKeyDown(KeyCode.Space) &&  myPowers.Count > 0)
         {
-            Debug.Log("trying");
-            //Newest power is added at the end
             myPowers[myPowers.Count - 1].Activate();
         }
     }

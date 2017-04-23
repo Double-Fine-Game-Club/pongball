@@ -13,6 +13,11 @@ public class Slow : SuperPowerBase {
         powerName = "Slow";
 
     }
+    private void OnEnable()
+    {
+        duration = 8;
+        powerName = "Slow";
+    }
 
     // Update is called once per frame
     override public void Update () {

@@ -86,6 +86,5 @@ public class PaddleBase : NetworkBehaviour {
         SuperPowerBase spb = gameObject.AddComponent(Type.GetType(powerName)) as SuperPowerBase;
         spb.isReady = true;
         myPowers.Add(spb);
-        Debug.Log(myPowers.Count);
     }
 }

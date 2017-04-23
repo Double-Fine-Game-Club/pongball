@@ -13,6 +13,12 @@ public class Obstruct : SuperPowerBase {
         powerName = "Obstruct";
     }
 
+    private void OnEnable()
+    {
+        duration = 8;
+        powerName = "Obstruct";
+    }
+
     // Update is called once per frame
     override public void Update()
     {
