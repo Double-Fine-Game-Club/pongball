@@ -7,16 +7,12 @@ public class Slow : SuperPowerBase {
     public static string slow_zone = "entities/powers/slow_zone";
     GameObject zone;
 
-    public Slow(GameObject owner) : base(owner)
-    {
-        duration = 5.0;
-        powerName = "Slow";
-    }
 	// Use this for initialization
 	void Start () {
-       
+        duration = 8;
+        powerName = "Slow";
 
-	}
+    }
 
     // Update is called once per frame
     override public void Update () {
@@ -29,7 +25,7 @@ public class Slow : SuperPowerBase {
         try
         {
             zone = Object.Instantiate(Resources.Load(slow_zone)) as GameObject;
-            zone.transform.position = paddle.transform.position;
+            zone.transform.position = gameObject.transform.position;
             
         }
         catch

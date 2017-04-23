@@ -49,6 +49,16 @@ public class SimpleAI : PaddleBase {
         }
     }
 
+    private new void Update()
+    {
+        base.Update();
+        if(myPowers.Count>0)
+        {
+            myPowers[myPowers.Count - 1].Activate();
+        }
+
+    } 
+
     private void FollowTrackedBall()
     {
 		float dir = trackedBall.transform.position.z - transform.position.z;

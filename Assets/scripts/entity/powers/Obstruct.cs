@@ -6,13 +6,12 @@ public class Obstruct : SuperPowerBase {
 
     public static string obstruction = "entities/powers/obstruction";
     GameObject obstacle;
-    public Obstruct(GameObject owner) : base(owner)
-    {
-        duration = 5;
+   
+	// Use this for initialization
+	void Start () {
+        duration = 8;
         powerName = "Obstruct";
     }
-	// Use this for initialization
-	void Start () {	}
 
     // Update is called once per frame
     override public void Update()
@@ -30,7 +29,7 @@ public class Obstruct : SuperPowerBase {
             PaddleBase[] paddles = Object.FindObjectsOfType<PaddleBase>();
             foreach(PaddleBase p in paddles)
             {
-                if(p.gameObject != paddle)
+                if(p.gameObject != this.gameObject)
                 {
                     obstacle.transform.position = p.transform.position;
                     break;

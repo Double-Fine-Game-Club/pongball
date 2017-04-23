@@ -3,26 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class SuperPowerBase {
+public class SuperPowerBase : MonoBehaviour {
 
     protected string powerName;
     protected int id;
     protected double duration;
     protected double remainingDuration;
-    protected bool isActive;
-    protected bool isReady;
-    protected GameObject paddle;
-
-    public SuperPowerBase(GameObject owner)
-    {
-        paddle = owner;
-    }
+    public bool isActive { get; protected set; }
+    public bool isReady { get; set; }
 
 	// Use this for initialization
 	void Start () {
-        isReady = false;
-        isActive = false;
-        remainingDuration = 0;
+        
 	}
 	
 	// Update is called once per frame
@@ -37,12 +29,6 @@ public class SuperPowerBase {
             }
         }
 	}
-
-    public void Ready()
-    {
-        isReady = true;
-
-    }
 
     public void Activate() {
         
@@ -66,6 +52,7 @@ public class SuperPowerBase {
 
     virtual protected void CleanUp() {
         isActive = false;
+        isReady = false;
     }
 
 }

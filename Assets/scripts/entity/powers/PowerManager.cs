@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 
 public class PowerManager : MonoBehaviour {
@@ -9,9 +10,9 @@ public class PowerManager : MonoBehaviour {
 
     private GameObject paddle;
     private double timeSinceGivenPower;
-    private SuperPowerBase currentPower;
-    private SuperPowerBase oldPower;
-    private Dictionary<powerTypes, SuperPowerBase> powerMapping;
+    private Dictionary<powerTypes, string> powerMapping;
+    private bool isHost;
+    private PaddleBase[] playerList;
 
     //Debugging
     private uint ownerId;
@@ -35,20 +36,24 @@ public class PowerManager : MonoBehaviour {
         paddle = gameObject;
         timeSinceGivenPower = 0;
 
-        
-        //Build dict
-        powerMapping = new Dictionary<powerTypes, SuperPowerBase>();
-        powerMapping[powerTypes.EMPTY] = new SuperPowerBase(paddle);
-        powerMapping[powerTypes.OBSCURE] = new Obscure(paddle);
-        powerMapping[powerTypes.OBSTRUCT] = new Obstruct(paddle);
-     //   powerMapping[powerTypes.TRIBAR] = new TriBar(paddle);
-     //   powerMapping[powerTypes.LAZER] = new Lazer(paddle);
-     //   powerMapping[powerTypes.WALL] = new Wall(paddle);
-        powerMapping[powerTypes.SLOW] = new Slow(paddle);
-     //   powerMapping[powerTypes.STORM] = new Storm(paddle);
+        //Host of online game or local game
+        isHost = !NetworkManager.singleton.isNetworkActive || NetworkServer.connections.Count > 0;
 
-        currentPower = powerMapping[powerTypes.EMPTY];
-        oldPower = currentPower;
+        //Build dict
+        powerMapping = new Dictionary<powerTypes, string>();
+        powerMapping[powerTypes.EMPTY] = "";
+        powerMapping[powerTypes.OBSCURE] = "Obscure";
+        powerMapping[powerTypes.OBSTRUCT] = "Obstruct";
+     //   powerMapping[powerTypes.TRIBAR] = //new TriBar(paddle);
+     //   powerMapping[powerTypes.LAZER] = //new Lazer(paddle);
+     //   powerMapping[powerTypes.WALL] = //new Wall(paddle);
+        powerMapping[powerTypes.SLOW] = "Slow";
+     //   powerMapping[powerTypes.STORM] = //new Storm(paddle);
+
+        playerList = GameObject.FindObjectsOfType<PaddleBase>();
+        //remove duplicate game objects
+        playerList = MakeUnique(playerList);
+
 
     }
 
@@ -62,31 +67,56 @@ public class PowerManager : MonoBehaviour {
         timeSinceGivenPower += Time.deltaTime;
         if(nextPowerTimer - timeSinceGivenPower < 0)
         {
-            giveNewPower();
             timeSinceGivenPower -= nextPowerTimer;
-        }
 
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            currentPower.Activate();
-            //TODO
-            //Tell network power has activated
+            //all powers are given at the same time
+            foreach (PaddleBase player in playerList)
+            {
+                giveNewPower(player);
+            }
+            
+           
         }
-        if (oldPower!=null) oldPower.Update();
-        if (currentPower!=null) currentPower.Update();
 
 	}
 
-    void giveNewPower()
+    
+    void giveNewPower(PaddleBase player)
     {
-        oldPower = currentPower;
-        float randFloat = Random.Range(1, (float)(powerTypes.POWER_COUNT));
+         float randFloat = Random.Range(1, (float)(powerTypes.POWER_COUNT));
         int randInt = Mathf.FloorToInt(randFloat);
-        currentPower = powerMapping[(powerTypes)randInt];
-        currentPower.Ready();
+        string powerName = powerMapping[(powerTypes)randInt];
+        
+        player.AddPower(powerName);
 
         Debug.Log("Power Granted: " + powerMapping[(powerTypes)randInt].ToString() + " to player " + ownerId);
         //TODO
         //Tell network which power this player has
+    }
+
+    //Util
+
+    //Comparator is the gameObject field
+    public PaddleBase[] MakeUnique(PaddleBase[] input)
+    {
+        List<PaddleBase> toKeep = new List<PaddleBase>();
+        foreach (PaddleBase pb in input)
+        {
+            bool keep = true;
+            foreach (PaddleBase p in toKeep)
+            {
+                if (p.gameObject == pb.gameObject)
+                {
+                    keep = false;
+                    break;
+                }
+
+            }
+            if (keep)
+            {
+                toKeep.Add(pb);
+            }
+        }
+        return toKeep.ToArray();
     }
 }

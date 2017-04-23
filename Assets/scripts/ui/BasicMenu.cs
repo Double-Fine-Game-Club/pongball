@@ -191,7 +191,12 @@ public class BasicMenu : MonoBehaviour {
 					}
 				}
 
-				currentMenu = Menu.PaddleSelect;
+                //Create a PowerManager, 1 for server and 1 for each client
+                PaddleBase[] players = GameObject.FindObjectsOfType<PaddleBase>();
+                if (players.Length > 0)
+                    { players[0].gameObject.AddComponent<PowerManager>(); }
+
+                currentMenu = Menu.PaddleSelect;
 				nextMenu = Menu.Done;
 			}
 			break;
@@ -218,7 +223,8 @@ public class BasicMenu : MonoBehaviour {
 				GUILayout.Label("Paddles: ");
 
 				SimpleAI[] bots = GameObject.FindObjectsOfType<SimpleAI>();
-				int paddleIndex = 1;	
+				int paddleIndex = 1;
+                
 
 				// Show a toggle box for each paddle in the scene based on whether it is AI controlled
 				foreach (SimpleAI bot in bots)

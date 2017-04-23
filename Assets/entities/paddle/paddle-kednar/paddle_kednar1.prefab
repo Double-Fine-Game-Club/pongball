@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 114810037560900528}
   - component: {fileID: 114754070099237892}
   - component: {fileID: 65184877789162762}
-  - component: {fileID: 114973100892844538}
   m_Layer: 0
   m_Name: paddle_kednar1
   m_TagString: Untagged
@@ -423,17 +422,6 @@ MonoBehaviour:
     i15: 88
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
---- !u!114 &114973100892844538
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1063936598707464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b42a04b731786ed4d8dc2c19c80c94ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!137 &137565355972161342
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

@@ -6,13 +6,11 @@ public class Obscure : SuperPowerBase {
 
     public static string obscuration = "entities/powers/obscuration";
     GameObject obstacle;
-    public Obscure(GameObject owner) : base(owner)
-    {
-        duration = 10;
-    }
-	// Use this for initialization
+   // Use this for initialization
+
 	void Start () {
-		
+        duration = 8;
+        powerName = "Obscure";
 	}
 
     // Update is called once per frame
@@ -31,7 +29,7 @@ public class Obscure : SuperPowerBase {
             PaddleBase[] paddles = Object.FindObjectsOfType<PaddleBase>();
             foreach (PaddleBase p in paddles)
             {
-                if (p.gameObject != paddle)
+                if (p.gameObject != this.gameObject)
                 {
                     obstacle.transform.position = p.transform.position + new Vector3(0,2,0);
                     break;

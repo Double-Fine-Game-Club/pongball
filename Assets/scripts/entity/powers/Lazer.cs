@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class Lazer : SuperPowerBase {
 
-    public Lazer(GameObject owner) : base(owner)
-    {
-
-    }
+    
 	// Use this for initialization
 	void Start () {
 		
