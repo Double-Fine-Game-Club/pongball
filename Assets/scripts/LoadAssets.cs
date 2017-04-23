@@ -1,6 +1,7 @@
 ﻿using AssetBundles;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Networking;
 using System;
 using System.Collections.Generic;
 
@@ -60,6 +61,12 @@ public class LoadAssets : MonoBehaviour {
                 activeVariants[0] = "table-" + GetActiveFromDictionary(variantNames);
                 // Show this in the log to make sure it is correct
                 Debug.Log(activeVariants[0]);
+
+				if (NetworkManager.singleton.isNetworkActive)
+				{
+					GameObject.FindGameObjectWithTag("TableNetworking").GetComponent<TableNetworking>().SetTableInfo(GetActiveFromDictionary(variantNames), GetActiveFromDictionary(tableNames));
+				}
+
                 // Load the scene now!
                 StartCoroutine(BeginExample());
             }
@@ -147,7 +154,7 @@ public class LoadAssets : MonoBehaviour {
         // Don't destroy this gameObject as we depend on it to run the loading script.
         DontDestroyOnLoad(gameObject);
 
-        AssetBundleManager.BaseDownloadingURL = "file:///" + Application.dataPath + "/../AssetBundles/" + Utility.GetPlatformName() + "/";
+        AssetBundleManager.BaseDownloadingURL = "file:///" + Application.dataPath + "/../AssetBundles/" + AssetBundles.Utility.GetPlatformName() + "/";
 
         // Initialize AssetBundleManifest which loads the AssetBundleManifest object.
         var request = AssetBundleManager.Initialize();
@@ -176,4 +183,15 @@ public class LoadAssets : MonoBehaviour {
         Debug.Log("Finished loading scene " + levelName + " in " + elapsedTime + " seconds");
     }
     
+	public void ManualLoad(string variantName, string tableName)
+	{
+		SetActiveInDictionary(variantName, variantNames);
+		SetActiveInDictionary(tableName, tableNames);
+
+		bundlesLoaded = true;
+		// Set the activeVariant
+		activeVariants[0] = "table-" + GetActiveFromDictionary(variantNames);
+		// Load the scene now!
+		StartCoroutine(BeginExample());
+	}
 }

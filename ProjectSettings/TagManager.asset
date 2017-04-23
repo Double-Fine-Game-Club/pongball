@@ -17,6 +17,7 @@ TagManager:
   - RampDown
   - PowerUp
   - Flipper
+  - TableNetworking
   layers:
   - Default
   - TransparentFX

@@ -123,6 +123,12 @@ public class BasicMenu : MonoBehaviour
                             // Hide the networking HUD
                             NetworkManager.singleton.GetComponent<NetworkManagerHUD>().enabled = false;
 
+							if (NetworkServer.connections.Count > 0)
+							{
+								GameObject tableManager = GameObject.Instantiate(NetworkManager.singleton.spawnPrefabs[4]);
+								NetworkServer.Spawn(tableManager);
+							}
+							
                             currentMenu = Menu.LevelSelect;
                             nextMenu = Menu.LoadingLevel;
                         }
@@ -135,17 +141,39 @@ public class BasicMenu : MonoBehaviour
 
             case Menu.LevelSelect:
                 {
-                    // Enable the asset loader and let it load the level async
-                    var assetLoader = GetComponent<LoadAssets>();
-                    Debug.Assert(assetLoader != null, "Missing asset loader!");
+					if (!NetworkManager.singleton.isNetworkActive || NetworkServer.connections.Count > 0)
+					{
+						// Enable the asset loader and let it load the level async
+	                    var assetLoader = GetComponent<LoadAssets>();
+	                    Debug.Assert(assetLoader != null, "Missing asset loader!");
 
-                    assetLoader.enabled = true;
+	                    assetLoader.enabled = true;
 
-                    // We want to know when it's finished
-                    assetLoader.OnFinished += FinishedLoading;
+	                    // We want to know when it's finished
+	                    assetLoader.OnFinished += FinishedLoading;
 
-                    currentMenu = Menu.LoadingLevel;
-                    nextMenu = Menu.SetupTable;
+	                    currentMenu = Menu.LoadingLevel;
+	                    nextMenu = Menu.SetupTable;
+					}
+					// If this is a client wait until the server has selected a table and use it
+					else
+					{
+						TableNetworking tableNetworking = GameObject.FindGameObjectWithTag("TableNetworking").GetComponent<TableNetworking>();
+						
+						if (tableNetworking != null && tableNetworking.ServerHasSelected())
+						{
+							var assetLoader = GetComponent<LoadAssets>();
+							
+							assetLoader.enabled = true;
+							assetLoader.ManualLoad(tableNetworking.GetVariant(), tableNetworking.GetTable());
+
+							// We want to know when it's finished
+							assetLoader.OnFinished += FinishedLoading;
+
+							currentMenu = Menu.LoadingLevel;
+							nextMenu = Menu.SetupTable;
+						}
+					}
                 }
                 break;
 
@@ -327,4 +355,9 @@ public class BasicMenu : MonoBehaviour
         GUILayout.FlexibleSpace();
         GUILayout.EndArea();
     }
+
+	public void OnClientConnect(NetworkConnection conn)
+	{
+
+	}
 }
