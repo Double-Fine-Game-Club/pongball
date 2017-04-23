@@ -150,7 +150,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 709551603}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -822479833, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 69a0fbec31fa8a040a0eb92ea0c375fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_NetworkPort: 7777
@@ -162,14 +162,13 @@ MonoBehaviour:
   m_ScriptCRCCheck: 1
   m_MaxDelay: 0.01
   m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 1063936598707464, guid: 9764203a515ee41c5a8bd213f615b458,
+  m_PlayerPrefab: {fileID: 1198390537249120, guid: b6e4515de519d4189ae5bc58619d219e,
     type: 2}
   m_AutoCreatePlayer: 0
   m_PlayerSpawnMethod: 1
   m_OfflineScene: 
   m_OnlineScene: 
   m_SpawnPrefabs:
-  - {fileID: 0}
   - {fileID: 1590068067264468, guid: 097876309fa797142a215e7e10edc0de, type: 2}
   - {fileID: 1220311087748042, guid: 8660772187ddfbc44ab48f7d07c8c81e, type: 2}
   m_CustomConfig: 0
@@ -214,7 +213,7 @@ MonoBehaviour:
     m_MaxTimerTimeout: 12000
     m_MinNetSimulatorTimeout: 1
     m_MaxNetSimulatorTimeout: 12000
-  m_Channels: 
+  m_Channels: 0500000000000000
   m_UseWebSockets: 0
   m_UseSimulator: 0
   m_SimulatedLatency: 1
@@ -264,6 +263,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da02a64dd33a346a8846e57bd5657097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerPrefabs:
+  - {fileID: 1063936598707464, guid: 9764203a515ee41c5a8bd213f615b458, type: 2}
+  - {fileID: 1198390537249120, guid: b6e4515de519d4189ae5bc58619d219e, type: 2}
 --- !u!1 &1294986265
 GameObject:
   m_ObjectHideFlags: 0

@@ -60,10 +60,12 @@ public class SimpleAI : PaddleBase {
         if (dist < 2 && dist > 1f)
         {
             animator.SetBool("pull", true);
+            animator.SetBool("hit", true);
         }
         else
         {
             animator.SetBool("pull", false);
+            animator.SetBool("hit", false);
         }
     }
     

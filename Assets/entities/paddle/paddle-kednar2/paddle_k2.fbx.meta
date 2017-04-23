@@ -1,0 +1,409 @@
+fileFormatVersion: 2
+guid: eb65d19144ea8417fb7c7e57e5246de5
+timeCreated: 1492618644
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: arm.L
+    100002: arm.L.001
+    100004: arm.R
+    100006: arm.R.001
+    100008: Cube
+    100010: forearm.L
+    100012: forearm.L.001
+    100014: forearm.L.001_end
+    100016: forearm.R
+    100018: forearm.R.001
+    100020: forearm.R.001_end
+    100022: hand.L
+    100024: hand.L_end
+    100026: hand.R
+    100028: hand.R_end
+    100030: main
+    100032: paddle
+    100034: //RootNode
+    100036: paddle_k2_rig
+    100038: Plane
+    100040: k2_body
+    100042: paddle_panel
+    400000: arm.L
+    400002: arm.L.001
+    400004: arm.R
+    400006: arm.R.001
+    400008: Cube
+    400010: forearm.L
+    400012: forearm.L.001
+    400014: forearm.L.001_end
+    400016: forearm.R
+    400018: forearm.R.001
+    400020: forearm.R.001_end
+    400022: hand.L
+    400024: hand.L_end
+    400026: hand.R
+    400028: hand.R_end
+    400030: main
+    400032: paddle
+    400034: //RootNode
+    400036: paddle_k2_rig
+    400038: Plane
+    400040: k2_body
+    400042: paddle_panel
+    2300000: Plane
+    2300002: paddle_panel
+    3300000: Plane
+    3300002: paddle_panel
+    4300000: Plane
+    4300002: Cube
+    4300004: paddle_panel
+    4300006: k2_body
+    7400000: k2_hit
+    7400002: k2_moving_L
+    7400004: k2_moving_R
+    7400006: k2_idle
+    7400008: paddle_k2_rig|SphereAction
+    9500000: //RootNode
+    13700000: Cube
+    13700002: k2_body
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 0
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: k2_hit
+      takeName: paddle_k2_rig|k2_hit
+      firstFrame: 0
+      lastFrame: 18
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: paddle_k2_rig
+        weight: 1
+      - path: paddle_k2_rig/main
+        weight: 1
+      - path: paddle_k2_rig/main/arm.L
+        weight: 1
+      - path: paddle_k2_rig/main/arm.L/arm.L.001
+        weight: 1
+      - path: paddle_k2_rig/main/arm.L/arm.L.001/forearm.L
+        weight: 1
+      - path: paddle_k2_rig/main/arm.L/arm.L.001/forearm.L/forearm.L.001
+        weight: 1
+      - path: paddle_k2_rig/main/arm.L/arm.L.001/forearm.L/forearm.L.001/forearm.L.001_end
+        weight: 1
+      - path: paddle_k2_rig/main/arm.R
+        weight: 1
+      - path: paddle_k2_rig/main/arm.R/arm.R.001
+        weight: 1
+      - path: paddle_k2_rig/main/arm.R/arm.R.001/forearm.R
+        weight: 1
+      - path: paddle_k2_rig/main/arm.R/arm.R.001/forearm.R/forearm.R.001
+        weight: 1
+      - path: paddle_k2_rig/main/arm.R/arm.R.001/forearm.R/forearm.R.001/forearm.R.001_end
+        weight: 1
+      - path: paddle_k2_rig/paddle
+        weight: 1
+      - path: paddle_k2_rig/paddle/hand.L
+        weight: 1
+      - path: paddle_k2_rig/paddle/hand.L/hand.L_end
+        weight: 1
+      - path: paddle_k2_rig/paddle/hand.R
+        weight: 1
+      - path: paddle_k2_rig/paddle/hand.R/hand.R_end
+        weight: 1
+      - path: paddle_k2_rig/paddle/Plane
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: k2_moving_L
+      takeName: paddle_k2_rig|k2_moving_L
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: paddle_k2_rig
+        weight: 1
+      - path: paddle_k2_rig/main
+        weight: 1
+      - path: paddle_k2_rig/main/arm.L
+        weight: 1
+      - path: paddle_k2_rig/main/arm.L/arm.L.001
+        weight: 1
+      - path: paddle_k2_rig/main/arm.L/arm.L.001/forearm.L
+        weight: 1
+      - path: paddle_k2_rig/main/arm.L/arm.L.001/forearm.L/forearm.L.001
+        weight: 1
+      - path: paddle_k2_rig/main/arm.L/arm.L.001/forearm.L/forearm.L.001/forearm.L.001_end
+        weight: 1
+      - path: paddle_k2_rig/main/arm.R
+        weight: 1
+      - path: paddle_k2_rig/main/arm.R/arm.R.001
+        weight: 1
+      - path: paddle_k2_rig/main/arm.R/arm.R.001/forearm.R
+        weight: 1
+      - path: paddle_k2_rig/main/arm.R/arm.R.001/forearm.R/forearm.R.001
+        weight: 1
+      - path: paddle_k2_rig/main/arm.R/arm.R.001/forearm.R/forearm.R.001/forearm.R.001_end
+        weight: 1
+      - path: paddle_k2_rig/paddle
+        weight: 1
+      - path: paddle_k2_rig/paddle/hand.L
+        weight: 1
+      - path: paddle_k2_rig/paddle/hand.L/hand.L_end
+        weight: 1
+      - path: paddle_k2_rig/paddle/hand.R
+        weight: 1
+      - path: paddle_k2_rig/paddle/hand.R/hand.R_end
+        weight: 1
+      - path: paddle_k2_rig/paddle/Plane
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: k2_moving_R
+      takeName: paddle_k2_rig|k2_moving_R
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: paddle_k2_rig
+        weight: 1
+      - path: paddle_k2_rig/main
+        weight: 1
+      - path: paddle_k2_rig/main/arm.L
+        weight: 1
+      - path: paddle_k2_rig/main/arm.L/arm.L.001
+        weight: 1
+      - path: paddle_k2_rig/main/arm.L/arm.L.001/forearm.L
+        weight: 1
+      - path: paddle_k2_rig/main/arm.L/arm.L.001/forearm.L/forearm.L.001
+        weight: 1
+      - path: paddle_k2_rig/main/arm.L/arm.L.001/forearm.L/forearm.L.001/forearm.L.001_end
+        weight: 1
+      - path: paddle_k2_rig/main/arm.R
+        weight: 1
+      - path: paddle_k2_rig/main/arm.R/arm.R.001
+        weight: 1
+      - path: paddle_k2_rig/main/arm.R/arm.R.001/forearm.R
+        weight: 1
+      - path: paddle_k2_rig/main/arm.R/arm.R.001/forearm.R/forearm.R.001
+        weight: 1
+      - path: paddle_k2_rig/main/arm.R/arm.R.001/forearm.R/forearm.R.001/forearm.R.001_end
+        weight: 1
+      - path: paddle_k2_rig/paddle
+        weight: 1
+      - path: paddle_k2_rig/paddle/hand.L
+        weight: 1
+      - path: paddle_k2_rig/paddle/hand.L/hand.L_end
+        weight: 1
+      - path: paddle_k2_rig/paddle/hand.R
+        weight: 1
+      - path: paddle_k2_rig/paddle/hand.R/hand.R_end
+        weight: 1
+      - path: paddle_k2_rig/paddle/Plane
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: k2_idle
+      takeName: paddle_k2_rig|k2_idle
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: paddle_k2_rig
+        weight: 1
+      - path: paddle_k2_rig/main
+        weight: 1
+      - path: paddle_k2_rig/main/arm.L
+        weight: 1
+      - path: paddle_k2_rig/main/arm.L/arm.L.001
+        weight: 1
+      - path: paddle_k2_rig/main/arm.L/arm.L.001/forearm.L
+        weight: 1
+      - path: paddle_k2_rig/main/arm.L/arm.L.001/forearm.L/forearm.L.001
+        weight: 1
+      - path: paddle_k2_rig/main/arm.L/arm.L.001/forearm.L/forearm.L.001/forearm.L.001_end
+        weight: 1
+      - path: paddle_k2_rig/main/arm.R
+        weight: 1
+      - path: paddle_k2_rig/main/arm.R/arm.R.001
+        weight: 1
+      - path: paddle_k2_rig/main/arm.R/arm.R.001/forearm.R
+        weight: 1
+      - path: paddle_k2_rig/main/arm.R/arm.R.001/forearm.R/forearm.R.001
+        weight: 1
+      - path: paddle_k2_rig/main/arm.R/arm.R.001/forearm.R/forearm.R.001/forearm.R.001_end
+        weight: 1
+      - path: paddle_k2_rig/paddle
+        weight: 1
+      - path: paddle_k2_rig/paddle/hand.L
+        weight: 1
+      - path: paddle_k2_rig/paddle/hand.L/hand.L_end
+        weight: 1
+      - path: paddle_k2_rig/paddle/hand.R
+        weight: 1
+      - path: paddle_k2_rig/paddle/hand.R/hand.R_end
+        weight: 1
+      - path: paddle_k2_rig/paddle/Plane
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
