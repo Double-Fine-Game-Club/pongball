@@ -36,3 +36,7 @@ sysinfo.txt
 # This is overwritten on every launch of Unity
 /Assets/AssetBundleManager/Resources/AssetBundleServerURL.bytes
 /Assets/AssetBundleManager/Resources/AssetBundleServerURL.bytes.meta
+
+#OS specific temp files
+*~
+.DS_Store
