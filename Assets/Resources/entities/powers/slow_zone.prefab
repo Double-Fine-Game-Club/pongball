@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 135498098431258362}
   - component: {fileID: 23325925410018882}
   - component: {fileID: 114853668238535848}
+  - component: {fileID: 114965468339159894}
   m_Layer: 1
   m_Name: slow_zone
   m_TagString: Untagged
@@ -93,6 +94,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5d51768a9611814b8288068a22f9e69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114965468339159894
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1099873294289796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 222
+    i1: 254
+    i2: 61
+    i3: 17
+    i4: 109
+    i5: 73
+    i6: 176
+    i7: 180
+    i8: 90
+    i9: 140
+    i10: 231
+    i11: 123
+    i12: 50
+    i13: 37
+    i14: 42
+    i15: 93
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!135 &135498098431258362
 SphereCollider:
   m_ObjectHideFlags: 1

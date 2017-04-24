@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class Storm : SuperPowerBase {
 
-    public Storm(GameObject owner) : base(owner)
-    {
-
-    }
-	// Use this for initialization
+   // Use this for initialization
 	void Start () {
 		
 	}

@@ -1,22 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class Slow : SuperPowerBase {
 
     public static string slow_zone = "entities/powers/slow_zone";
     GameObject zone;
 
-    public Slow(GameObject owner) : base(owner)
-    {
-        duration = 5.0;
-        powerName = "Slow";
-    }
 	// Use this for initialization
 	void Start () {
-       
+        duration = 8;
+        powerName = "Slow";
 
-	}
+    }
+    private void OnEnable()
+    {
+        duration = 8;
+        powerName = "Slow";
+    }
 
     // Update is called once per frame
     override public void Update () {
@@ -26,11 +28,17 @@ public class Slow : SuperPowerBase {
 
      override protected void TriggerEffect()
     {
+        if (!isHost) { return; }
+
         try
         {
-            zone = Object.Instantiate(Resources.Load(slow_zone)) as GameObject;
-            zone.transform.position = paddle.transform.position;
-            
+            zone = Instantiate(NetworkManager.singleton.spawnPrefabs[5]);
+            zone.transform.position = gameObject.transform.position;
+            if (NetworkServer.active)
+            {
+                NetworkServer.Spawn(zone);
+            }
+                
         }
         catch
         {
@@ -40,7 +48,11 @@ public class Slow : SuperPowerBase {
 
      override protected void CleanUp()
     {
-        Object.Destroy(zone);
+        if (isHost)
+        {
+            Object.Destroy(zone);
+        }
+        
         base.CleanUp();
     }
 }

@@ -49,6 +49,16 @@ public class SimpleAI : PaddleBase {
         }
     }
 
+    private new void Update()
+    {
+        base.Update();
+        if(myPowers.Count>0 || currentPowerName!="")
+        {
+            TryActivate();
+        }
+
+    } 
+
     private void FollowTrackedBall()
     {
 		float dir = trackedBall.transform.position.z - transform.position.z;
@@ -80,5 +90,20 @@ public class SimpleAI : PaddleBase {
                     trackedBall.position.z > bottomBounds;
         }
         return trackedBall.position.z < transform.position.z;
+    }
+
+    new public void TryActivate()
+    {
+        if (!NetworkManager.singleton.isNetworkActive 
+            || NetworkServer.connections.Count > 0
+            && myPowers.Count>0 )
+        {
+            myPowers[myPowers.Count - 1].Activate();
+        }
+        else
+        {
+            //Client AI only needs to update the UI
+            currentPowerName = "";
+        }
     }
 }

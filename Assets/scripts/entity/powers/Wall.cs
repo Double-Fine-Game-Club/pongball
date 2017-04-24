@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class Wall : SuperPowerBase {
 
-    public Wall(GameObject owner) : base(owner)
-    {
-
-    }
+   
 	// Use this for initialization
 	void Start () {
 		

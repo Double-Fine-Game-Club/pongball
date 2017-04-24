@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33733695551731076}
   - component: {fileID: 65779203067036870}
   - component: {fileID: 23922709768580776}
+  - component: {fileID: 114961543237511306}
   m_Layer: 0
   m_Name: obstruction
   m_TagString: Untagged
@@ -93,3 +94,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114961543237511306
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1629930731990380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 206
+    i1: 122
+    i2: 196
+    i3: 147
+    i4: 13
+    i5: 22
+    i6: 19
+    i7: 52
+    i8: 57
+    i9: 140
+    i10: 244
+    i11: 100
+    i12: 58
+    i13: 60
+    i14: 187
+    i15: 36
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0

@@ -16,15 +16,23 @@ public class PaddleBase : NetworkBehaviour {
 
     private Rigidbody rigidBody;
     protected Animator animator;
-	
-	public virtual void Start()
+
+    protected List<SuperPowerBase> myPowers = new List<SuperPowerBase>();
+    protected string currentPowerName="";
+    
+    public virtual void Start()
 	{
 		rigidBody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
 	}
 
+    private void OnEnable()
+    {
+        currentPowerName = "";
+    }
 
-	protected void SetThrust(float thrust)
+
+    protected void SetThrust(float thrust)
 	{
 		this.thrust = thrust;
 	}
@@ -58,5 +66,39 @@ public class PaddleBase : NetworkBehaviour {
                 Mathf.Clamp(transform.position.z, -4.0f, 4.0f)
                 );
         }
+    }
+
+    internal void Update()
+    {
+        //Try to cleanup oldest power
+        if (myPowers.Count > 0)
+        {
+            SuperPowerBase p = myPowers[0];
+            if(!p.isActive && !p.isReady)
+            {
+                myPowers.RemoveAt(0);
+                Destroy(p);
+                Debug.Log("Cleaning");
+            }
+        }
+        
+    }
+
+    internal void TryActivate() {}
+
+    public void AddPower(string powerName)
+    {
+        if (myPowers.Count > 0)
+            { myPowers[myPowers.Count - 1].isReady = false; }
+        Debug.Log(powerName);
+        SuperPowerBase spb = gameObject.AddComponent(Type.GetType(powerName)) as SuperPowerBase;
+        spb.isReady = true;
+        myPowers.Add(spb);
+    }
+
+    public void SetPower(string powerName)
+    {
+        Debug.Log("Set Power: " + powerName);
+        currentPowerName = powerName;
     }
 }

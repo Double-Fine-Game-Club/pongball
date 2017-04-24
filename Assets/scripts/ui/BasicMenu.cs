@@ -283,6 +283,7 @@ public class BasicMenu : MonoBehaviour
                                 {
                                     bot.gameObject.GetComponent<PaddleNetworking>().PossessPaddle();
                                     bot.gameObject.GetComponent<Player>().enabled = true;
+                                    bot.gameObject.GetComponent<Remote>().enabled = false;
                                 }
                                 else
                                 {
@@ -295,6 +296,7 @@ public class BasicMenu : MonoBehaviour
                                 // If local switch whether the paddle is player controlled
                                 bot.gameObject.GetComponent<Player>().enabled = isBot;
                                 bot.enabled = !isBot;
+                                bot.gameObject.GetComponent<Remote>().enabled = false;
                             }
                         }
 
@@ -364,4 +366,5 @@ public class BasicMenu : MonoBehaviour
 	{
 
 	}
+
 }

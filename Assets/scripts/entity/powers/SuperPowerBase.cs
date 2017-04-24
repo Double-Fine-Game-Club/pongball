@@ -1,28 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 
-public class SuperPowerBase {
+public class SuperPowerBase : NetworkBehaviour{
 
     protected string powerName;
     protected int id;
     protected double duration;
     protected double remainingDuration;
-    protected bool isActive;
-    protected bool isReady;
-    protected GameObject paddle;
-
-    public SuperPowerBase(GameObject owner)
-    {
-        paddle = owner;
-    }
+    public bool isActive { get; protected set; }
+    public bool isReady { get; set; }
+    public bool isHost { get; protected set; }
 
 	// Use this for initialization
 	void Start () {
-        isReady = false;
-        isActive = false;
-        remainingDuration = 0;
+        
 	}
 	
 	// Update is called once per frame
@@ -38,16 +32,12 @@ public class SuperPowerBase {
         }
 	}
 
-    public void Ready()
-    {
-        isReady = true;
-
-    }
-
     public void Activate() {
         
         if (isReady)
         {
+            isHost = !NetworkManager.singleton.isNetworkActive || NetworkServer.connections.Count > 0;
+
             //Reset the duration if it is already active
             remainingDuration = duration;
             TriggerEffect();
@@ -66,6 +56,7 @@ public class SuperPowerBase {
 
     virtual protected void CleanUp() {
         isActive = false;
+        isReady = false;
     }
 
 }
