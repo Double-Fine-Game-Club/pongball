@@ -29,7 +29,7 @@ public class SoundManager : MonoBehaviour
 	public static SoundManager instance = null;		//Allows other scripts to call functions from SoundManager.				
 	public float lowPitchRange = .95f;				//The lowest a sound effect will be randomly pitched.
 	public float highPitchRange = 1.05f;			//The highest a sound effect will be randomly pitched.
-    public bool TrueForKyle3wynn;
+    public bool trueForKyle3Wynn;
 	
 	void Awake ()
 	{
@@ -46,19 +46,6 @@ public class SoundManager : MonoBehaviour
 		DontDestroyOnLoad (gameObject);
 	}
 
-    //I know there's probably a better way to do this but I'm sleepy :/ - sjm
-    public void Kyle3wynn()
-    {
-        TrueForKyle3wynn = true;
-    }
-
-    public void Lclhoster()
-    {
-        TrueForKyle3wynn = false;
-
-    }
-	
-	
 	//Used to play single sound clips.
 	public void PlaySingle(AudioClip clip)
 	{

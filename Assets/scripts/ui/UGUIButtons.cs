@@ -7,19 +7,25 @@ public class UGUIButtons : MonoBehaviour {
     public GameObject optionsPanel;
     public GameObject creditsPanel;
 
-
+    void Awake()
+    {
+        
+    }
 
     public void PlayGameButton()
     {
         SceneManager.LoadScene("BaseTable");
     }
 
+    //This will open the panel if it's closed and close it if it's open
     public void OptionsButton()
     {
-        CloseAllPanels();
+
         if (optionsPanel.activeSelf == false)
         {
+            CloseAllPanels();
             optionsPanel.SetActive(true);
+
         }
         else if (optionsPanel.activeSelf == true)
         {
@@ -29,9 +35,9 @@ public class UGUIButtons : MonoBehaviour {
 
     public void CreditsButton()
     {
-        CloseAllPanels();
         if (creditsPanel.activeSelf == false)
         {
+            CloseAllPanels();
             creditsPanel.SetActive(true);
         }
         else if (creditsPanel.activeSelf == true)
@@ -42,7 +48,7 @@ public class UGUIButtons : MonoBehaviour {
 
     public void QuitButton()
     {
-        //this should open a menu confirming your selection
+        //this should probably open a menu confirming your selection
         Application.Quit();
     }
 
