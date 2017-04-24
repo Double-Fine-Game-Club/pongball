@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 
 public class PowerManager : NetworkBehaviour {
 
-    private const double nextPowerTimer = 10.0;
+    private const double nextPowerTimer = 30.0;
 
     private GameObject paddle;
     private double timeSinceGivenPower;
@@ -62,23 +62,30 @@ public class PowerManager : NetworkBehaviour {
 
     // Update is called once per frame
     void Update () {
-        timeSinceGivenPower += Time.deltaTime;
-        if(nextPowerTimer - timeSinceGivenPower < 0)
+        if (isHost)
         {
-            timeSinceGivenPower -= nextPowerTimer;
 
-            //all powers are given at the same time
-            foreach (PaddleBase player in playerList)
+            timeSinceGivenPower += Time.deltaTime;
+            if (nextPowerTimer - timeSinceGivenPower < 0)
             {
-                //players can be swapped with AI by toggling scripts
-                if (player.enabled)
+                timeSinceGivenPower -= nextPowerTimer;
+
+                //all powers are given at the same time
+                foreach (PaddleBase player in playerList)
                 {
-                    giveNewPower(player);
+                    
+                    //players can be swapped with AI by toggling scripts
+                    if (player.enabled)
+                    {
+                        giveNewPower(player);
+                    
+                    }
+                    
+
                 }
-                
+
+
             }
-            
-           
         }
 
 	}
@@ -93,9 +100,14 @@ public class PowerManager : NetworkBehaviour {
         player.AddPower(powerName);
 
         Debug.Log("Power Granted: " + powerMapping[(powerTypes)randInt].ToString() + " to player " + ownerId);
-        //TODO
-        //Tell network which power this player has
+
+        if (NetworkManager.singleton.isNetworkActive)
+        {
+            PaddleNetworking pNet = player.gameObject.GetComponent<PaddleNetworking>();
+            pNet.RpcSetCurrentPower(powerName);
+        }
     }
+
 
     //Util
 

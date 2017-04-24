@@ -122,6 +122,7 @@ public class PaddleNetworking : NetworkBehaviour {
 		{
 			// Disable the AI for this paddle on the server
 			GetComponent<SimpleAI>().enabled = false;
+            GetComponent<Remote>().enabled = true;
 
 			// Find the client which is taking possession
 			foreach (NetworkConnection conn in NetworkServer.connections)
@@ -150,9 +151,39 @@ public class PaddleNetworking : NetworkBehaviour {
 
 			// Enabled the AI for this paddle on the server
 			GetComponent<SimpleAI>().enabled = true;
+            GetComponent<Remote>().enabled = false;
 		}
 
 		// Update the client id on the server (is replicated on clients)
 		paddleClientId = clientId;
 	}
+
+    [ClientRpc]
+    public void RpcSetCurrentPower(string newPower)
+    {
+        PaddleBase[] pb = gameObject.GetComponents<PaddleBase>();
+        foreach (PaddleBase p in pb)
+        {
+            if (p.enabled)
+            {
+                p.SetPower(newPower);
+            }
+
+        }
+    }
+
+    [Command]
+    public void CmdActivatePower()
+    {
+        //Only remote players can send this command
+        Debug.Log("Message Recieve");
+        Remote r = gameObject.GetComponent<Remote>();
+
+        if(r.enabled)
+        {
+            r.TryActivate();
+        }
+
+    }
+    
 }

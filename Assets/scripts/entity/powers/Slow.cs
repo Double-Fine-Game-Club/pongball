@@ -34,7 +34,11 @@ public class Slow : SuperPowerBase {
         {
             zone = Instantiate(NetworkManager.singleton.spawnPrefabs[3]);
             zone.transform.position = gameObject.transform.position;
-            NetworkServer.Spawn(zone);
+            if (NetworkServer.active)
+            {
+                NetworkServer.Spawn(zone);
+            }
+                
         }
         catch
         {

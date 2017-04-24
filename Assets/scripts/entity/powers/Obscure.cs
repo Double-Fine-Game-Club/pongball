@@ -43,7 +43,11 @@ public class Obscure : SuperPowerBase {
                     break;
                 }
             }
-            NetworkServer.Spawn(obstacle);
+            if (NetworkServer.active)
+            {
+                NetworkServer.Spawn(obstacle);
+            }
+                
         }
         catch
         {

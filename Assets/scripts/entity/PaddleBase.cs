@@ -18,6 +18,7 @@ public class PaddleBase : NetworkBehaviour {
     protected Animator animator;
 
     protected List<SuperPowerBase> myPowers = new List<SuperPowerBase>();
+    protected string currentPowerName="";
     
     public virtual void Start()
 	{
@@ -25,8 +26,13 @@ public class PaddleBase : NetworkBehaviour {
         animator = GetComponent<Animator>();
 	}
 
+    private void OnEnable()
+    {
+        currentPowerName = "";
+    }
 
-	protected void SetThrust(float thrust)
+
+    protected void SetThrust(float thrust)
 	{
 		this.thrust = thrust;
 	}
@@ -78,6 +84,8 @@ public class PaddleBase : NetworkBehaviour {
         
     }
 
+    internal void TryActivate() {}
+
     public void AddPower(string powerName)
     {
         if (myPowers.Count > 0)
@@ -86,5 +94,11 @@ public class PaddleBase : NetworkBehaviour {
         SuperPowerBase spb = gameObject.AddComponent(Type.GetType(powerName)) as SuperPowerBase;
         spb.isReady = true;
         myPowers.Add(spb);
+    }
+
+    public void SetPower(string powerName)
+    {
+        Debug.Log("Set Power: " + powerName);
+        currentPowerName = powerName;
     }
 }
