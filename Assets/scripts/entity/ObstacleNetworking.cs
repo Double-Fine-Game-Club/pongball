@@ -28,6 +28,8 @@ public class ObstacleNetworking : MonoBehaviour
 		if (NetworkManager.singleton.isNetworkActive)
 		{
 			obstacleManager.ActivateObstacle(this);
+
+			Debug.Log("activate on server");
 		}
 	}
 
@@ -37,6 +39,8 @@ public class ObstacleNetworking : MonoBehaviour
 		if (NetworkManager.singleton.isNetworkActive)
 		{
 			obstacleManager.DeactivateObstacle(this);
+
+			Debug.Log("deactivate on server");
 		}
 	}
 }

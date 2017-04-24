@@ -9,7 +9,7 @@ public class ObstacleManager : NetworkBehaviour
 	private short ACTIVATE_MESSAGE = 1100;
 	private short DEACTIVATE_MESSAGE = 1101;
 
-	ObstacleNetworking[] obstacles;
+	public ObstacleNetworking[] obstacles;
 
 	[ServerCallback]
 	void Start () 
