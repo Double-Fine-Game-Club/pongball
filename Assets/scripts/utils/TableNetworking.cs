@@ -14,12 +14,29 @@ public class TableNetworking : NetworkBehaviour
 	[SyncVar]
 	public bool selected;
 
+	public float logPingFrequency = 5.0f;
+
 	[ServerCallback]
 	void Start () 
 	{
 		selected = false;
 		table = "";
 		variant = "";
+
+		InvokeRepeating("LogPing", 0.0f, logPingFrequency);
+	}
+
+	void OnClientConnect(NetworkConnection conn)
+	{
+		InvokeRepeating("LogPing", 0.0f, logPingFrequency);
+	}
+
+	void LogPing()
+	{
+		foreach (NetworkClient conn in NetworkClient.allClients)
+		{
+			Debug.Log("Ping for connection " + conn.connection.address.ToString() + ": " + conn.GetRTT().ToString() + " (ms)");
+		}
 	}
 
 	public string GetTable()
