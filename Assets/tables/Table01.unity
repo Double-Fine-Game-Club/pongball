@@ -322,6 +322,21 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300022, guid: c8bdfe8f19d2643488eed312b2c5c007, type: 3}
+--- !u!1 &3663893 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100012, guid: c8bdfe8f19d2643488eed312b2c5c007, type: 3}
+  m_PrefabInternal: {fileID: 3663876}
+--- !u!114 &3663894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 3663893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1257f659e12b34292b3471937d0fc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &18258090
 Prefab:
   m_ObjectHideFlags: 0
