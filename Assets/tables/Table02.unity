@@ -405,6 +405,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &109119902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 109119898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33429fe7e83564085a2effb72c0b0721, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &321258562
 GameObject:
   m_ObjectHideFlags: 0
@@ -1103,6 +1114,17 @@ MonoBehaviour:
   flipperStrength: 2000
   flipperDamper: 5
   inputButtonName: RightFlipper
+--- !u!114 &847371453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 847371449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33429fe7e83564085a2effb72c0b0721, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &879866962
 Prefab:
   m_ObjectHideFlags: 0
@@ -1912,6 +1934,17 @@ MonoBehaviour:
   flipperStrength: 2000
   flipperDamper: 5
   inputButtonName: LeftFlipper
+--- !u!114 &1515719041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1515719037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33429fe7e83564085a2effb72c0b0721, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1568810183
 Prefab:
   m_ObjectHideFlags: 0
@@ -2518,6 +2551,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1862793036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1862793032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33429fe7e83564085a2effb72c0b0721, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1888694072
 Prefab:
   m_ObjectHideFlags: 0
