@@ -12,6 +12,11 @@ TagManager:
   - Goal2
   - Score
   - Effect
+  - Bumper
+  - RampUp
+  - RampDown
+  - PowerUp
+  - Flipper
   layers:
   - Default
   - TransparentFX

@@ -39,10 +39,12 @@ public class Player : PaddleBase {
         if (Input.GetButton("Fire1"))
         {
             animator.SetBool("pull", true);
+            animator.SetBool("hit", true);
         }
         else
         {
             animator.SetBool("pull", false);
+            animator.SetBool("hit", false);
         }
     }
 
