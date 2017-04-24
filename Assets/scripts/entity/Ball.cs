@@ -32,11 +32,13 @@ public class Ball : NetworkBehaviour {
 
         if (rigidBody.velocity.magnitude < minimumVelocity)
         {
-			rigidBody.velocity *= minimumVelocity / rigidBody.velocity.magnitude;
+            //added a ver small number to keep from dividing by zero
+            rigidBody.velocity *= minimumVelocity / rigidBody.velocity.magnitude + 0.000000001F;
         }
         if (rigidBody.velocity.magnitude > maximumVelocity)
         {
-			rigidBody.velocity *= maximumVelocity / rigidBody.velocity.magnitude;
+            //added a ver small number to keep from dividing by zero
+            rigidBody.velocity *= maximumVelocity / rigidBody.velocity.magnitude + 0.000000001F;
         }
     }
 
@@ -105,6 +107,9 @@ public class Ball : NetworkBehaviour {
 
 	void OnCollisionExit(Collision other)
 	{
+        // Only handle ball force server-side of local
+        if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count == 0) return;
+
 		if (other.gameObject.tag == "Paddle" ||
 		   	other.gameObject.tag == "Bumper")
 		{
