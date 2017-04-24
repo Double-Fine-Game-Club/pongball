@@ -32,11 +32,11 @@ public class Ball : NetworkBehaviour {
 
         if (rigidBody.velocity.magnitude < minimumVelocity)
         {
-            rigidBody.velocity = rigidBody.velocity * 1.25f;
+			rigidBody.velocity *= minimumVelocity / rigidBody.velocity.magnitude;
         }
         if (rigidBody.velocity.magnitude > maximumVelocity)
         {
-            rigidBody.velocity = rigidBody.velocity * 0.90f;
+			rigidBody.velocity *= maximumVelocity / rigidBody.velocity.magnitude;
         }
     }
 
@@ -62,7 +62,6 @@ public class Ball : NetworkBehaviour {
         transform.forward = new Vector3(1, 0, 1);
         transform.position = startingPosition;
     }
-
 
     void OnTriggerEnter(Collider Col)
 	{
@@ -103,4 +102,14 @@ public class Ball : NetworkBehaviour {
             ResetPosition();
         }
     }
+
+	void OnCollisionExit(Collision other)
+	{
+		if (other.gameObject.tag == "Paddle" ||
+		   	other.gameObject.tag == "Bumper")
+		{
+			Debug.Log ("Adding force to ball");
+			rigidBody.AddForce (rigidBody.velocity.normalized * 2.5f);
+		}
+	}
 }

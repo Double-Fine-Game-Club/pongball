@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 33881615923883728}
   - component: {fileID: 23246333471709452}
   - component: {fileID: 64447266638017336}
-  - component: {fileID: 114351652613839056}
   m_Layer: 0
   m_Name: bumper_prefab
   m_TagString: Bumper
@@ -96,14 +95,3 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 136739c0c5b41a742a472b890d320d5c, type: 3}
---- !u!114 &114351652613839056
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1657032312230928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3357c6c602746414dac7339d18529069, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
