@@ -11,26 +11,39 @@ public class FlipperController : MonoBehaviour
     public string inputButtonName = "LeftFlipper";
     private HingeJoint paddleHingeJoint;
 
+	JointSpring spring;
+
     private JointLimits limits;
  
     void  Awake (){
         GetComponent<HingeJoint>().useSpring = true;
+
+		// Callback to the activate/deactivate methods from server
+		GetComponent<ObstacleNetworking>().ActivateFromServer += ActivateFlipper;
+		GetComponent<ObstacleNetworking>().DeactivateFromServer += DeactivateFlipper;
+
+		spring = new JointSpring();
     }
 
    
     void  Update (){
-        JointSpring spring = new JointSpring();
 
         spring.spring = flipperStrength;
         spring.damper = flipperDamper;
 
-        if (Input.GetButton(inputButtonName))
+		if (Input.GetButtonDown(inputButtonName))
         {
-            spring.targetPosition = pressedPosition;
+			ActivateFlipper();
+
+			// Activate the flipper on all clients
+			GetComponent<ObstacleNetworking>().ActivateOnServer();
         }
-        else
+		else if (Input.GetButtonUp(inputButtonName))
         {
-            spring.targetPosition = restPosition;
+			DeactivateFlipper();
+
+			// Deactivate the flipper on all clients
+			GetComponent<ObstacleNetworking>().DeactivateOnServer();
         }
 
         GetComponent<HingeJoint>().spring = spring;
@@ -40,6 +53,16 @@ public class FlipperController : MonoBehaviour
         limits.max = pressedPosition;
         GetComponent<HingeJoint>().limits = limits;
     }
+
+	void ActivateFlipper()
+	{
+		spring.targetPosition = pressedPosition;
+	}
+
+	void DeactivateFlipper()
+	{
+		spring.targetPosition = restPosition;
+	}
 
 
 }

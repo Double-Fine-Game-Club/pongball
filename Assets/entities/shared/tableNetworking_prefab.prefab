@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4269623849355802}
   - component: {fileID: 114303799797387028}
   - component: {fileID: 114981176073580158}
+  - component: {fileID: 114668158023092524}
   m_Layer: 0
   m_Name: tableNetworking_prefab
   m_TagString: TableNetworking
@@ -55,24 +56,35 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 0
-    i1: 0
-    i2: 0
-    i3: 0
-    i4: 0
-    i5: 0
-    i6: 0
-    i7: 0
-    i8: 0
-    i9: 0
-    i10: 0
-    i11: 0
-    i12: 0
-    i13: 0
-    i14: 0
-    i15: 0
+    i0: 184
+    i1: 255
+    i2: 32
+    i3: 26
+    i4: 13
+    i5: 37
+    i6: 100
+    i7: 106
+    i8: 56
+    i9: 84
+    i10: 103
+    i11: 100
+    i12: 74
+    i13: 249
+    i14: 93
+    i15: 240
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!114 &114668158023092524
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1746585640701714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e9f42e9e6a1a4a649b98ca51402abcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114981176073580158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -87,3 +99,4 @@ MonoBehaviour:
   variant: 
   table: 
   selected: 0
+  logPingFrequency: 5
