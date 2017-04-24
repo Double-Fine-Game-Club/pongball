@@ -32,7 +32,7 @@ public class Obscure : SuperPowerBase {
         if (!isHost) { return; }
         try
         {
-            obstacle = Instantiate(NetworkManager.singleton.spawnPrefabs[6]);
+            obstacle = Instantiate(NetworkManager.singleton.spawnPrefabs[7]);
              //Get opponents paddle spawn position and block that
             PaddleBase[] paddles = Object.FindObjectsOfType<PaddleBase>();
             foreach (PaddleBase p in paddles)

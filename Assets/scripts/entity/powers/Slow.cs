@@ -32,7 +32,7 @@ public class Slow : SuperPowerBase {
 
         try
         {
-            zone = Instantiate(NetworkManager.singleton.spawnPrefabs[4]);
+            zone = Instantiate(NetworkManager.singleton.spawnPrefabs[5]);
             zone.transform.position = gameObject.transform.position;
             if (NetworkServer.active)
             {
