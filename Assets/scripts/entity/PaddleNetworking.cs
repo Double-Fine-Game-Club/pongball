@@ -155,4 +155,36 @@ public class PaddleNetworking : NetworkBehaviour {
 		// Update the client id on the server (is replicated on clients)
 		paddleClientId = clientId;
 	}
+
+	[Command]
+	public void CmdSetPower(int power)
+	{
+		RpcSetPowerClient(power);
+	}
+
+	[Command]
+	public void CmdUsePower()
+	{
+		RpcUsePowerClient();
+	}
+
+	[ClientRpc]
+	public void RpcSetPowerClient(int power)
+	{
+		// Set the power of the paddle if it is controlled by another client and is not an AI
+		if (paddleClientId != NetworkManager.singleton.client.connection.connectionId && paddleClientId != PADDLE_AI)
+		{
+			GetComponent<PowerManager>().AssignPower(power);
+		}
+	}
+
+	[ClientRpc]
+	public void RpcUsePowerClient()
+	{
+		// Use the power of the paddle if it is controlled by another client and is not an AI
+		if (paddleClientId != NetworkManager.singleton.client.connection.connectionId && paddleClientId != PADDLE_AI)
+		{
+			GetComponent<PowerManager>().ActivatePower();
+		}
+	}
 }
