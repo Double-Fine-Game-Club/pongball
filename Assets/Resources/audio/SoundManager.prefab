@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114472525645647976}
   - component: {fileID: 82610879947610586}
   - component: {fileID: 82037660747357440}
+  - component: {fileID: 114137415635821844}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -53,7 +54,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 67835f08c6500454787d52ec2638a7dc, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -133,7 +134,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -189,7 +190,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -202,6 +203,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114137415635821844
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1300611100889412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62955a68a953f481ca10d1e466d1cee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSlider: {fileID: 0}
+  sfxSlider: {fileID: 0}
+  sfxSource: {fileID: 82610879947610586}
+  musicSource: {fileID: 82037660747357440}
 --- !u!114 &114472525645647976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -217,3 +233,4 @@ MonoBehaviour:
   musicSource: {fileID: 82037660747357440}
   lowPitchRange: 0.95
   highPitchRange: 1.05
+  TrueForKyle3wynn: 0

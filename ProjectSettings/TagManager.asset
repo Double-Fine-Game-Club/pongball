@@ -18,6 +18,7 @@ TagManager:
   - PowerUp
   - Flipper
   - TableNetworking
+  - FindMe
   layers:
   - Default
   - TransparentFX

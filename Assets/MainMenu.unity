@@ -362,6 +362,7 @@ GameObject:
   - component: {fileID: 232932567}
   - component: {fileID: 232932569}
   - component: {fileID: 232932570}
+  - component: {fileID: 232932571}
   m_Layer: 0
   m_Name: ScriptHolder
   m_TagString: Untagged
@@ -422,6 +423,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverOver: {fileID: 8300000, guid: 25e744ae23cee4e45a90221135aabf1b, type: 3}
   onClick: {fileID: 8300000, guid: 9751cd2c4cf6743939b000877a143f95, type: 3}
+--- !u!114 &232932571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 232932566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62955a68a953f481ca10d1e466d1cee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSlider: {fileID: 2000680199}
+  sfxSlider: {fileID: 370348685}
+  sfxSource: {fileID: 0}
+  musicSource: {fileID: 0}
+  kyle: {fileID: 1820077974}
+  lclhster: {fileID: 1843313304}
 --- !u!1 &255209988
 GameObject:
   m_ObjectHideFlags: 0
@@ -880,7 +898,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2062539471}
+      - m_Target: {fileID: 232932571}
         m_MethodName: ChangeSFXVolume
         m_Mode: 1
         m_Arguments:
@@ -971,12 +989,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 82610879947610586, guid: ea331ca223fa449558937bb4ee734ca0,
+    - target: {fileID: 114137415635821844, guid: ea331ca223fa449558937bb4ee734ca0,
         type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+      propertyPath: musicSlider
+      value: 
+      objectReference: {fileID: 2000680199}
+    - target: {fileID: 114137415635821844, guid: ea331ca223fa449558937bb4ee734ca0,
+        type: 2}
+      propertyPath: sfxSlider
+      value: 
+      objectReference: {fileID: 370348685}
+    m_RemovedComponents:
+    - {fileID: 114137415635821844, guid: ea331ca223fa449558937bb4ee734ca0, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ea331ca223fa449558937bb4ee734ca0, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &374471761
@@ -4276,7 +4300,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2062539469}
+      - m_Target: {fileID: 232932571}
         m_MethodName: Kyle3wynn
         m_Mode: 1
         m_Arguments:
@@ -4369,7 +4393,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2062539469}
+      - m_Target: {fileID: 232932571}
         m_MethodName: Lclhoster
         m_Mode: 1
         m_Arguments:
@@ -4908,7 +4932,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2062539471}
+      - m_Target: {fileID: 232932571}
         m_MethodName: ChangeMusicVolume
         m_Mode: 1
         m_Arguments:
@@ -5245,42 +5269,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2062539466 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1300611100889412, guid: ea331ca223fa449558937bb4ee734ca0,
-    type: 2}
-  m_PrefabInternal: {fileID: 370583068}
---- !u!82 &2062539467 stripped
-AudioSource:
-  m_PrefabParentObject: {fileID: 82037660747357440, guid: ea331ca223fa449558937bb4ee734ca0,
-    type: 2}
-  m_PrefabInternal: {fileID: 370583068}
---- !u!82 &2062539468 stripped
-AudioSource:
-  m_PrefabParentObject: {fileID: 82610879947610586, guid: ea331ca223fa449558937bb4ee734ca0,
-    type: 2}
-  m_PrefabInternal: {fileID: 370583068}
---- !u!114 &2062539469 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114472525645647976, guid: ea331ca223fa449558937bb4ee734ca0,
-    type: 2}
-  m_PrefabInternal: {fileID: 370583068}
-  m_Script: {fileID: 11500000, guid: ba934ac568fc24da98f198aca7c2d107, type: 3}
---- !u!114 &2062539471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2062539466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62955a68a953f481ca10d1e466d1cee4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicSlider: {fileID: 2000680199}
-  sfxSlider: {fileID: 370348685}
-  sfxSource: {fileID: 2062539468}
-  musicSource: {fileID: 2062539467}
 --- !u!1 &2079915584
 GameObject:
   m_ObjectHideFlags: 0

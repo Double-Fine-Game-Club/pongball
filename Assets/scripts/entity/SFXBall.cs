@@ -19,7 +19,7 @@ public class SFXBall : MonoBehaviour {
 
     void Start()
     {
-        TrueForKyle3wynn = SoundManager.instance.TrueForKyle3wynn;
+        TrueForKyle3wynn = SoundManager.instance.trueForKyle3Wynn;
     }
 
 
