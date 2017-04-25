@@ -224,6 +224,8 @@ public class BasicMenu : MonoBehaviour
                             var paddlePrefab = playerPrefabs[Mathf.Clamp(paddleIndex, 0, playerPrefabs.Length)];
                             GameObject paddle = GameObject.Instantiate(paddlePrefab, paddlePos);
 
+
+
                             // Spawn on the clients
                             if (NetworkManager.singleton.isNetworkActive)
                             {
@@ -232,6 +234,11 @@ public class BasicMenu : MonoBehaviour
                             }
 
                             paddleIndex++;
+
+                            //this should change one Player scripts playerNum to 1 and one to 2 in order to allow 2 players
+                            // Doesn't seem to be working. atm.
+                            paddle.GetComponent<Player>().playerNum = paddleIndex;
+                            Debug.Log("paddleIndex is "+ paddleIndex);
                         }
                     }
 

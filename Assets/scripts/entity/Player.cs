@@ -8,10 +8,13 @@ using UnityEngine.Networking;
 /// </summary>
 
 public class Player : PaddleBase {
+    //use this in inspector on your prefab to assign player?  Will that work?  Idfk.  *crosses fingers* -sjm
+    public int playerNum = 1;
 
 	// Use this for initialization
 	public override void Start()
     {
+        //playerNum = 1;
 		base.Start();
 		
 		// Give the player faster movement
@@ -22,12 +25,20 @@ public class Player : PaddleBase {
     {
         base.FixedUpdate();
 
-        float haxis = Input.GetAxis("Horizontal");
-        float vaxis = Input.GetAxis("Vertical");
+        //float haxis = Input.GetAxis("Horizontal");
+        //float vaxis = Input.GetAxis("Vertical");
+
+        //testing 2 player local
+        float haxis = Input.GetAxis(playerNum+"Horizontal");
+        float vaxis = Input.GetAxis(playerNum+"Vertical");
+        //float vaxis = Input.GetAxis("1Vertical");
+
+
+        //Local Multiplayer
 
         if (haxis != 0)
         {
-
+            
         }
 
         if (vaxis != 0)
@@ -36,7 +47,9 @@ public class Player : PaddleBase {
         }
 
         // If Fire1 is pressed, trigger pull animation
-        if (Input.GetButton("Fire1"))
+        //if (Input.GetButton("Fire1"))
+        if (Input.GetButton(playerNum+"Fire1"))
+
         {
             animator.SetBool("pull", true);
             animator.SetBool("hit", true);
@@ -51,7 +64,8 @@ public class Player : PaddleBase {
     private new void Update()
     {
         base.Update();
-        if (Input.GetKeyDown(KeyCode.Space) &&  (myPowers.Count > 0 || currentPowerName!=""))
+        //if (Input.GetKeyDown(KeyCode.Space) &&  (myPowers.Count > 0 || currentPowerName!=""))
+        if (Input.GetButton(playerNum+"Fire2") &&  (myPowers.Count > 0 || currentPowerName!=""))
         {
             TryActivate();
         }
