@@ -160,22 +160,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 45
-    i1: 49
-    i2: 205
-    i3: 47
-    i4: 34
-    i5: 193
-    i6: 153
-    i7: 212
-    i8: 202
-    i9: 8
-    i10: 20
-    i11: 130
-    i12: 126
-    i13: 172
-    i14: 254
-    i15: 63
+    i0: 230
+    i1: 109
+    i2: 11
+    i3: 54
+    i4: 141
+    i5: 192
+    i6: 64
+    i7: 68
+    i8: 251
+    i9: 11
+    i10: 28
+    i11: 112
+    i12: 122
+    i13: 54
+    i14: 89
+    i15: 77
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
 --- !u!114 &114889014047957614
@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de954ce9e42c3f848bc2ba60cc5816b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNum: 0
 --- !u!114 &114926957746133038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -200,8 +201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2275ac37e67904bc79427cc4f5875617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paddleClientId: 0
-  paddleIndex: 0
 --- !u!136 &136224915192230348
 CapsuleCollider:
   m_ObjectHideFlags: 1
