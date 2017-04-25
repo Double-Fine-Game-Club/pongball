@@ -224,6 +224,10 @@ public class BasicMenu : MonoBehaviour
                             int paddleIndex = Mathf.FloorToInt(Random.Range(0, playerPrefabs.Length) );
                             var paddlePrefab = playerPrefabs[paddleIndex];
                             GameObject paddle = GameObject.Instantiate(paddlePrefab, paddlePos);
+                            if(playerIndex==0)
+                            {
+                                paddle.AddComponent<PowerManager>();
+                            }
 
                             // Spawn on the clients
                             if (NetworkManager.singleton.isNetworkActive)
@@ -232,7 +236,7 @@ public class BasicMenu : MonoBehaviour
                                 paddle.GetComponent<PaddleNetworking>().SetPaddleIndex(playerIndex);
                             }
 
-                            playerIndex++;
+                            ++playerIndex;
                         }
                     }
 

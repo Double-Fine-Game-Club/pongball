@@ -75,7 +75,6 @@ GameObject:
   - component: {fileID: 114649665207994020}
   - component: {fileID: 114479235123591318}
   - component: {fileID: 65616643357437704}
-  - component: {fileID: 114843082368988466}
   m_Layer: 0
   m_Name: paddle_k2_p2
   m_TagString: Untagged
@@ -761,17 +760,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6da8aa0754d1c894dae87a6972e0f56b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114843082368988466
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1137339957486028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b42a04b731786ed4d8dc2c19c80c94ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114987137566065340
