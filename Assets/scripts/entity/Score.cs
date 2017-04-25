@@ -18,6 +18,9 @@ public class Score : NetworkBehaviour
     [SerializeField]
     private Text score2Text;
 
+	private Coroutine countdownCoroutine = null;
+	public Text CountdownText;
+
     // Use this for initialization
     void Start ()
     {
@@ -28,15 +31,17 @@ public class Score : NetworkBehaviour
     // I believe the event subscription method wasn't working because this occurs before ball instantitation
     public void OnEnable()
 	{
+		Ball.OnTriggerReset += OnTriggerReset;
 		if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count == 0) return;
 
         Debug.Log("Score.OnEnable()");
         Ball.OnTriggerEnterGoal1 += OnTriggerEnterGoal1;
-        Ball.OnTriggerEnterGoal2 += OnTriggerEnterGoal2;
-    }
+        Ball.OnTriggerEnterGoal2 += OnTriggerEnterGoal2; 
+	}
 
     void OnDisable()
 	{
+		Ball.OnTriggerReset -= OnTriggerReset;
 		if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count == 0) return;
 
         Ball.OnTriggerEnterGoal1 -= OnTriggerEnterGoal1;
@@ -73,4 +78,41 @@ public class Score : NetworkBehaviour
         //Debug.Log("Score.OnTriggerEnterGoal2()");
         score2++;
     }
+
+	private IEnumerator Countdown()
+	{
+		var originalColor = CountdownText.color;
+		CountdownText.enabled = true;
+		for (int count = 3; count > 0; count--)
+		{
+			CountdownText.text = count.ToString();
+			yield return new WaitForSeconds(1f);
+		}
+		CountdownText.text = "GO!";
+		yield return new WaitForSeconds(0.5f);
+
+		var fadedColor = originalColor;
+		var steps = 10;
+		var fadeDuration = 0.5f;
+		for (int step = 0; step < steps; step++)
+		{
+			var dt = 1f / (float)steps;
+			var t = (float)step * dt;
+			fadedColor.a = originalColor.a * (1f - t);
+			CountdownText.color = fadedColor;
+			yield return new WaitForSeconds(fadeDuration * dt);
+		}
+		CountdownText.enabled = false;
+		CountdownText.color = originalColor;
+		countdownCoroutine = null;
+	}
+
+	public void OnTriggerReset()
+	{
+		if (countdownCoroutine != null)
+		{
+			StopCoroutine(countdownCoroutine);
+		}
+		countdownCoroutine = StartCoroutine(Countdown());
+	}
 }
