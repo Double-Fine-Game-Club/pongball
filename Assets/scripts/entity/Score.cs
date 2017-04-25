@@ -31,21 +31,21 @@ public class Score : NetworkBehaviour
     // I believe the event subscription method wasn't working because this occurs before ball instantitation
     public void OnEnable()
 	{
+		Ball.OnTriggerReset += OnTriggerReset;
 		if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count == 0) return;
 
         Debug.Log("Score.OnEnable()");
         Ball.OnTriggerEnterGoal1 += OnTriggerEnterGoal1;
         Ball.OnTriggerEnterGoal2 += OnTriggerEnterGoal2; 
-		Ball.OnTriggerReset += OnTriggerReset;
 	}
 
     void OnDisable()
 	{
+		Ball.OnTriggerReset -= OnTriggerReset;
 		if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count == 0) return;
 
         Ball.OnTriggerEnterGoal1 -= OnTriggerEnterGoal1;
         Ball.OnTriggerEnterGoal2 -= OnTriggerEnterGoal2;
-		Ball.OnTriggerReset -= OnTriggerReset;
     }
 
     private void FixedUpdate()

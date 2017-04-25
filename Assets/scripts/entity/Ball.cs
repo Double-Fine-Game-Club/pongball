@@ -25,13 +25,15 @@ public class Ball : NetworkBehaviour {
     public static event BallEventHandler OnTriggerEnterGoal2;
 
     // Use this for initialization
-    void Start () {
-        if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count == 0) return;
-
-        rigidBody = GetComponent<Rigidbody>();
+    void Start()
+    {
         renderer = GetComponent<Renderer>();
         trailRenderer = GetComponent<TrailRenderer>();
-        startingPosition = transform.position;
+        if (!(NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count == 0))
+        {
+            rigidBody = GetComponent<Rigidbody>();
+            startingPosition = transform.position;
+        }
         ResetBall();
     }
 
@@ -76,6 +78,8 @@ public class Ball : NetworkBehaviour {
     {
         renderer.enabled = false;
         trailRenderer.enabled = false;
+
+        if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count == 0) return;
         rigidBody.isKinematic = true;
     }
 
@@ -83,6 +87,8 @@ public class Ball : NetworkBehaviour {
     {
         renderer.enabled = true;
         trailRenderer.enabled = true;
+
+        if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count == 0) return;
         rigidBody.isKinematic = false;
     }
 
@@ -121,6 +127,9 @@ public class Ball : NetworkBehaviour {
 
     void OnTriggerEnter(Collider Col)
     {
+        // Respawn ball at center if on the server or local
+        ResetBall();
+
         // Only handle scoring server-side of local
         if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count == 0) return;
 
@@ -153,9 +162,6 @@ public class Ball : NetworkBehaviour {
 
             // We need to add some wait time and "Goal!" message eventually. The following would not work without other changes:
             //yield return new WaitForSeconds(5);
-
-            // Respawn ball at center if on the server or local
-            ResetBall();
         }
     }
 
