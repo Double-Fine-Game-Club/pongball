@@ -229,14 +229,21 @@ public class BasicMenu : MonoBehaviour
                                 paddle.AddComponent<PowerManager>();
                             }
 
+
+
                             // Spawn on the clients
                             if (NetworkManager.singleton.isNetworkActive)
                             {
                                 NetworkServer.Spawn(paddle);
-                                paddle.GetComponent<PaddleNetworking>().SetPaddleIndex(playerIndex);
+                                paddle.GetComponent<PaddleNetworking>().SetPaddleIndex(paddleIndex);
                             }
 
-                            ++playerIndex;
+                            playerIndex++;
+
+                            //this should change one Player scripts playerNum to 1 and one to 2 in order to allow 2 players
+                            // Doesn't seem to be working. atm.
+                            paddle.GetComponent<Player>().playerNum = playerIndex;
+                            Debug.Log("paddleIndex is "+ paddleIndex);
                         }
                     }
 
