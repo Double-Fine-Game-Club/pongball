@@ -14,7 +14,7 @@ public class Player : PaddleBase {
 	// Use this for initialization
 	public override void Start()
     {
-        playerNum = 1;
+        //playerNum = 1;
 		base.Start();
 		
 		// Give the player faster movement
