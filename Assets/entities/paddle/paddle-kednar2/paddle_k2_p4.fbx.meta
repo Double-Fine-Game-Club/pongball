@@ -1,0 +1,127 @@
+fileFormatVersion: 2
+guid: 4f48e27ae62124404b5614c769ff0643
+timeCreated: 1492629290
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: arm.L
+    100002: arm.L.001
+    100004: arm.R
+    100006: arm.R.001
+    100008: forearm.L
+    100010: forearm.L.001
+    100012: forearm.L.001_end
+    100014: forearm.R
+    100016: forearm.R.001
+    100018: forearm.R.001_end
+    100020: hand.L
+    100022: hand.L_end
+    100024: hand.R
+    100026: hand.R_end
+    100028: k2_body_4
+    100030: k2_panel_4
+    100032: main
+    100034: paddle
+    100036: //RootNode
+    100038: paddle_k2_rig
+    400000: arm.L
+    400002: arm.L.001
+    400004: arm.R
+    400006: arm.R.001
+    400008: forearm.L
+    400010: forearm.L.001
+    400012: forearm.L.001_end
+    400014: forearm.R
+    400016: forearm.R.001
+    400018: forearm.R.001_end
+    400020: hand.L
+    400022: hand.L_end
+    400024: hand.R
+    400026: hand.R_end
+    400028: k2_body_4
+    400030: k2_panel_4
+    400032: main
+    400034: paddle
+    400036: //RootNode
+    400038: paddle_k2_rig
+    2300000: k2_panel_4
+    3300000: k2_panel_4
+    4300000: k2_body_4
+    4300002: k2_panel_4
+    7400000: paddle_k2_rig|k2_hit
+    7400002: paddle_k2_rig|k2_moving_L
+    7400004: paddle_k2_rig|k2_moving_R
+    7400006: paddle_k2_rig|k2_idle
+    9500000: //RootNode
+    13700000: k2_body_4
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
