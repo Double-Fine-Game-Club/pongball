@@ -125,7 +125,7 @@ public class BasicMenu : MonoBehaviour
 
 							if (NetworkServer.connections.Count > 0)
 							{
-								GameObject tableManager = GameObject.Instantiate(NetworkManager.singleton.spawnPrefabs[4]);
+								GameObject tableManager = GameObject.Instantiate(NetworkManager.singleton.spawnPrefabs[7]);
 								NetworkServer.Spawn(tableManager);
 							}
 							
@@ -216,22 +216,23 @@ public class BasicMenu : MonoBehaviour
                             }
                         }
 
-                        int paddleIndex = 0;
+                        int playerIndex = 0;
 
                         foreach (Transform spawnPosition in NetworkManager.singleton.startPositions)
                         {
                             Transform paddlePos = spawnPosition;
-                            var paddlePrefab = playerPrefabs[Mathf.Clamp(paddleIndex, 0, playerPrefabs.Length)];
+                            int paddleIndex = Mathf.FloorToInt(Random.Range(0, playerPrefabs.Length) );
+                            var paddlePrefab = playerPrefabs[paddleIndex];
                             GameObject paddle = GameObject.Instantiate(paddlePrefab, paddlePos);
 
                             // Spawn on the clients
                             if (NetworkManager.singleton.isNetworkActive)
                             {
                                 NetworkServer.Spawn(paddle);
-                                paddle.GetComponent<PaddleNetworking>().SetPaddleIndex(paddleIndex);
+                                paddle.GetComponent<PaddleNetworking>().SetPaddleIndex(playerIndex);
                             }
 
-                            paddleIndex++;
+                            playerIndex++;
                         }
                     }
 

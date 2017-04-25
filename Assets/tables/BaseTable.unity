@@ -162,7 +162,7 @@ MonoBehaviour:
   m_ScriptCRCCheck: 1
   m_MaxDelay: 0.01
   m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 1198390537249120, guid: b6e4515de519d4189ae5bc58619d219e,
+  m_PlayerPrefab: {fileID: 1512352645870626, guid: a518511ac9c324f4795b45af3b7fe053,
     type: 2}
   m_AutoCreatePlayer: 0
   m_PlayerSpawnMethod: 1
@@ -172,7 +172,10 @@ MonoBehaviour:
   - {fileID: 1590068067264468, guid: 097876309fa797142a215e7e10edc0de, type: 2}
   - {fileID: 1220311087748042, guid: 8660772187ddfbc44ab48f7d07c8c81e, type: 2}
   - {fileID: 1063936598707464, guid: 9764203a515ee41c5a8bd213f615b458, type: 2}
-  - {fileID: 1198390537249120, guid: b6e4515de519d4189ae5bc58619d219e, type: 2}
+  - {fileID: 1512352645870626, guid: a518511ac9c324f4795b45af3b7fe053, type: 2}
+  - {fileID: 1137339957486028, guid: cf99ed717c64a4c0b818705975e11927, type: 2}
+  - {fileID: 1054660396546120, guid: 114f56273e509433186b949a7e2844ea, type: 2}
+  - {fileID: 1401081363770172, guid: 5e90ddb56e61c43dc9787bbc882b80e2, type: 2}
   - {fileID: 1746585640701714, guid: b8ff201a0d25646a385467644af95df0, type: 2}
   - {fileID: 1099873294289796, guid: defe3d116d49b0b45a8ce77b32252a5d, type: 2}
   - {fileID: 1629930731990380, guid: ce7ac4930d161334398cf4643a3cbb24, type: 2}
@@ -271,7 +274,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefabs:
   - {fileID: 1063936598707464, guid: 9764203a515ee41c5a8bd213f615b458, type: 2}
-  - {fileID: 1198390537249120, guid: b6e4515de519d4189ae5bc58619d219e, type: 2}
+  - {fileID: 1512352645870626, guid: a518511ac9c324f4795b45af3b7fe053, type: 2}
+  - {fileID: 1137339957486028, guid: cf99ed717c64a4c0b818705975e11927, type: 2}
+  - {fileID: 1054660396546120, guid: 114f56273e509433186b949a7e2844ea, type: 2}
+  - {fileID: 1401081363770172, guid: 5e90ddb56e61c43dc9787bbc882b80e2, type: 2}
 --- !u!1 &1294986265
 GameObject:
   m_ObjectHideFlags: 0

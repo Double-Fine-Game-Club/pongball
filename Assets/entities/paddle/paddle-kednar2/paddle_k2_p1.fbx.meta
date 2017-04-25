@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: eb65d19144ea8417fb7c7e57e5246de5
-timeCreated: 1492618644
+guid: d0bc4414ef0bb4f5292d5be3fb546e03
+timeCreated: 1492628503
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,62 +9,52 @@ ModelImporter:
     100002: arm.L.001
     100004: arm.R
     100006: arm.R.001
-    100008: Cube
-    100010: forearm.L
-    100012: forearm.L.001
-    100014: forearm.L.001_end
-    100016: forearm.R
-    100018: forearm.R.001
-    100020: forearm.R.001_end
-    100022: hand.L
-    100024: hand.L_end
-    100026: hand.R
-    100028: hand.R_end
-    100030: main
-    100032: paddle
-    100034: //RootNode
-    100036: paddle_k2_rig
-    100038: Plane
-    100040: k2_body
-    100042: paddle_panel
+    100008: forearm.L
+    100010: forearm.L.001
+    100012: forearm.L.001_end
+    100014: forearm.R
+    100016: forearm.R.001
+    100018: forearm.R.001_end
+    100020: hand.L
+    100022: hand.L_end
+    100024: hand.R
+    100026: hand.R_end
+    100028: k2_body_1
+    100030: k2_panel_1
+    100032: main
+    100034: paddle
+    100036: //RootNode
+    100038: paddle_k2_rig
     400000: arm.L
     400002: arm.L.001
     400004: arm.R
     400006: arm.R.001
-    400008: Cube
-    400010: forearm.L
-    400012: forearm.L.001
-    400014: forearm.L.001_end
-    400016: forearm.R
-    400018: forearm.R.001
-    400020: forearm.R.001_end
-    400022: hand.L
-    400024: hand.L_end
-    400026: hand.R
-    400028: hand.R_end
-    400030: main
-    400032: paddle
-    400034: //RootNode
-    400036: paddle_k2_rig
-    400038: Plane
-    400040: k2_body
-    400042: paddle_panel
-    2300000: Plane
-    2300002: paddle_panel
-    3300000: Plane
-    3300002: paddle_panel
-    4300000: Plane
-    4300002: Cube
-    4300004: paddle_panel
-    4300006: k2_body
+    400008: forearm.L
+    400010: forearm.L.001
+    400012: forearm.L.001_end
+    400014: forearm.R
+    400016: forearm.R.001
+    400018: forearm.R.001_end
+    400020: hand.L
+    400022: hand.L_end
+    400024: hand.R
+    400026: hand.R_end
+    400028: k2_body_1
+    400030: k2_panel_1
+    400032: main
+    400034: paddle
+    400036: //RootNode
+    400038: paddle_k2_rig
+    2300000: k2_panel_1
+    3300000: k2_panel_1
+    4300000: k2_panel_1
+    4300002: k2_body_1
     7400000: k2_hit
     7400002: k2_moving_L
     7400004: k2_moving_R
     7400006: k2_idle
-    7400008: paddle_k2_rig|SphereAction
     9500000: //RootNode
-    13700000: Cube
-    13700002: k2_body
+    13700000: k2_body_1
   materials:
     importMaterials: 1
     materialName: 0
@@ -92,7 +82,7 @@ ModelImporter:
       name: k2_hit
       takeName: paddle_k2_rig|k2_hit
       firstFrame: 0
-      lastFrame: 18
+      lastFrame: 15
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -115,7 +105,7 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: Cube
+      - path: k2_body_1
         weight: 1
       - path: paddle_k2_rig
         weight: 1
@@ -151,7 +141,7 @@ ModelImporter:
         weight: 1
       - path: paddle_k2_rig/paddle/hand.R/hand.R_end
         weight: 1
-      - path: paddle_k2_rig/paddle/Plane
+      - path: paddle_k2_rig/paddle/k2_panel_1
         weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
@@ -183,7 +173,7 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: Cube
+      - path: k2_body_1
         weight: 1
       - path: paddle_k2_rig
         weight: 1
@@ -219,7 +209,7 @@ ModelImporter:
         weight: 1
       - path: paddle_k2_rig/paddle/hand.R/hand.R_end
         weight: 1
-      - path: paddle_k2_rig/paddle/Plane
+      - path: paddle_k2_rig/paddle/k2_panel_1
         weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
@@ -251,7 +241,7 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: Cube
+      - path: k2_body_1
         weight: 1
       - path: paddle_k2_rig
         weight: 1
@@ -287,7 +277,7 @@ ModelImporter:
         weight: 1
       - path: paddle_k2_rig/paddle/hand.R/hand.R_end
         weight: 1
-      - path: paddle_k2_rig/paddle/Plane
+      - path: paddle_k2_rig/paddle/k2_panel_1
         weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
@@ -319,7 +309,7 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: Cube
+      - path: k2_body_1
         weight: 1
       - path: paddle_k2_rig
         weight: 1
@@ -355,7 +345,7 @@ ModelImporter:
         weight: 1
       - path: paddle_k2_rig/paddle/hand.R/hand.R_end
         weight: 1
-      - path: paddle_k2_rig/paddle/Plane
+      - path: paddle_k2_rig/paddle/k2_panel_1
         weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
@@ -370,8 +360,8 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
-    keepQuads: 1
+    optimizeMeshForGPU: 0
+    keepQuads: 0
     weldVertices: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001

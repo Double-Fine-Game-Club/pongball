@@ -78,7 +78,7 @@ public class PaddleBase : NetworkBehaviour {
             {
                 myPowers.RemoveAt(0);
                 Destroy(p);
-                Debug.Log("Cleaning");
+                //Debug.Log("Cleaning");
             }
         }
         
