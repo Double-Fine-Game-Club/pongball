@@ -162,7 +162,12 @@ public class BasicMenu : MonoBehaviour
 						GUILayout.Label("The host is selecting a table...");
 						UndoCentered();
 
-						TableNetworking tableNetworking = GameObject.FindGameObjectWithTag("TableNetworking").GetComponent<TableNetworking>();
+                        TableNetworking tableNetworking = null;
+                        GameObject g = GameObject.FindGameObjectWithTag("TableNetworking");
+                        if (g)
+                        {
+                            tableNetworking = g.GetComponent<TableNetworking>();
+                        }
 						
 						if (tableNetworking != null && tableNetworking.ServerHasSelected())
 						{
@@ -237,7 +242,17 @@ public class BasicMenu : MonoBehaviour
 
             case Menu.PaddleSelect:
                 {
-                    GUILayout.BeginHorizontal();
+                    try
+                    {
+                        GUILayout.BeginHorizontal();
+                    }
+                    catch
+                    {
+                        //Changing the GUI creates an error here
+                        //  so we must wait until next repaint to draw 
+                        //  gui elements
+                        break;
+                    }
                     // GUI Padding
                     GUILayout.Space(15);
                     GUILayout.BeginVertical();
