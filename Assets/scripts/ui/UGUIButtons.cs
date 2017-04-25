@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class UGUIButtons : MonoBehaviour {
     public GameObject optionsPanel;
     public GameObject creditsPanel;
+    public GameObject aboutPanel;
 
     void Awake()
     {
@@ -31,7 +32,7 @@ public class UGUIButtons : MonoBehaviour {
         {
             optionsPanel.SetActive(false);
         }
-    }
+	}
 
     public void CreditsButton()
     {
@@ -46,6 +47,19 @@ public class UGUIButtons : MonoBehaviour {
         }
     }
 
+    public void AboutButton()
+    {
+        if (aboutPanel.activeSelf == false)
+        {
+            CloseAllPanels();
+            aboutPanel.SetActive(true);
+        }
+        else if (aboutPanel.activeSelf == true)
+        {
+            aboutPanel.SetActive(false);
+        }
+    }
+
     public void QuitButton()
     {
         //this should probably open a menu confirming your selection
@@ -56,5 +70,6 @@ public class UGUIButtons : MonoBehaviour {
     {
         optionsPanel.SetActive(false);
         creditsPanel.SetActive(false);
+        aboutPanel.SetActive(false);
     }
 }
