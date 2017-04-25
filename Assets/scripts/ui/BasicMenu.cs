@@ -125,7 +125,7 @@ public class BasicMenu : MonoBehaviour
 
 							if (NetworkServer.connections.Count > 0)
 							{
-								GameObject tableManager = GameObject.Instantiate(NetworkManager.singleton.spawnPrefabs[4]);
+								GameObject tableManager = GameObject.Instantiate(NetworkManager.singleton.spawnPrefabs[7]);
 								NetworkServer.Spawn(tableManager);
 							}
 							
