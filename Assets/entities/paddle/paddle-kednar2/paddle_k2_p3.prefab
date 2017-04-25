@@ -43,10 +43,9 @@ GameObject:
   - component: {fileID: 114140835183574380}
   - component: {fileID: 114278296881885654}
   - component: {fileID: 65679834368048412}
-  - component: {fileID: 114352672700694652}
   m_Layer: 0
   m_Name: paddle_k2_p3
-  m_TagString: Untagged
+  m_TagString: Paddle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -773,17 +772,6 @@ MonoBehaviour:
     i15: 234
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
---- !u!114 &114352672700694652
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1054660396546120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b42a04b731786ed4d8dc2c19c80c94ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114913661327812620
 MonoBehaviour:
   m_ObjectHideFlags: 1
