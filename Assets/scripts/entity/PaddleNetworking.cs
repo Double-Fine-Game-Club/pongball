@@ -158,6 +158,9 @@ public class PaddleNetworking : NetworkBehaviour {
 		paddleClientId = clientId;
 	}
 
+    /****
+     * powers
+     *****///
     [ClientRpc]
     public void RpcSetCurrentPower(string newPower)
     {
@@ -176,7 +179,7 @@ public class PaddleNetworking : NetworkBehaviour {
     public void CmdActivatePower()
     {
         //Only remote players can send this command
-        Debug.Log("Message Recieve");
+        //Debug.Log("Message Recieve: Use Power");
         Remote r = gameObject.GetComponent<Remote>();
 
         if(r.enabled)
@@ -185,5 +188,36 @@ public class PaddleNetworking : NetworkBehaviour {
         }
 
     }
+
+    /***
+     * player inputs
+     * ****/
+     [Command]
+     public void CmdSendInput(string input, bool isPressed)
+    {
+        //Only remote players can send this command
+        //Debug.Log("Message Recieve: Send Input");
+        Remote r = gameObject.GetComponent<Remote>();
+        if(r.enabled)
+        {
+            r.RecieveRemoteInput(input, isPressed);
+        }
+    }
+
+    [ClientRpc]
+    public void RpcSendInput(string input, bool isPressed)
+    {
+        PaddleBase[] pb = gameObject.GetComponents<PaddleBase>();
+        foreach(PaddleBase p in pb)
+        {
+            if(p.enabled)
+            {
+                p.RecieveRemoteInput(input, isPressed);
+            }
+        }
+    }
+
+
+
     
 }

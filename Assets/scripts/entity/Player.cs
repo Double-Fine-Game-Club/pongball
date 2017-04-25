@@ -53,11 +53,13 @@ public class Player : PaddleBase {
         {
             animator.SetBool("pull", true);
             animator.SetBool("hit", true);
+            SendInput("Fire1", true);
         }
         else
         {
             animator.SetBool("pull", false);
             animator.SetBool("hit", false);
+            SendInput("Fire1", false);
         }
     }
 
@@ -69,6 +71,7 @@ public class Player : PaddleBase {
         {
             TryActivate();
         }
+
     }
 
     new public void TryActivate()
