@@ -23,7 +23,7 @@ public class PaddleNetworking : NetworkBehaviour {
 	[SyncVar]
 	private int paddleIndex;
 
-	void OnStartClient () 
+	new void OnStartClient () 
 	{
 		// The paddle is by default AI controlled
 		paddleClientId = PADDLE_AI;

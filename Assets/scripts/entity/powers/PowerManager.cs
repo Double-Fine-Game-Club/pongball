@@ -8,14 +8,13 @@ public class PowerManager : NetworkBehaviour {
 
     private const double nextPowerTimer = 30.0;
 
-    private GameObject paddle;
     private double timeSinceGivenPower;
     private Dictionary<powerTypes, string> powerMapping;
     private bool isHost;
     private PaddleBase[] playerList;
 
     //Debugging
-    private uint ownerId;
+    //private uint ownerId;
 
     enum powerTypes {
         EMPTY,
@@ -33,7 +32,6 @@ public class PowerManager : NetworkBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        paddle = gameObject;
         timeSinceGivenPower = 0;
 
         //Host of online game or local game
@@ -99,7 +97,7 @@ public class PowerManager : NetworkBehaviour {
         
         player.AddPower(powerName);
 
-        Debug.Log("Power Granted: " + powerMapping[(powerTypes)randInt].ToString() + " to player " + ownerId);
+        //Debug.Log("Power Granted: " + powerMapping[(powerTypes)randInt].ToString() + " to player " + ownerId);
 
         if (NetworkManager.singleton.isNetworkActive)
         {
