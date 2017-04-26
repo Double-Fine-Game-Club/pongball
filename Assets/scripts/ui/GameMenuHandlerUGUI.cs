@@ -86,6 +86,7 @@ public class GameMenuHandlerUGUI : MonoBehaviour {
         localOrOnlinePanel.SetActive(false);
         singleOrMultiPanel.SetActive(false);
         onlinePanel.SetActive(false);
+        levelSelectionPanel.SetActive(false);
     }
 
 }

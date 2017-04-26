@@ -62,16 +62,27 @@ public class GameSelectionMenuUGUI : MonoBehaviour {
         SetSelectionText(selectionType, loadAssets.GetName(selectionType, currentIndex[selectionType]));
     }
 
-    public void MakeSelection()
+    public void LoadGameCoroutine()
+    {
+        StartCoroutine( LoadGame());
+    }
+
+    public IEnumerator LoadGame()
     {
         Debug.Log("Stuff is sort of working!!!!");
         //GetComponent.makeSelectionText.text
         //LoadScene
         loadAssets.LoadScene(currentIndex["table"], currentIndex["variant"], currentIndex["paddle"]);
-        if (loadAssets.HasFinishedLoading() == true)
+        Debug.Log("fffffffff");
+
+        while (loadAssets.HasFinishedLoading() != true)
         {
-            loadAssets.BeginPlaying();
+            Debug.Log("uuuuuu");
+                  yield return null;
+            Debug.Log("HasFinishedLoading equals" + loadAssets.HasFinishedLoading());
         }
+        Debug.Log("fuck yeah");
+        loadAssets.BeginPlaying();
     }
 
     private void SetSelectionText(string selectionType, string selectionText)
