@@ -34,11 +34,14 @@ public class LoadAssets : MonoBehaviour {
 	public delegate void FinishedCallback(bool success);
 	public FinishedCallback OnFinished;
 
+	public bool isSinglePlayer;
+
     void Awake()
     {
         activeVariants = new string[2];
         bundlesLoaded = false;
 		finishedLoading = false;
+		isSinglePlayer = false;
 
         Debug.Assert(variantNames != null, "No variant names assigned");
         Debug.Assert(tableNames != null, "No table names assigned");
@@ -223,6 +226,25 @@ public class LoadAssets : MonoBehaviour {
 		return "no key at that index";
 	}
 
+	private int GetIndexAtDictionaryKey(string key, Dictionary<string, bool> dict)
+	{
+		int i = 0;
+
+		foreach (KeyValuePair<string, bool> kvp in dict)
+		{
+			if (kvp.Key == key) 
+			{
+				return i;
+			}
+
+			i++;
+		}
+
+		Debug.Assert(true, "No key exists at that index");
+
+		return 0;
+	}
+
 	public int GetCount(string type)
 	{
 		if (type == "table")
@@ -265,10 +287,15 @@ public class LoadAssets : MonoBehaviour {
 		}
 	}
 
-	public void LoadScene(int variantIndex, int tableIndex, int paddleIndex)
+	// Load the scene using the given table, variant and paddle
+	public void LoadScene(int tableIndex, int variantIndex, int paddleIndex)
 	{
 		// Remove the buttons
 		bundlesLoaded = true;
+
+		SetActiveInDictionary(GetName("table", tableIndex), tableNames);
+		SetActiveInDictionary(GetName("variant", variantIndex), variantNames);
+		SetActiveInDictionary(GetName("paddle", paddleIndex), paddleNames);
 
 		// Set the activeVariant
 		activeVariants[0] = "table-" + GetActiveFromDictionary(variantNames);
@@ -284,10 +311,22 @@ public class LoadAssets : MonoBehaviour {
 
 	public bool HasFinishedLoading()
 	{
+		// Spawn the server objects
+		if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count > 0)
+		{
+			NetworkServer.SpawnObjects();
+		}
+
 		return finishedLoading;
 	}
 
-	public void SetupTable()
+	// Sets whether to play against an AI or not
+	public void SetSinglePlayer(bool singlePlayer)
+	{
+		isSinglePlayer = singlePlayer;
+	}
+
+	public void BeginPlaying()
 	{
 		// Add the ball spawner script to a spawner in the scene otherwise it will spawn inactive
 		GameObject[] spawners = GameObject.FindGameObjectsWithTag("BallSpawner");
@@ -315,14 +354,12 @@ public class LoadAssets : MonoBehaviour {
 			{
 				Transform paddlePos = spawnPosition;
 				int paddleIndex = Mathf.FloorToInt(Random.Range(0, playerPrefabs.Length) );
-				var paddlePrefab = playerPrefabs[paddleIndex];
+				var paddlePrefab = playerPrefabs[GetIndexAtDictionaryKey(GetActiveFromDictionary(paddleNames), paddleNames)];
 				GameObject paddle = GameObject.Instantiate(paddlePrefab, paddlePos);
 				if(playerIndex==0)
 				{
 					paddle.AddComponent<PowerManager>();
 				}
-
-
 
 				// Spawn on the clients
 				if (NetworkManager.singleton.isNetworkActive)
@@ -337,6 +374,47 @@ public class LoadAssets : MonoBehaviour {
 				// Doesn't seem to be working. atm.
 				paddle.GetComponent<Player>().playerNum = playerIndex;
 				Debug.Log("paddleIndex is "+ paddleIndex);
+			}
+		}
+
+		SimpleAI[] bots = GameObject.FindObjectsOfType<SimpleAI>();
+
+		// If local make the first paddle player controlled
+		if (!NetworkManager.singleton.isNetworkActive)
+		{
+			bots[0].gameObject.GetComponent<Player>().enabled = true;
+			bots[0].enabled = false;
+			bots[0].gameObject.GetComponent<Remote>().enabled = false;
+
+			if (isSinglePlayer)
+			{
+				// Set player 2 to be a bot if singleplayer
+				bots[1].gameObject.GetComponent<Player>().enabled = false;
+				bots[1].enabled = true;
+				bots[1].gameObject.GetComponent<Remote>().enabled = false;
+			}
+			else
+			{
+				// Set player 2 to be a player if not singleplayer
+				bots[1].gameObject.GetComponent<Player>().enabled = true;
+				bots[1].enabled = false;
+				bots[1].gameObject.GetComponent<Remote>().enabled = false;
+			}
+		}
+		// if networked make the host control paddle 0 and the client control paddle 1
+		else
+		{
+			if (NetworkServer.connections.Count > 0)
+			{
+				bots[0].gameObject.GetComponent<PaddleNetworking>().PossessPaddle();
+				bots[0].gameObject.GetComponent<Player>().enabled = true;
+				bots[0].gameObject.GetComponent<Remote>().enabled = false;
+			}
+			else
+			{
+				bots[1].gameObject.GetComponent<PaddleNetworking>().PossessPaddle();
+				bots[1].gameObject.GetComponent<Player>().enabled = true;
+				bots[1].gameObject.GetComponent<Remote>().enabled = false;
 			}
 		}
 	}
