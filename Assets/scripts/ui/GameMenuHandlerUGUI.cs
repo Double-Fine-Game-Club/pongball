@@ -12,6 +12,7 @@ public class GameMenuHandlerUGUI : MonoBehaviour {
     public GameObject onlinePanel;
 	public GameObject levelSelectionPanel;
 	public GameObject clientWaitPanel;
+	public GameObject backgroundPanel;
 
 
 	// Use this for initialization
@@ -102,4 +103,8 @@ public class GameMenuHandlerUGUI : MonoBehaviour {
         levelSelectionPanel.SetActive(false);
     }
 
+	public void CloseUI()
+	{
+		backgroundPanel.SetActive(false);
+	}
 }

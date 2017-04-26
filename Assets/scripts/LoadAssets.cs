@@ -326,6 +326,8 @@ public class LoadAssets : MonoBehaviour {
 
 	public IEnumerator BeginPlaying()
 	{
+		GetComponent<GameMenuHandlerUGUI>().CloseUI();
+
 		// Fill the table with AIs if offline or the server
 		if (!NetworkManager.singleton.isNetworkActive || NetworkServer.connections.Count > 0)
 		{
