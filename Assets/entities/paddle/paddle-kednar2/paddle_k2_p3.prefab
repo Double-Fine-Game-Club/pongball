@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 114140835183574380}
   - component: {fileID: 114278296881885654}
   - component: {fileID: 65679834368048412}
+  - component: {fileID: 64818270616150378}
   m_Layer: 0
   m_Name: paddle_k2_p3
   m_TagString: Paddle
@@ -399,8 +400,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1273753905440458}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 2.5, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalPosition: {x: -0, y: 2.5, z: -0.25}
+  m_LocalScale: {x: 80, y: 80, z: 80}
   m_Children:
   - {fileID: 4878822192037512}
   - {fileID: 4675504133492616}
@@ -657,6 +658,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 118
   m_CollisionDetection: 0
+--- !u!64 &64818270616150378
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1054660396546120}
+  m_Material: {fileID: 13400000, guid: 8b114f0d0f0fa034cae318d5adf38d04, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300002, guid: 7a4cd8c403e86438fbd600d9ce4287e4, type: 3}
 --- !u!65 &65679834368048412
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -665,7 +680,7 @@ BoxCollider:
   m_GameObject: {fileID: 1054660396546120}
   m_Material: {fileID: 13400000, guid: 8b114f0d0f0fa034cae318d5adf38d04, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 6.63, y: 2.68, z: 1.43}
   m_Center: {x: 0, y: 2.54, z: 1}
@@ -697,6 +712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de954ce9e42c3f848bc2ba60cc5816b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNum: 1
 --- !u!114 &114140835183574380
 MonoBehaviour:
   m_ObjectHideFlags: 1
