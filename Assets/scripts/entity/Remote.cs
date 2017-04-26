@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class Remote : PaddleBase {
 
@@ -17,6 +18,11 @@ public class Remote : PaddleBase {
             && myPowers.Count > 0)
         {
             myPowers[myPowers.Count - 1].Activate();
+        }
+        if (!powerText)
+        {
+            GameObject powerUI = GameObject.FindGameObjectWithTag("PowerUp");
+            powerText = powerUI.transform.GetChild(playerIndex).GetComponent<Text>();
         }
         powerText.text = "";
     }

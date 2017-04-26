@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 
 public class PowerManager : NetworkBehaviour {
 
-    private const double nextPowerTimer = 30.0;
+    private const double nextPowerTimer = 20.0;
 
     private double timeSinceGivenPower;
     private Dictionary<powerTypes, string> powerMapping;
@@ -96,6 +96,7 @@ public class PowerManager : NetworkBehaviour {
         string powerName = powerMapping[(powerTypes)randInt];
         
         player.AddPower(powerName);
+        player.currentPowerName = powerName;
 
         //Debug.Log("Power Granted: " + powerMapping[(powerTypes)randInt].ToString() + " to player " + ownerId);
 

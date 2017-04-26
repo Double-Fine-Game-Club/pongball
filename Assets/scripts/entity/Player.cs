@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 /// <summary>
 /// Player controlled paddle
@@ -66,26 +67,44 @@ public class Player : PaddleBase {
     private new void Update()
     {
         base.Update();
-        //if (Input.GetKeyDown(KeyCode.Space) &&  (myPowers.Count > 0 || currentPowerName!=""))
-        if (Input.GetButton(playerNum+"Fire2") &&  (myPowers.Count > 0 || currentPowerName!=""))
+        if (Input.GetButton(playerNum+"Fire2") && ( myPowers.Count > 0 || currentPowerName!=""))
         {
             TryActivate();
         }
+        timeToNextMessage -= Time.deltaTime;
 
     }
 
     new public void TryActivate()
     {
-        if (!NetworkManager.singleton.isNetworkActive || NetworkServer.connections.Count > 0)
+        if (timeToNextMessage < 0)
         {
-            myPowers[myPowers.Count - 1].Activate();
+            timeToNextMessage = messageTimer;
+
+            PaddleNetworking pn = GetComponent<PaddleNetworking>();
+            if (!NetworkManager.singleton.isNetworkActive || NetworkServer.connections.Count > 0)
+            {
+                myPowers[myPowers.Count - 1].Activate();
+                currentPowerName = "";
+            }
+            else
+            {
+                pn.CmdActivatePower();
+                currentPowerName = "";
+            }
+
+            if (pn.isServer)
+            {
+                pn.RpcSetCurrentPower("");
+            }
+
+            if (!powerText)
+            {
+                GameObject powerUI = GameObject.FindGameObjectWithTag("PowerUp");
+                powerText = powerUI.transform.GetChild(playerIndex).GetComponent<Text>();
+            }
+
+            powerText.text = "";
         }
-        else
-        {
-            PaddleNetworking pn = gameObject.GetComponent<PaddleNetworking>();
-            pn.CmdActivatePower();
-            currentPowerName = "";
-        }
-        powerText.text = "";
     }
 }

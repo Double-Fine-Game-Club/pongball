@@ -22,17 +22,19 @@ public class PaddleBase : NetworkBehaviour {
     public int playerIndex;
 
     protected List<SuperPowerBase> myPowers = new List<SuperPowerBase>();
-    protected string currentPowerName="";
+    public string currentPowerName="";
     protected Text powerText;
 
     protected Dictionary<string, bool> remoteInputs = new Dictionary<string, bool>();
+    protected float messageTimer = 0.3f;
+    protected float timeToNextMessage;
+
     
     public virtual void Start()
 	{
 		rigidBody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
 
-        //
         
         PaddleNetworking[] playerList = GameObject.FindObjectsOfType<PaddleNetworking>();
         int index = 0;  
@@ -45,9 +47,7 @@ public class PaddleBase : NetworkBehaviour {
             ++index;
 
         }
-        GameObject powerUI = GameObject.FindGameObjectWithTag("PowerUp");
-        powerText = powerUI.transform.GetChild(playerIndex).GetComponent<Text>();
-        powerText.text = "";
+        
         currentPowerName = "";
     }
 
@@ -128,6 +128,11 @@ public class PaddleBase : NetworkBehaviour {
         spb.isReady = true;
         myPowers.Add(spb);
 
+        if (!powerText)
+        {
+            GameObject powerUI = GameObject.FindGameObjectWithTag("PowerUp");
+            powerText = powerUI.transform.GetChild(playerIndex).GetComponent<Text>();
+        }
         powerText.text = powerName;
     }
 
@@ -135,6 +140,12 @@ public class PaddleBase : NetworkBehaviour {
     {
         Debug.Log("Set Power: " + powerName);
         currentPowerName = powerName;
+
+        if (!powerText)
+        {
+            GameObject powerUI = GameObject.FindGameObjectWithTag("PowerUp");
+            powerText = powerUI.transform.GetChild(playerIndex).GetComponent<Text>();
+        }
         powerText.text = powerName;
     }
 

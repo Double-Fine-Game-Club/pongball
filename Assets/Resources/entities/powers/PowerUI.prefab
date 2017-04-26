@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 222165563479367746}
   - component: {fileID: 114644505683843562}
   m_Layer: 5
-  m_Name: Score2
+  m_Name: Power2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 222162821828785952}
   - component: {fileID: 114406320515604950}
   m_Layer: 5
-  m_Name: Score1
+  m_Name: Power1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,7 +149,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Power1
+  m_Text: 
 --- !u!114 &114527445172157684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -198,7 +198,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Power2
+  m_Text: 
 --- !u!222 &222162821828785952
 CanvasRenderer:
   m_ObjectHideFlags: 1
