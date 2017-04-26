@@ -21,6 +21,7 @@ public class LoadAssets : MonoBehaviour {
     };
 
     private string[] activeVariants;
+	private bool finishedLoading;
 
 	public bool bundlesLoaded;
 
@@ -31,13 +32,14 @@ public class LoadAssets : MonoBehaviour {
     {
         activeVariants = new string[2];
         bundlesLoaded = false;
+		finishedLoading = false;
 
         Debug.Assert(variantNames != null, "No variant names assigned");
         Debug.Assert(tableNames != null, "No table names assigned");
     }
 
     // Creating the Temp UI for the demo in IMGui.
-    void OnGUI()
+    /*void OnGUI()
     {
         if (!bundlesLoaded)
         {
@@ -75,7 +77,7 @@ public class LoadAssets : MonoBehaviour {
             GUILayout.EndVertical();
             GUILayout.EndHorizontal();
         }
-    }
+    }*/
 
     private void AddGUIButtons()
     {
@@ -177,6 +179,7 @@ public class LoadAssets : MonoBehaviour {
 
 		// Trigger callbacks once the scene has loaded
 		OnFinished(true);
+		finishedLoading = true;
 
         // Calculate and display the elapsed time.
         float elapsedTime = Time.realtimeSinceStartup - startTime;
@@ -193,5 +196,64 @@ public class LoadAssets : MonoBehaviour {
 		activeVariants[0] = "table-" + GetActiveFromDictionary(variantNames);
 		// Load the scene now!
 		StartCoroutine(BeginExample());
+	}
+		
+	private string GetKeyFromDictionaryAt(int index, Dictionary<string, bool> dict)
+	{
+		int i = 0;
+
+		foreach (KeyValuePair<string, bool> kvp in dict)
+		{
+			if (i == index) 
+			{
+				return kvp.Key;
+			}
+
+			i++;
+		}
+
+		Debug.Assert(true, "No key exists at that index");
+	}
+
+	public int GetVariantCount()
+	{
+		return variantNames.Count;
+	}
+
+	public int GetTableCount()
+	{
+		return tableNames.Count;
+	}
+
+	public string GetVariantName(int variantIndex)
+	{
+		return GetKeyFromDictionaryAt(variantIndex, variantNames);
+	}
+
+	public string GetTableName(int tableIndex)
+	{
+		return GetKeyFromDictionaryAt(tableIndex, tableNames);
+	}
+
+	public void LoadScene(int variantIndex, int tableIndex)
+	{
+		// Remove the buttons
+		bundlesLoaded = true;
+
+		// Set the activeVariant
+		activeVariants[0] = "table-" + GetActiveFromDictionary(variantNames);
+
+		if (NetworkManager.singleton.isNetworkActive)
+		{
+			GameObject.FindGameObjectWithTag("TableNetworking").GetComponent<TableNetworking>().SetTableInfo(GetActiveFromDictionary(variantNames), GetActiveFromDictionary(tableNames));
+		}
+
+		// Load the scene now!
+		StartCoroutine(BeginExample());
+	}
+
+	public bool HasFinishedLoading()
+	{
+		return finishedLoading;
 	}
 }
