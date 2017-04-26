@@ -213,6 +213,8 @@ public class LoadAssets : MonoBehaviour {
 		}
 
 		Debug.Assert(true, "No key exists at that index");
+
+		return "no key at that index";
 	}
 
 	public int GetVariantCount()
