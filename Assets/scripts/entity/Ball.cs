@@ -21,8 +21,10 @@ public class Ball : NetworkBehaviour {
     // https://unity3d.com/learn/tutorials/topics/scripting/events
     public delegate void BallEventHandler();
     public static event BallEventHandler OnTriggerReset;
-    public static event BallEventHandler OnTriggerEnterGoal1;
-    public static event BallEventHandler OnTriggerEnterGoal2;
+	public static event BallEventHandler OnTriggerEnterGoal1;
+	public static event BallEventHandler OnTriggerEnterGoal2;
+	public static event BallEventHandler OnTriggerEnterBumper;
+    public static event BallEventHandler OnTriggerEnterRollover;
 
     // Use this for initialization
     void Start()
@@ -126,56 +128,70 @@ public class Ball : NetworkBehaviour {
     }
 
     void OnTriggerEnter(Collider Col)
-    {
-        // If the ball collided with Goal1 or Goal2:
-        if (Col.gameObject.tag == "Goal1" || Col.gameObject.tag == "Goal2")
-        {
-            // Respawn ball at center if on the server or local
-            ResetBall();
+	{
+		// If the ball collided with Goal1 or Goal2:
+		if (Col.gameObject.tag == "Goal1" || Col.gameObject.tag == "Goal2")
+		{
+			// Respawn ball at center if on the server or local
+			ResetBall();
 
-            // Only handle scoring server-side of local
-            if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count == 0) return;
+			// Only handle scoring server-side of local
+			if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count == 0)
+				return;
 
         
-            // If the ball collided with Goal1:
-            if (Col.gameObject.tag == "Goal1")
-            {
-                //Debug.Log("Collided with Goal1");
+			// If the ball collided with Goal1:
+			if (Col.gameObject.tag == "Goal1")
+			{
+				//Debug.Log("Collided with Goal1");
 
-                // Alert other scripts that ball hit Goal1.
-                if (OnTriggerEnterGoal1 != null)
-                {
-                    OnTriggerEnterGoal1();
-                }
+				// Alert other scripts that ball hit Goal1.
+				if (OnTriggerEnterGoal1 != null)
+				{
+					OnTriggerEnterGoal1();
+				}
                     
-            }
+			}
             // Else if the ball collided with Goal2:
             else if (Col.gameObject.tag == "Goal2")
-            {
-                //Debug.Log("Collided with Goal2");
+			{
+				//Debug.Log("Collided with Goal2");
 
-                // Alert other scripts that ball hit Goal2.
-                if (OnTriggerEnterGoal2 != null)
-                {
-                    OnTriggerEnterGoal2();
-                }
-            }
+				// Alert other scripts that ball hit Goal2.
+				if (OnTriggerEnterGoal2 != null)
+				{
+					OnTriggerEnterGoal2();
+				}
+			}
 
-            // We need to add some wait time and "Goal!" message eventually. The following would not work without other changes:
-            //yield return new WaitForSeconds(5);
-        }
-    }
+			// We need to add some wait time and "Goal!" message eventually. The following would not work without other changes:
+			//yield return new WaitForSeconds(5);
+		}
+		else if (Col.gameObject.tag == "Lightpad")
+		{
+			if (OnTriggerEnterRollover != null)
+			{
+				OnTriggerEnterRollover();
+			}
+		}
+	}
 
-    void OnCollisionExit(Collision other)
-    {
-        // Only handle ball force server-side of local
-        if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count == 0) return;
+	void OnCollisionExit(Collision other)
+	{
+		// Only handle ball force server-side of local
+		if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count == 0) return;
 
-        if (other.gameObject.tag == "Paddle" ||
-            other.gameObject.tag == "Bumper")
-        {
-            //Debug.Log ("Adding force to ball");
-            rigidBody.AddForce (rigidBody.velocity.normalized * 2.5f);
-        }
-    }
+		if (other.gameObject.tag == "Paddle" || other.gameObject.tag == "Bumper")
+		{
+			//Debug.Log ("Adding force to ball");
+			rigidBody.AddForce (rigidBody.velocity.normalized * 2.5f);
+			if (other.gameObject.tag == "Bumper")
+			{
+				if (OnTriggerEnterBumper != null)
+				{
+					OnTriggerEnterBumper();
+				}
+			}
+		}
+	}
 }
