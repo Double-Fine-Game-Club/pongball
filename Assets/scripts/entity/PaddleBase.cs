@@ -19,6 +19,8 @@ public class PaddleBase : NetworkBehaviour {
 
     protected List<SuperPowerBase> myPowers = new List<SuperPowerBase>();
     protected string currentPowerName="";
+
+    protected Dictionary<string, bool> remoteInputs = new Dictionary<string, bool>();
     
     public virtual void Start()
 	{
@@ -101,4 +103,55 @@ public class PaddleBase : NetworkBehaviour {
         Debug.Log("Set Power: " + powerName);
         currentPowerName = powerName;
     }
+
+    public virtual void SendInput(string input, bool isPress)
+    {
+        if (NetworkManager.singleton.isNetworkActive)
+        {
+            bool willSend= false;
+            if (!remoteInputs.ContainsKey(input))
+            {
+                remoteInputs.Add(input, isPress);
+                willSend = true;
+            }
+            else
+            {
+                bool lastState = remoteInputs[input];   //needs optimizing
+                willSend = (lastState != isPress);
+            }
+            
+            if (!willSend) return;
+
+            PaddleNetworking pn = GetComponent<PaddleNetworking>();
+            if (pn.isServer)
+            {
+                pn.RpcSendInput(input, isPress);
+            }
+            else
+            {
+                //isClient
+                pn.CmdSendInput(input, isPress);
+            }
+            remoteInputs[input] = isPress;
+        }
+    }
+
+    public void RecieveRemoteInput(string input, bool isPressed)
+    {
+        //Only works because its animations
+        if (input.Contains("Fire1"))   //ctrl+v'd from player
+        {
+            if (isPressed)
+            {
+                animator.SetBool("pull", true);
+                animator.SetBool("hit", true);
+            }
+            else
+            {
+                animator.SetBool("pull", false);
+                animator.SetBool("hit", false);
+            }
+        }
+    }
 }
+

@@ -67,15 +67,17 @@ public class SimpleAI : PaddleBase {
         // TODO: Where do we put this
         // If tracked ball is within a certain distance, trigger pull animation
         var dist = Vector3.Distance(trackedBall.transform.position, transform.position);
-        if (dist < 2 && dist > 1f)
+        if (dist < 3 && dist > 1.5f)
         {
             animator.SetBool("pull", true);
             animator.SetBool("hit", true);
+            SendInput("Fire1", true);
         }
         else
         {
             animator.SetBool("pull", false);
             animator.SetBool("hit", false);
+            SendInput("Fire1", false);
         }
     }
     
@@ -106,4 +108,5 @@ public class SimpleAI : PaddleBase {
             currentPowerName = "";
         }
     }
+
 }
