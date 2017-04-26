@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4333402344084556}
   - component: {fileID: 137565355972161342}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 65184877789162762}
   - component: {fileID: 64160184544417980}
   - component: {fileID: 114077496278766262}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: paddle_kednar1
   m_TagString: Paddle
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4241101952248444}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: side.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4245309826442408}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: side.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4165662995570476}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: side.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4372888626353902}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4014996629165306}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: slingshot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4104049851060384}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: side.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4689425857533304}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: slingshot_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
