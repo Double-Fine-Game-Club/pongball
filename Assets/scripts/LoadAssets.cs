@@ -229,7 +229,7 @@ public class LoadAssets : MonoBehaviour {
 		{
 			return tableNames.Count;
 		}
-		else if (type == "variants")
+		else if (type == "variant")
 		{
 			return variantNames.Count;
 		}
@@ -250,7 +250,7 @@ public class LoadAssets : MonoBehaviour {
 		{
 			return GetKeyFromDictionaryAt(index, tableNames);
 		}
-		else if (type == "variants")
+		else if (type == "variant")
 		{
 			return GetKeyFromDictionaryAt(index, variantNames);
 		}
