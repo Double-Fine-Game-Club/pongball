@@ -304,7 +304,7 @@ public class BasicMenu : MonoBehaviour
 
                         // Select whether the paddle should be player controlled
                         GUILayout.Toggle(!isBot, "");
-
+						
                         if (GUILayout.Button("" + paddleIndex.ToString()))
                         {
                             // If on the network update the server information
