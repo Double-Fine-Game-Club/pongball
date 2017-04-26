@@ -15,6 +15,10 @@ public class SFXBall : MonoBehaviour {
     public AudioClip powerUp;
     public AudioClip goalUp;
     public AudioClip goalDown;
+    public AudioClip rollOverTarget;
+    public AudioClip spinner;
+    public AudioClip button;
+
 
 
     void Start()
@@ -50,9 +54,11 @@ public class SFXBall : MonoBehaviour {
                 SoundManager.instance.RandomSFX(lBumper);
 
                 break;
-            case "Goal":
+            /*case "Goal1":
+            case "Goal2":
+                //Ball despawns before reaching here
                 SoundManager.instance.PlaySingle(goalUp);
-
+                */
                 break;
             case "RampUp":
                 SoundManager.instance.PlaySingle(rampUpShort);
@@ -65,6 +71,15 @@ public class SFXBall : MonoBehaviour {
             case "PowerUp":
                 SoundManager.instance.PlaySingle(powerUp);
 
+                break;
+            case "Target":
+                SoundManager.instance.PlaySingle(rollOverTarget);
+                break;
+            case "Spinner":
+                SoundManager.instance.PlaySingle(spinner);
+                break;
+            case "Button":
+                SoundManager.instance.PlaySingle(button);
                 break;
             default:
                 Debug.Log("Collided with untagged object");

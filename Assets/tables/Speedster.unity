@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641252, b: 0.574817, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -842,7 +842,7 @@ GameObject:
   - component: {fileID: 522783417}
   m_Layer: 0
   m_Name: MainBoostPadButtonForward
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1152,6 +1152,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.0075790305
       objectReference: {fileID: 0}
+    - target: {fileID: 1380204832076912, guid: 8e070517506d39c47801bf254a49dc91, type: 2}
+      propertyPath: m_TagString
+      value: Spinner
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 95547854505951474, guid: 8e070517506d39c47801bf254a49dc91, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 8e070517506d39c47801bf254a49dc91, type: 2}
@@ -1435,7 +1439,7 @@ GameObject:
   - component: {fileID: 1184430039}
   m_Layer: 0
   m_Name: MainBoostPadButtonBackward
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1573,7 +1577,7 @@ GameObject:
   - component: {fileID: 1247739330}
   m_Layer: 0
   m_Name: GateButtonForward
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1996,7 +2000,7 @@ GameObject:
   - component: {fileID: 2133022983}
   m_Layer: 0
   m_Name: GateButtonBackward
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
