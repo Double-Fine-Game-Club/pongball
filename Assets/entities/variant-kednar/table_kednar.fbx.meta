@@ -47,6 +47,8 @@ ModelImporter:
     100078: spinner
     100080: table_base.L
     100082: //RootNode
+    100084: Bone_end_end
+    100086: wall.003
     400000: Armature
     400002: arrows
     400004: arrows.001
@@ -89,6 +91,8 @@ ModelImporter:
     400078: spinner
     400080: table_base.L
     400082: //RootNode
+    400084: Bone_end_end
+    400086: wall.003
     2300000: arrows
     2300002: arrows.001
     2300004: arrows.002
@@ -127,6 +131,7 @@ ModelImporter:
     2300070: ramp.top
     2300072: spinner
     2300074: table_base.L
+    2300076: wall.003
     3300000: arrows
     3300002: arrows.001
     3300004: arrows.002
@@ -165,6 +170,7 @@ ModelImporter:
     3300070: ramp.top
     3300072: spinner
     3300074: table_base.L
+    3300076: wall.003
     4300000: ceilling_collider
     4300002: bumpers.007
     4300004: bumpers.006
@@ -203,6 +209,7 @@ ModelImporter:
     4300070: bumpers
     4300072: ball
     4300074: table_base.L
+    4300076: wall.003
   materials:
     importMaterials: 1
     materialName: 0
