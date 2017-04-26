@@ -123,7 +123,7 @@ public class PaddleBase : NetworkBehaviour {
     {
         if (myPowers.Count > 0)
             { myPowers[myPowers.Count - 1].isReady = false; }
-        Debug.Log(powerName);
+        //Debug.Log(powerName);
         SuperPowerBase spb = gameObject.AddComponent(Type.GetType(powerName)) as SuperPowerBase;
         spb.isReady = true;
         myPowers.Add(spb);
@@ -138,7 +138,7 @@ public class PaddleBase : NetworkBehaviour {
 
     public void SetPower(string powerName)
     {
-        Debug.Log("Set Power: " + powerName);
+        //Debug.Log("Set Power: " + powerName);
         currentPowerName = powerName;
 
         if (!powerText)
