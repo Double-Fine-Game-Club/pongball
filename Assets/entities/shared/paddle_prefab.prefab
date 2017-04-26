@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 114442914418636928}
   - component: {fileID: 114889014047957614}
   - component: {fileID: 114926957746133038}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: paddle_prefab
   m_TagString: Paddle
   m_Icon: {fileID: 0}
@@ -135,6 +135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6da8aa0754d1c894dae87a6972e0f56b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerIndex: 0
+  currentPowerName: 
 --- !u!114 &114442914418636928
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -189,6 +191,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de954ce9e42c3f848bc2ba60cc5816b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerIndex: 0
+  currentPowerName: 
   playerNum: 0
 --- !u!114 &114926957746133038
 MonoBehaviour:

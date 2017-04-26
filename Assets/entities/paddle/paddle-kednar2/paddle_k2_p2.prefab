@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4970202430259708}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: arm.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4735758224909620}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: forearm.L.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 4805379050305948}
   - component: {fileID: 33933886525628292}
   - component: {fileID: 23697867124377300}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: k2_panel_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,7 +77,7 @@ GameObject:
   - component: {fileID: 65616643357437704}
   - component: {fileID: 64924714022002016}
   - component: {fileID: 114644199144504418}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: paddle_k2_p2
   m_TagString: Paddle
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4158846044291484}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: paddle_k2_rig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4515121850962120}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: paddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4264972997792058}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: forearm.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4559293208290332}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4642316293402642}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: arm.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4557699559236574}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: forearm.L.001_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4479923892388928}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: hand.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4657730990832248}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: hand.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4883006338465678}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: arm.R.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -228,7 +228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4210198582018352}
   - component: {fileID: 137610217529406160}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: k2_body_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +243,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4126988211965350}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: hand.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4429731290667556}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: forearm.R.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,7 +273,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4410828114728668}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: arm.L.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +288,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4890801203958686}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: forearm.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +303,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4197293808883212}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: hand.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,7 +318,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4556459395891926}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: forearm.R.001_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
