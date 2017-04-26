@@ -54,9 +54,11 @@ public class SFXBall : MonoBehaviour {
                 SoundManager.instance.RandomSFX(lBumper);
 
                 break;
-            case "Goal":
+            /*case "Goal1":
+            case "Goal2":
+                //Ball despawns before reaching here
                 SoundManager.instance.PlaySingle(goalUp);
-
+                */
                 break;
             case "RampUp":
                 SoundManager.instance.PlaySingle(rampUpShort);

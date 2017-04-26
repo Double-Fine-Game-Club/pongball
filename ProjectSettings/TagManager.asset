@@ -20,6 +20,8 @@ TagManager:
   - TableNetworking
   - FindMe
   - Lightpad
+  - Button
+  - Spinner
   layers:
   - Default
   - TransparentFX
