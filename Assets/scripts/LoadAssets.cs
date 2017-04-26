@@ -10,13 +10,15 @@ public class LoadAssets : MonoBehaviour {
     // TODO: Can we display dictionaries in the editor??
     public Dictionary<string, bool> variantNames = new Dictionary<string, bool>() {
         { "lightsoda", false },
-        { "kgunn", false }
-    };
+        { "kgunn", false },
+	{ "kednar", false }
+  	};
     public Dictionary<string, bool> tableNames = new Dictionary<string, bool>() {
         { "Table_Clean", false },
         { "Table01", false },
         { "Table02", false },
-        { "Speedster", false }
+        { "Speedster", false },
+	{ "Table_kednar", false }
 	};
 	public Dictionary<string, bool> paddleNames = new Dictionary<string, bool>() {
 		    { "tron", false },
