@@ -13,9 +13,9 @@ public class LoadAssets : MonoBehaviour {
         { "kgunn", false }
     };
     public Dictionary<string, bool> tableNames = new Dictionary<string, bool>() {
-        { "Table_Clean", false },
-        { "Table01", false },
-        { "Table02", false },
+        { "Clean", false },
+        { "Railway Butts", false },
+        { "Flippers", false },
         { "Speedster", false }
 	};
 	public Dictionary<string, bool> paddleNames = new Dictionary<string, bool>() {

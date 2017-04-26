@@ -13,9 +13,9 @@ public class GameSelectionMenuUGUI : MonoBehaviour {
     private int indexLength;
 
     public Dictionary<string, int> currentIndex = new Dictionary<string, int>() {
-        { "table", 0 },
-        { "variant", 0 },
-        { "paddle", 0 },
+        { "table", 3 },
+        { "variant", 1 },
+        { "paddle", 4 },
     };
 
 
