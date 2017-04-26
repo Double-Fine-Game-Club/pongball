@@ -41,7 +41,7 @@ public class LoadAssets : MonoBehaviour {
         activeVariants = new string[2];
         bundlesLoaded = false;
 		finishedLoading = false;
-		isSinglePlayer = false;
+		isSinglePlayer = true;
 
         Debug.Assert(variantNames != null, "No variant names assigned");
         Debug.Assert(tableNames != null, "No table names assigned");
@@ -190,6 +190,11 @@ public class LoadAssets : MonoBehaviour {
 		OnFinished(true);
 		finishedLoading = true;
 
+		if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count > 0)
+		{
+			NetworkServer.SpawnObjects();
+		}
+
         // Calculate and display the elapsed time.
         float elapsedTime = Time.realtimeSinceStartup - startTime;
         Debug.Log("Finished loading scene " + levelName + " in " + elapsedTime + " seconds");
@@ -311,12 +316,6 @@ public class LoadAssets : MonoBehaviour {
 
 	public bool HasFinishedLoading()
 	{
-		// Spawn the server objects
-		if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count > 0)
-		{
-			NetworkServer.SpawnObjects();
-		}
-
 		return finishedLoading;
 	}
 
