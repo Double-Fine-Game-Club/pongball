@@ -11,6 +11,7 @@ using UnityEngine.Networking;
 public class PaddleBase : NetworkBehaviour {
 	
     private float thrust = 10.0f;
+    private float paddleLimitZ = 5.0f;
 
     private Vector3 up = new Vector3(1, 0, 0);
 
@@ -60,12 +61,12 @@ public class PaddleBase : NetworkBehaviour {
     internal void FixedUpdate()
     {
         // Clamp Z if we're outside an arbitrary value
-        if(transform.position.z < 4.0f || transform.position.z > 4.0f)
+        if(transform.position.z < -paddleLimitZ || transform.position.z > paddleLimitZ)
         {
             transform.position = new Vector3(
                 transform.position.x,
                 transform.position.y,
-                Mathf.Clamp(transform.position.z, -4.0f, 4.0f)
+                Mathf.Clamp(transform.position.z, -paddleLimitZ, paddleLimitZ)
                 );
         }
     }
