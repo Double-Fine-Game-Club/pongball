@@ -139,7 +139,7 @@ public class PaddleBase : NetworkBehaviour {
     public void RecieveRemoteInput(string input, bool isPressed)
     {
         //Only works because its animations
-        if (input.Equals("Fire1"))   //ctrl+v'd from player
+        if (input.Contains("Fire1"))   //ctrl+v'd from player
         {
             if (isPressed)
             {

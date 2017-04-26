@@ -53,13 +53,13 @@ public class Player : PaddleBase {
         {
             animator.SetBool("pull", true);
             animator.SetBool("hit", true);
-            SendInput("Fire1", true);
+            SendInput(playerNum + "Fire1", true);
         }
         else
         {
             animator.SetBool("pull", false);
             animator.SetBool("hit", false);
-            SendInput("Fire1", false);
+            SendInput(playerNum + "Fire1", false);
         }
     }
 
