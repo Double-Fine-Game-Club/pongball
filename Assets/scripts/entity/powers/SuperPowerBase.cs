@@ -14,10 +14,15 @@ public class SuperPowerBase : NetworkBehaviour{
     public bool isReady { get; set; }
     public bool isHost { get; protected set; }
 
-	// Use this for initialization
-	void Start () {
-        
+    SFXPlayer mySounds;
+
+    // Use this for initialization
+    void Start () {
+        mySounds = gameObject.GetComponent<SFXPlayer>();
+        SoundManager.instance.PlaySingle(mySounds.specialReady);
 	}
+
+
 	
 	// Update is called once per frame
 	virtual public void Update () {
@@ -27,6 +32,8 @@ public class SuperPowerBase : NetworkBehaviour{
             remainingDuration -= Time.deltaTime;
             if (remainingDuration <0)
             {
+                mySounds = gameObject.GetComponent<SFXPlayer>();
+                SoundManager.instance.PlaySingle(mySounds.specialEnd);
                 CleanUp();
             }
         }
@@ -43,7 +50,8 @@ public class SuperPowerBase : NetworkBehaviour{
             TriggerEffect();
             isActive = true;
             isReady = false;
-            
+            mySounds = gameObject.GetComponent<SFXPlayer>();
+            SoundManager.instance.PlaySingle(mySounds.specialActivate);
         }
         
 
