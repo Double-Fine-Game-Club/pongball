@@ -132,6 +132,9 @@ public class Ball : NetworkBehaviour {
 		// If the ball collided with Goal1 or Goal2:
 		if (Col.gameObject.tag == "Goal1" || Col.gameObject.tag == "Goal2")
 		{
+            //Gotta play the sound before resetting
+            SoundManager.instance.PlaySingle(GetComponent<SFXBall>().goalUp);
+
 			// Respawn ball at center if on the server or local
 			ResetBall();
 

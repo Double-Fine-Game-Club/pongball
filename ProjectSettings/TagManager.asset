@@ -20,6 +20,8 @@ TagManager:
   - TableNetworking
   - FindMe
   - Lightpad
+  - Button
+  - Spinner
   layers:
   - Default
   - TransparentFX
@@ -29,8 +31,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Paddle
+  - Ball
   - 
   - 
   - 

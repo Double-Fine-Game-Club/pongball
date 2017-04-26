@@ -203,6 +203,10 @@ public class BasicMenu : MonoBehaviour
                     spawner.AddComponent<BallSpawner>().ballPrefab = NetworkManager.singleton.spawnPrefabs[0];// Don't like this at all...
                     spawner.AddComponent<ResetBallUI>();
 
+                    //Create the power UI for the players
+                    const string powerUIPrefab = "entities/powers/PowerUI";
+                    Instantiate(Resources.Load(powerUIPrefab));
+
                     // Fill the table with AIs if offline or the server
                     if (!NetworkManager.singleton.isNetworkActive || NetworkServer.connections.Count > 0)
                     {
@@ -221,10 +225,10 @@ public class BasicMenu : MonoBehaviour
                         foreach (Transform spawnPosition in NetworkManager.singleton.startPositions)
                         {
                             Transform paddlePos = spawnPosition;
-                            int paddleIndex = Mathf.FloorToInt(Random.Range(0, playerPrefabs.Length) );
+                            int paddleIndex = Mathf.FloorToInt(Random.Range(0, playerPrefabs.Length));
                             var paddlePrefab = playerPrefabs[paddleIndex];
                             GameObject paddle = GameObject.Instantiate(paddlePrefab, paddlePos);
-                            if(playerIndex==0)
+                            if (playerIndex == 0)
                             {
                                 paddle.AddComponent<PowerManager>();
                             }
@@ -243,7 +247,7 @@ public class BasicMenu : MonoBehaviour
                             //this should change one Player scripts playerNum to 1 and one to 2 in order to allow 2 players
                             // Doesn't seem to be working. atm.
                             paddle.GetComponent<Player>().playerNum = playerIndex;
-                            Debug.Log("paddleIndex is "+ paddleIndex);
+                            Debug.Log("paddleIndex is " + paddleIndex);
                         }
                     }
 
@@ -300,7 +304,7 @@ public class BasicMenu : MonoBehaviour
 
                         // Select whether the paddle should be player controlled
                         GUILayout.Toggle(!isBot, "");
-
+						
                         if (GUILayout.Button("" + paddleIndex.ToString()))
                         {
                             // If on the network update the server information
