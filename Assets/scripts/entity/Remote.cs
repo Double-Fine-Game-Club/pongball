@@ -18,5 +18,6 @@ public class Remote : PaddleBase {
         {
             myPowers[myPowers.Count - 1].Activate();
         }
+        powerText.text = "";
     }
 }

@@ -107,6 +107,7 @@ public class SimpleAI : PaddleBase {
             //Client AI only needs to update the UI
             currentPowerName = "";
         }
+        powerText.text = "";
     }
 
 }

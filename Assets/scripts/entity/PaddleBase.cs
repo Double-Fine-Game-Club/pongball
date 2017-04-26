@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 /// <summary>
 /// Base class for paddles
@@ -18,8 +19,11 @@ public class PaddleBase : NetworkBehaviour {
     private Rigidbody rigidBody;
     protected Animator animator;
 
+    public int playerIndex;
+
     protected List<SuperPowerBase> myPowers = new List<SuperPowerBase>();
     protected string currentPowerName="";
+    protected Text powerText;
 
     protected Dictionary<string, bool> remoteInputs = new Dictionary<string, bool>();
     
@@ -27,11 +31,28 @@ public class PaddleBase : NetworkBehaviour {
 	{
 		rigidBody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
-	}
+
+        //
+        
+        PaddleNetworking[] playerList = GameObject.FindObjectsOfType<PaddleNetworking>();
+        int index = 0;  
+        foreach (PaddleNetworking player in playerList)
+        {
+            if(player.gameObject==gameObject)
+            {
+                playerIndex = index;
+            }
+            ++index;
+
+        }
+        GameObject powerUI = GameObject.FindGameObjectWithTag("PowerUp");
+        powerText = powerUI.transform.GetChild(playerIndex).GetComponent<Text>();
+        powerText.text = "";
+        currentPowerName = "";
+    }
 
     private void OnEnable()
     {
-        currentPowerName = "";
     }
 
 
@@ -93,7 +114,10 @@ public class PaddleBase : NetworkBehaviour {
         
     }
 
-    internal void TryActivate() {}
+    internal void TryActivate()
+    {
+     
+    }
 
     public void AddPower(string powerName)
     {
@@ -103,12 +127,15 @@ public class PaddleBase : NetworkBehaviour {
         SuperPowerBase spb = gameObject.AddComponent(Type.GetType(powerName)) as SuperPowerBase;
         spb.isReady = true;
         myPowers.Add(spb);
+
+        powerText.text = powerName;
     }
 
     public void SetPower(string powerName)
     {
         Debug.Log("Set Power: " + powerName);
         currentPowerName = powerName;
+        powerText.text = powerName;
     }
 
     public virtual void SendInput(string input, bool isPress)

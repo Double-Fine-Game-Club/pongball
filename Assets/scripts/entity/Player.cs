@@ -86,5 +86,6 @@ public class Player : PaddleBase {
             pn.CmdActivatePower();
             currentPowerName = "";
         }
+        powerText.text = "";
     }
 }
