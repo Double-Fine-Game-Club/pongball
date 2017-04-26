@@ -205,7 +205,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallBounce: {fileID: 8300000, guid: 14632146ffa554f9481d2745b1492a09, type: 3}
   paddleBounce: {fileID: 8300000, guid: 1f30394bd9a9849268a0817449a29202, type: 3}
-  TrueForKyle3wynn: 0
   lBumper:
   - {fileID: 8300000, guid: 7df5376c6ac824e10b5622ec3daf158e, type: 3}
   - {fileID: 8300000, guid: eb9f3b8300ad74325972d541259d941d, type: 3}
@@ -230,6 +229,9 @@ MonoBehaviour:
   powerUp: {fileID: 8300000, guid: a3af3e436ab544366ac75cb6f8cbab23, type: 3}
   goalUp: {fileID: 8300000, guid: 405e8245d9d3b4b74ac20be62442a593, type: 3}
   goalDown: {fileID: 8300000, guid: 1b4e45f92be5b46cb8473a08843bd471, type: 3}
+  rollOverTarget: {fileID: 8300000, guid: cee74a89655276b479ce715014ade79e, type: 3}
+  spinner: {fileID: 8300000, guid: f12f845db9a62dd438f2ac6fae249ec0, type: 3}
+  button: {fileID: 8300000, guid: bad9ba17b47982b42b03051fe5f4b1fb, type: 3}
 --- !u!114 &114204467171639900
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -241,6 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33036343a7633174eaf9a91ff631cbed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnDelay: 3
 --- !u!114 &114232668124787028
 MonoBehaviour:
   m_ObjectHideFlags: 1

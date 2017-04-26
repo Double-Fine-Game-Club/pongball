@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 114220172038397076}
   - component: {fileID: 65442794501474928}
   - component: {fileID: 64990714206169888}
+  - component: {fileID: 114062754647111792}
   m_Layer: 0
   m_Name: paddle_k2_p4
   m_TagString: Paddle
@@ -701,6 +702,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114062754647111792
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1401081363770172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 565af3ea48a03094e98886c0e48531c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  specialReady: {fileID: 8300000, guid: b3c1a3111b9424945a33cbc60baa01b8, type: 3}
+  specialActivate: {fileID: 8300000, guid: 054b0c25cc11b694e90552cbb1a5daf3, type: 3}
+  specialEnd: {fileID: 8300000, guid: 0e6b00aa2a1e81d4e920ae72fe7d5f91, type: 3}
 --- !u!114 &114136201105692154
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -723,6 +738,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62dcce4e9cb3b6c4385b40cb3c4f72b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerIndex: 0
+  currentPowerName: 
 --- !u!114 &114263335914721582
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -787,6 +804,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de954ce9e42c3f848bc2ba60cc5816b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerIndex: 0
+  currentPowerName: 
   playerNum: 1
 --- !u!114 &114952372630654812
 MonoBehaviour:
@@ -799,6 +818,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6da8aa0754d1c894dae87a6972e0f56b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerIndex: 0
+  currentPowerName: 
 --- !u!137 &137295767574528834
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
