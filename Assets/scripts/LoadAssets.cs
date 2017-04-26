@@ -19,9 +19,12 @@ public class LoadAssets : MonoBehaviour {
         { "Speedster", false }
 	};
 	public Dictionary<string, bool> paddleNames = new Dictionary<string, bool>() {
-		{ "robot", false },
 		{ "tron", false },
-	};
+		{ "robot blue", false },
+        { "robot green", false },
+        { "robot red", false },
+        { "robot yellow", false },
+    };
 
 	public GameObject[] playerPrefabs;
 
