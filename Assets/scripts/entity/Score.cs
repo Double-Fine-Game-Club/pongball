@@ -7,48 +7,62 @@ public class Score : NetworkBehaviour
 {
 	// Synchronise the variables from the server to the players
 	[SyncVar]
-    private int score1;
+	private int currentGoalValue;
 
 	[SyncVar]
-    private int score2;
+	private int score1;
 
-    [SerializeField]
-    private Text score1Text;
+	[SyncVar]
+	private int score2;
 
-    [SerializeField]
-    private Text score2Text;
+	[SerializeField]
+	private Text score1Text;
+
+	[SerializeField]
+	private Text score2Text;
+
+	[SerializeField]
+	private Text ballValueText;
 
 	private Coroutine countdownCoroutine = null;
 	public Text CountdownText;
+	private int baseGoalValue = 50;
+	private int bumperValue = 5;
+	private int rolloverValue = 1;
 
-    // Use this for initialization
-    void Start ()
-    {
-        score1 = 0;
-        score2 = 0;
-    }
+	// Use this for initialization
+	void Start ()
+	{
+		score1 = 0;
+		score2 = 0;
+		currentGoalValue = baseGoalValue;
+	}
 
-    // I believe the event subscription method wasn't working because this occurs before ball instantitation
-    public void OnEnable()
+	// I believe the event subscription method wasn't working because this occurs before ball instantitation
+	public void OnEnable()
 	{
 		Ball.OnTriggerReset += OnTriggerReset;
 		if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count == 0) return;
 
-        Debug.Log("Score.OnEnable()");
-        Ball.OnTriggerEnterGoal1 += OnTriggerEnterGoal1;
-        Ball.OnTriggerEnterGoal2 += OnTriggerEnterGoal2; 
+		Debug.Log("Score.OnEnable()");
+		Ball.OnTriggerEnterGoal1 += OnTriggerEnterGoal1;
+		Ball.OnTriggerEnterGoal2 += OnTriggerEnterGoal2;
+		Ball.OnTriggerEnterBumper += OnTriggerEnterBumper;
+		Ball.OnTriggerEnterRollover += OnTriggerEnterRollover;
 	}
 
-    void OnDisable()
+	void OnDisable()
 	{
 		Ball.OnTriggerReset -= OnTriggerReset;
 		if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count == 0) return;
 
-        Ball.OnTriggerEnterGoal1 -= OnTriggerEnterGoal1;
-        Ball.OnTriggerEnterGoal2 -= OnTriggerEnterGoal2;
-    }
+		Ball.OnTriggerEnterGoal1 -= OnTriggerEnterGoal1;
+		Ball.OnTriggerEnterGoal2 -= OnTriggerEnterGoal2;
+		Ball.OnTriggerEnterBumper -= OnTriggerEnterBumper;
+		Ball.OnTriggerEnterRollover -= OnTriggerEnterRollover;
+	}
 
-    private void FixedUpdate()
+	private void FixedUpdate()
 	{
 		// Update the score text if the scores have changed
 		if (int.Parse(score1Text.text) != score1)
@@ -60,24 +74,41 @@ public class Score : NetworkBehaviour
 		{
 			score2Text.text = score2.ToString();
 		}
-    }
+
+		if (int.Parse(ballValueText.text) != currentGoalValue)
+		{
+			ballValueText.text = currentGoalValue.ToString();
+		}
+	}
 
 	// Only increase the score on the server or in local
-    public void OnTriggerEnterGoal1()
-    {
+	public void OnTriggerEnterGoal1()
+	{
 		if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count == 0) return;
 
-        //Debug.Log("Score.OnTriggerEnterGoal1()");
-        score1++;
-    }
+		//Debug.Log("Score.OnTriggerEnterGoal1()");
+		score1+= currentGoalValue;
+		currentGoalValue = baseGoalValue;
+	}
 
-    public void OnTriggerEnterGoal2()
-    {
+	public void OnTriggerEnterGoal2()
+	{
 		if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count == 0) return;
 
-        //Debug.Log("Score.OnTriggerEnterGoal2()");
-        score2++;
-    }
+		//Debug.Log("Score.OnTriggerEnterGoal2()");
+		score2 += currentGoalValue;
+		currentGoalValue = baseGoalValue;
+	}
+
+	public void OnTriggerEnterBumper()
+	{
+		currentGoalValue += bumperValue;
+	}
+
+	public void OnTriggerEnterRollover()
+	{
+		currentGoalValue += rolloverValue;
+	}
 
 	private IEnumerator Countdown()
 	{

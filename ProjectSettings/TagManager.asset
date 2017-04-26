@@ -19,6 +19,7 @@ TagManager:
   - Flipper
   - TableNetworking
   - FindMe
+  - Lightpad
   layers:
   - Default
   - TransparentFX
