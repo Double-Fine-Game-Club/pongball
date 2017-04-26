@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 /// <summary>
 /// Class for AI controlled paddles
@@ -96,17 +97,44 @@ public class SimpleAI : PaddleBase {
 
     new public void TryActivate()
     {
-        if (!NetworkManager.singleton.isNetworkActive 
+       
+       
+        //Check for other active paddle controllers
+        //  client doesnt disable SimpleAI when player takes control
+        PaddleNetworking pn = GetComponent<PaddleNetworking>();
+        if (!NetworkManager.singleton.isNetworkActive
             || NetworkServer.connections.Count > 0
-            && myPowers.Count>0 )
+            && myPowers.Count > 0
+            && currentPowerName != ""
+            && !GetComponent<Player>().enabled)
         {
             myPowers[myPowers.Count - 1].Activate();
-        }
-        else
-        {
-            //Client AI only needs to update the UI
-            currentPowerName = "";
-        }
+            
+            if (!powerText)
+            {
+                GameObject powerUI = GameObject.FindGameObjectWithTag("PowerUp");
+                powerText = powerUI.transform.GetChild(playerIndex).GetComponent<Text>();
+            }
+
+            if (pn.isServer)
+            {
+                pn.RpcSetCurrentPower("");
+                powerText.text = "";
+                currentPowerName = "";
+            }
+            else if(pn.isClient)
+            {
+                //Client AI only needs to update the UI through recieved messages
+            }
+            else //local
+            {
+                powerText.text = "";
+                currentPowerName = "";
+            }
+                
+                
+        } 
+        
     }
 
 }
