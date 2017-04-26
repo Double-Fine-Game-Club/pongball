@@ -18,11 +18,13 @@ public class GameMenuHandlerUGUI : MonoBehaviour {
     [SerializeField]
     private Text instruction;
 
-    bool offlineSelected;
+    private bool offlineSelected;
+    private bool singlePlayerSelected;
 
     // Use this for initialization
     void Start () {
         offlineSelected = false;
+        singlePlayerSelected = false;
 	}
     
     //merp was going to do something better, like this, but decided the other way was quicker to program, atm. - sjm
@@ -75,8 +77,11 @@ public class GameMenuHandlerUGUI : MonoBehaviour {
         }
     }
 
-    public void LevelSelectionPanel()
+    public void LevelSelectionPanel(bool singlePlayer)
     {
+        // Store whether single player was selected as reference for InstructionPanel().
+        singlePlayerSelected = singlePlayer;
+
         if (levelSelectionPanel.activeSelf == false)
         {
             CloseAllPanels();
@@ -104,24 +109,27 @@ public class GameMenuHandlerUGUI : MonoBehaviour {
         instruction.text += "The points given for each goal (the number at the top) increases as the ball hits bumpers or rolls over lightpads. ";
         instruction.text += "A different power is given to each player every 20 seconds.\n\n";
 
-        if(offlineSelected)
+
+        // If offline multiplayer selected: 
+        if (offlineSelected && !singlePlayerSelected)
         {
-            instruction.text += "RIGHT PLAYER ";
+            instruction.text += "LEFT PLAYER ";
         }
 
         instruction.text += "CONTROLS:\n";
-        instruction.text += "Down = move up\n";
-        instruction.text += "Down = move down\n";
-        instruction.text += "Space = hit animation\n";
-        instruction.text += "Left Alt = activate power\n\n";
+        instruction.text += "Y = move up\n";
+        instruction.text += "H = move down\n";
+        instruction.text += "Q = hit animation\n";
+        instruction.text += "Z = activate power\n\n";
 
-        if(offlineSelected)
+        // If offline mutiplayer selected:
+        if (offlineSelected && !singlePlayerSelected)
         {
-            instruction.text += "LEFT PLAYER CONTROLS:\n";
-            instruction.text += "Y = move up\n";
-            instruction.text += "H = move down\n";
-            instruction.text += "Q = hit animation\n";
-            instruction.text += "Z = activate power\n";
+            instruction.text += "RIGHT PLAYER CONTROLS:\n";
+            instruction.text += "Down = move up\n";
+            instruction.text += "Down = move down\n";
+            instruction.text += "Space = hit animation\n";
+            instruction.text += "Left Alt = activate power\n\n";
         }
     }
 
