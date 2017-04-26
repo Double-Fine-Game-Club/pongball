@@ -2,7 +2,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
-using System;
 using System.Collections.Generic;
 
 public class LoadAssets : MonoBehaviour {
@@ -18,7 +17,14 @@ public class LoadAssets : MonoBehaviour {
         { "Table01", false },
         { "Table02", false },
         { "Speedster", false }
-    };
+	};
+	public Dictionary<string, bool> paddleNames = new Dictionary<string, bool>() {
+		{ "robot", false },
+		{ "tron", false },
+		{ "default", false },
+	};
+
+	public GameObject[] playerPrefabs;
 
     private string[] activeVariants;
 	private bool finishedLoading;
@@ -217,27 +223,49 @@ public class LoadAssets : MonoBehaviour {
 		return "no key at that index";
 	}
 
-	public int GetVariantCount()
+	public int GetCount(string type)
 	{
-		return variantNames.Count;
+		if (type == "table")
+		{
+			return tableNames.Count;
+		}
+		else if (type == "variants")
+		{
+			return variantNames.Count;
+		}
+		else if (type == "paddle")
+		{
+			return paddleNames.Count;
+		}
+		else
+		{
+			Debug.Log("type " + type + " does not exist");
+			return 0;
+		}
 	}
 
-	public int GetTableCount()
+	public string GetName(string type, int index)
 	{
-		return tableNames.Count;
+		if (type == "table")
+		{
+			return GetKeyFromDictionaryAt(index, tableNames);
+		}
+		else if (type == "variants")
+		{
+			return GetKeyFromDictionaryAt(index, variantNames);
+		}
+		else if (type == "paddle")
+		{
+			return GetKeyFromDictionaryAt(index, paddleNames);
+		}
+		else
+		{
+			Debug.Log("type " + type + " does not exist");
+			return "";
+		}
 	}
 
-	public string GetVariantName(int variantIndex)
-	{
-		return GetKeyFromDictionaryAt(variantIndex, variantNames);
-	}
-
-	public string GetTableName(int tableIndex)
-	{
-		return GetKeyFromDictionaryAt(tableIndex, tableNames);
-	}
-
-	public void LoadScene(int variantIndex, int tableIndex)
+	public void LoadScene(int variantIndex, int tableIndex, int paddleIndex)
 	{
 		// Remove the buttons
 		bundlesLoaded = true;
@@ -257,5 +285,59 @@ public class LoadAssets : MonoBehaviour {
 	public bool HasFinishedLoading()
 	{
 		return finishedLoading;
+	}
+
+	public void SetupTable()
+	{
+		// Add the ball spawner script to a spawner in the scene otherwise it will spawn inactive
+		GameObject[] spawners = GameObject.FindGameObjectsWithTag("BallSpawner");
+		Debug.Assert(spawners.Length > 0, "Need at least one spawner in the scene so we know where to put the ball");
+		GameObject spawner = spawners[Random.Range(0, spawners.Length - 1)];
+		spawner.AddComponent<BallSpawner>().ballPrefab = NetworkManager.singleton.spawnPrefabs[0];// Don't like this at all...
+		spawner.AddComponent<ResetBallUI>();
+
+		// Fill the table with AIs if offline or the server
+		if (!NetworkManager.singleton.isNetworkActive || NetworkServer.connections.Count > 0)
+		{
+			if (GameObject.FindGameObjectsWithTag("Score").Length <= 0)
+			{
+				GameObject scoreManager = GameObject.Instantiate(NetworkManager.singleton.spawnPrefabs[1]);
+
+				if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count > 0)
+				{
+					NetworkServer.Spawn(scoreManager);
+				}
+			}
+
+			int playerIndex = 0;
+
+			foreach (Transform spawnPosition in NetworkManager.singleton.startPositions)
+			{
+				Transform paddlePos = spawnPosition;
+				int paddleIndex = Mathf.FloorToInt(Random.Range(0, playerPrefabs.Length) );
+				var paddlePrefab = playerPrefabs[paddleIndex];
+				GameObject paddle = GameObject.Instantiate(paddlePrefab, paddlePos);
+				if(playerIndex==0)
+				{
+					paddle.AddComponent<PowerManager>();
+				}
+
+
+
+				// Spawn on the clients
+				if (NetworkManager.singleton.isNetworkActive)
+				{
+					NetworkServer.Spawn(paddle);
+					paddle.GetComponent<PaddleNetworking>().SetPaddleIndex(paddleIndex);
+				}
+
+				playerIndex++;
+
+				//this should change one Player scripts playerNum to 1 and one to 2 in order to allow 2 players
+				// Doesn't seem to be working. atm.
+				paddle.GetComponent<Player>().playerNum = playerIndex;
+				Debug.Log("paddleIndex is "+ paddleIndex);
+			}
+		}
 	}
 }
