@@ -109,9 +109,8 @@ public class GameMenuHandlerUGUI : MonoBehaviour {
         instruction.text += "The points given for each goal (the number at the top) increases as the ball hits bumpers or rolls over lightpads. ";
         instruction.text += "A different power is given to each player every 20 seconds.\n\n";
 
-
-        // If offline multiplayer selected: 
-        if (offlineSelected && !singlePlayerSelected)
+        // If multiplayer selected (online or offline): 
+        if (!singlePlayerSelected)
         {
             instruction.text += "LEFT PLAYER ";
         }
@@ -119,17 +118,17 @@ public class GameMenuHandlerUGUI : MonoBehaviour {
         instruction.text += "CONTROLS:\n";
         instruction.text += "Y = move up\n";
         instruction.text += "H = move down\n";
-        instruction.text += "Q = hit animation\n";
-        instruction.text += "Z = activate power\n\n";
+        instruction.text += "Z = activate power\n";
+        instruction.text += "Q = hit animation (currently no effect on gameplay)\n\n";
 
-        // If offline mutiplayer selected:
-        if (offlineSelected && !singlePlayerSelected)
+        // If multiplayer selected (online or offline): 
+        if (!singlePlayerSelected)
         {
             instruction.text += "RIGHT PLAYER CONTROLS:\n";
-            instruction.text += "Down = move up\n";
+            instruction.text += "Up = move up\n";
             instruction.text += "Down = move down\n";
-            instruction.text += "Space = hit animation\n";
-            instruction.text += "Left Alt = activate power\n\n";
+            instruction.text += "Left Alt = activate power\n";
+            instruction.text += "Space = hit animation (currently no effect on gameplay)\n\n";
         }
     }
 
