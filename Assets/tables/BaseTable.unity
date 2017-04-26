@@ -932,8 +932,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 450, y: 300}
+  m_AnchoredPosition: {x: 5, y: -5}
+  m_SizeDelta: {x: 440, y: 290}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &539545185
 MonoBehaviour:
@@ -960,19 +960,14 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 0
-    m_MaxSize: 15
+    m_MaxSize: 14
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Score goals and earn the most points! The points given for each goal (the
-    number at the top) increases as the ball hits bumpers or rolls over lightpads.
-    A different power is given to each player every 20 seconds.\r\n\r\nONLINE / LOCAL
-    RIGHT PLAYER CONTROLS:\r\nUp = move up\r\nDown = move down\r\nSpace = hit animation\r\nLeft
-    Alt = activate power\r\n\r\nLOCAL LEFT PLAYER CONTROLS:\r\n\rY = move up\r\nH
-    = move down\r\nQ = hit animation\r\nZ = activate power"
+  m_Text: <This is set by GameMenuHandlerUGUI.InstructionPanel()>
 --- !u!222 &539545186
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5507,6 +5502,7 @@ MonoBehaviour:
   instructionPanel: {fileID: 307128157}
   clientWaitPanel: {fileID: 1354127919}
   backgroundPanel: {fileID: 1319407694}
+  instruction: {fileID: 539545185}
 --- !u!114 &1913700231
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,14 +14,17 @@ public class GameMenuHandlerUGUI : MonoBehaviour {
     public GameObject instructionPanel;
 	public GameObject clientWaitPanel;
 	public GameObject backgroundPanel;
+    
+    [SerializeField]
+    private Text instruction;
 
+    bool offlineSelected;
 
-	// Use this for initialization
-	void Start () {
-		
+    // Use this for initialization
+    void Start () {
+        offlineSelected = false;
 	}
-
-
+    
     //merp was going to do something better, like this, but decided the other way was quicker to program, atm. - sjm
     void Function(string menu)
     {
@@ -45,6 +48,8 @@ public class GameMenuHandlerUGUI : MonoBehaviour {
 
     public void LocalPanel()
     {
+        offlineSelected = true;
+
         if (singleOrMultiPanel.activeSelf == false)
         {
             CloseAllPanels();
@@ -93,6 +98,30 @@ public class GameMenuHandlerUGUI : MonoBehaviour {
         else if (instructionPanel.activeSelf == true)
         {
             instructionPanel.SetActive(false);
+        }
+
+        instruction.text = "Score goals and earn the most points! ";
+        instruction.text += "The points given for each goal (the number at the top) increases as the ball hits bumpers or rolls over lightpads. ";
+        instruction.text += "A different power is given to each player every 20 seconds.\n\n";
+
+        if(offlineSelected)
+        {
+            instruction.text += "RIGHT PLAYER ";
+        }
+
+        instruction.text += "CONTROLS:\n";
+        instruction.text += "Down = move up\n";
+        instruction.text += "Down = move down\n";
+        instruction.text += "Space = hit animation\n";
+        instruction.text += "Left Alt = activate power\n\n";
+
+        if(offlineSelected)
+        {
+            instruction.text += "LEFT PLAYER CONTROLS:\n";
+            instruction.text += "Y = move up\n";
+            instruction.text += "H = move down\n";
+            instruction.text += "Q = hit animation\n";
+            instruction.text += "Z = activate power\n";
         }
     }
 
