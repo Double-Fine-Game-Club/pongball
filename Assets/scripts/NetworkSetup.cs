@@ -5,7 +5,6 @@ using UnityEngine.Networking;
 
 public class NetworkSetup : MonoBehaviour 
 {
-
 	// Use this for initialization
 	void Start () 
 	{
@@ -15,13 +14,28 @@ public class NetworkSetup : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		
+		if (GetComponent<LoadAssets>().bundlesLoaded == false && NetworkClient.active && !NetworkServer.active)
+		{
+			LoadTableOnClient();
+
+			if (GetComponent<LoadAssets>().bundlesLoaded == true)
+			{
+				// close the wait dialogue
+				GetComponent<GameMenuHandlerUGUI>().ClientWaitPanel();
+
+				Debug.Log("Being playing");
+
+				StartCoroutine(GetComponent<LoadAssets>().BeginPlaying());
+			}
+		}
 	}
 
 	// Begin hosting using the given port
-	public void BeginHosting(int port)
+	public void BeginHosting(string IP, int port)
 	{
+		NetworkManager.singleton.networkAddress = IP;
 		NetworkManager.singleton.networkPort = port;
+
 		NetworkManager.singleton.StartHost();
 
 		if (NetworkManager.singleton.isNetworkActive)
@@ -36,24 +50,16 @@ public class NetworkSetup : MonoBehaviour
 	}
 
 	// Connect to server using the given ip and port
-	public bool ConnectToServer(string IP, int remotePort)
+	public void ConnectToServer(string IP, int remotePort)
 	{
-		NetworkConnectionError error = Network.Connect(IP, remotePort);
+		NetworkManager.singleton.networkAddress = IP;
+		NetworkManager.singleton.networkPort = remotePort;
 
-		if (error == NetworkConnectionError.NoError)
-		{
-			return true;
-		}
-		else
-		{
-			Debug.Log("connection failed with error " + error.ToString());
-
-			return false;
-		}
+		NetworkManager.singleton.StartClient();
 	}
 
 	// Attempts to set up the table on the client (selected by server) returning true if successful
-	public bool LoadTableOnClient()
+	public void LoadTableOnClient()
 	{
 		TableNetworking tableNetworking = null;
 		GameObject g = GameObject.FindGameObjectWithTag("TableNetworking");
@@ -68,10 +74,6 @@ public class NetworkSetup : MonoBehaviour
 
 			assetLoader.enabled = true;
 			assetLoader.ManualLoad(tableNetworking.GetVariant(), tableNetworking.GetTable());
-
-			return true;
 		}
-
-		return false;
 	}
 }

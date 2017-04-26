@@ -21,7 +21,6 @@ public class LoadAssets : MonoBehaviour {
 	public Dictionary<string, bool> paddleNames = new Dictionary<string, bool>() {
 		{ "robot", false },
 		{ "tron", false },
-		{ "default", false },
 	};
 
 	public GameObject[] playerPrefabs;
@@ -325,18 +324,18 @@ public class LoadAssets : MonoBehaviour {
 		isSinglePlayer = singlePlayer;
 	}
 
-	public void BeginPlaying()
+	public IEnumerator BeginPlaying()
 	{
-		// Add the ball spawner script to a spawner in the scene otherwise it will spawn inactive
-		GameObject[] spawners = GameObject.FindGameObjectsWithTag("BallSpawner");
-		Debug.Assert(spawners.Length > 0, "Need at least one spawner in the scene so we know where to put the ball");
-		GameObject spawner = spawners[Random.Range(0, spawners.Length - 1)];
-		spawner.AddComponent<BallSpawner>().ballPrefab = NetworkManager.singleton.spawnPrefabs[0];// Don't like this at all...
-		spawner.AddComponent<ResetBallUI>();
-
 		// Fill the table with AIs if offline or the server
 		if (!NetworkManager.singleton.isNetworkActive || NetworkServer.connections.Count > 0)
 		{
+			// Add the ball spawner script to a spawner in the scene otherwise it will spawn inactive
+			GameObject[] spawners = GameObject.FindGameObjectsWithTag("BallSpawner");
+			Debug.Assert(spawners.Length > 0, "Need at least one spawner in the scene so we know where to put the ball");
+			GameObject spawner = spawners[Random.Range(0, spawners.Length - 1)];
+			spawner.AddComponent<BallSpawner>().ballPrefab = NetworkManager.singleton.spawnPrefabs[0];// Don't like this at all...
+			spawner.AddComponent<ResetBallUI>();
+
 			if (GameObject.FindGameObjectsWithTag("Score").Length <= 0)
 			{
 				GameObject scoreManager = GameObject.Instantiate(NetworkManager.singleton.spawnPrefabs[1]);
@@ -376,6 +375,8 @@ public class LoadAssets : MonoBehaviour {
 			}
 		}
 
+		yield return new WaitForSeconds(2);
+
 		SimpleAI[] bots = GameObject.FindObjectsOfType<SimpleAI>();
 
 		// If local make the first paddle player controlled
@@ -407,13 +408,11 @@ public class LoadAssets : MonoBehaviour {
 			{
 				bots[0].gameObject.GetComponent<PaddleNetworking>().PossessPaddle();
 				bots[0].gameObject.GetComponent<Player>().enabled = true;
-				bots[0].gameObject.GetComponent<Remote>().enabled = false;
 			}
 			else
 			{
 				bots[1].gameObject.GetComponent<PaddleNetworking>().PossessPaddle();
 				bots[1].gameObject.GetComponent<Player>().enabled = true;
-				bots[1].gameObject.GetComponent<Remote>().enabled = false;
 			}
 		}
 	}

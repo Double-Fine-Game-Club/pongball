@@ -10,7 +10,8 @@ public class GameMenuHandlerUGUI : MonoBehaviour {
     public GameObject localOrOnlinePanel;
     public GameObject singleOrMultiPanel;
     public GameObject onlinePanel;
-    public GameObject levelSelectionPanel;
+	public GameObject levelSelectionPanel;
+	public GameObject clientWaitPanel;
 
 
 	// Use this for initialization
@@ -80,6 +81,18 @@ public class GameMenuHandlerUGUI : MonoBehaviour {
         }
     }
 
+	public void ClientWaitPanel()
+	{
+		if (clientWaitPanel.activeSelf == false)
+		{
+			CloseAllPanels();
+			clientWaitPanel.SetActive(true);
+		}
+		else if (clientWaitPanel.activeSelf == true)
+		{
+			clientWaitPanel.SetActive(false);
+		}
+	}
 	
     private void CloseAllPanels()
     {

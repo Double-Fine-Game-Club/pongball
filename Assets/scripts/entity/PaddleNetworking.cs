@@ -17,11 +17,11 @@ public class PaddleNetworking : NetworkBehaviour {
 
 	// The id of the client controllign the paddle, server side replicated on clients
 	[SyncVar]
-	private int paddleClientId;
+	public int paddleClientId;
 
 	// The index of the paddle on the table, server side replicated on clients
 	[SyncVar]
-	private int paddleIndex;
+	public int paddleIndex;
 
 	new void OnStartClient () 
 	{

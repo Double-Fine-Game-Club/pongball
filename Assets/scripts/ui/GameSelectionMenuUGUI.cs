@@ -45,7 +45,6 @@ public class GameSelectionMenuUGUI : MonoBehaviour {
             currentIndex[selectionType] = 0;
         }
         SetSelectionText(selectionType, loadAssets.GetName(selectionType, currentIndex[selectionType]));
-
     }
 
     public void BackButton(string selectionType)
@@ -69,20 +68,16 @@ public class GameSelectionMenuUGUI : MonoBehaviour {
 
     public IEnumerator LoadGame()
     {
-        Debug.Log("Stuff is sort of working!!!!");
         //GetComponent.makeSelectionText.text
         //LoadScene
         loadAssets.LoadScene(currentIndex["table"], currentIndex["variant"], currentIndex["paddle"]);
-        Debug.Log("fffffffff");
-
+        
         while (loadAssets.HasFinishedLoading() != true)
         {
-            Debug.Log("uuuuuu");
                   yield return null;
-            Debug.Log("HasFinishedLoading equals" + loadAssets.HasFinishedLoading());
         }
-        Debug.Log("fuck yeah");
-        loadAssets.BeginPlaying();
+
+		StartCoroutine(loadAssets.BeginPlaying());
     }
 
     private void SetSelectionText(string selectionType, string selectionText)
