@@ -15,9 +15,11 @@ public class CreditsParser : MonoBehaviour {
 	void Start ()
 	{
 		Text textElement = GetComponent<Text>();
-		textElement.text = "Pongball has been made by the following community contributors:\n\n" + GetCreditsNames() + "\n\n\n"
-						+ "Pongball makes use of the following third party libraries/code:\n\n";
-						//TODO: Add details/licences of third party code
+		textElement.text = "Pongball has been made by the following community contributors\n(see the Pongball GitHub repository for licence notices):\n\n" + GetCreditsNames() + "\n\n\n"
+						+ "Pongball makes use of the following third party libraries/code:\n\n"
+						+ "Asset Bundle Manager - Unity Technologies\n"
+						+ "SoundManager.cs - Unity Technologies\n";
+						//TODO: Add details/licences of any other third party code?
 		posInitial = - textElement.preferredHeight / 2;
 		posMax = Screen.height + textElement.preferredHeight / 2;
 		var t = transform.position;
