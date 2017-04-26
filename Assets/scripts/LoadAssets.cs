@@ -341,7 +341,11 @@ public class LoadAssets : MonoBehaviour {
 			spawner.AddComponent<BallSpawner>().ballPrefab = NetworkManager.singleton.spawnPrefabs[0];// Don't like this at all...
 			spawner.AddComponent<ResetBallUI>();
 
-			if (GameObject.FindGameObjectsWithTag("Score").Length <= 0)
+            //Create the power UI for the players
+            const string powerUIPrefab = "entities/powers/PowerUI";
+            Instantiate(Resources.Load(powerUIPrefab));
+
+            if (GameObject.FindGameObjectsWithTag("Score").Length <= 0)
 			{
 				GameObject scoreManager = GameObject.Instantiate(NetworkManager.singleton.spawnPrefabs[1]);
 
