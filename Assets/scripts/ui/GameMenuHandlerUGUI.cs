@@ -11,6 +11,7 @@ public class GameMenuHandlerUGUI : MonoBehaviour {
     public GameObject singleOrMultiPanel;
     public GameObject onlinePanel;
 	public GameObject levelSelectionPanel;
+    public GameObject instructionPanel;
 	public GameObject clientWaitPanel;
 	public GameObject backgroundPanel;
 
@@ -82,7 +83,20 @@ public class GameMenuHandlerUGUI : MonoBehaviour {
         }
     }
 
-	public void ClientWaitPanel()
+    public void InstructionPanel()
+    {
+        if (instructionPanel.activeSelf == false)
+        {
+            CloseAllPanels();
+            instructionPanel.SetActive(true);
+        }
+        else if (instructionPanel.activeSelf == true)
+        {
+            instructionPanel.SetActive(false);
+        }
+    }
+
+    public void ClientWaitPanel()
 	{
 		if (clientWaitPanel.activeSelf == false)
 		{
@@ -101,6 +115,7 @@ public class GameMenuHandlerUGUI : MonoBehaviour {
         singleOrMultiPanel.SetActive(false);
         onlinePanel.SetActive(false);
         levelSelectionPanel.SetActive(false);
+        instructionPanel.SetActive(false);
     }
 
 	public void CloseUI()
