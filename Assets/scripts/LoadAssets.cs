@@ -187,7 +187,7 @@ public class LoadAssets : MonoBehaviour {
         yield return StartCoroutine(request);
 
 		// Trigger callbacks once the scene has loaded
-		OnFinished(true);
+		//OnFinished(true);
 		finishedLoading = true;
 
 		if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count > 0)
