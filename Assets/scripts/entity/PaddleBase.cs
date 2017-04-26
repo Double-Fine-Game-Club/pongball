@@ -47,6 +47,12 @@ public class PaddleBase : NetworkBehaviour {
 
 		if (rigidBody)
         {
+
+            //Stop momentum caused by switching controllers
+            Vector3 zero = new Vector3(0, 0, 0);
+            rigidBody.velocity = zero;
+            rigidBody.angularVelocity = zero;
+
             // Invert for one side
             if (transform.position.x < 0) dir *= -1;
 
