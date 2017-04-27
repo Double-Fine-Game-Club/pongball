@@ -12,7 +12,10 @@ using UnityEngine.UI;
 public class PaddleBase : NetworkBehaviour {
 
     private float thrust = 10.0f;
-    private float paddleLimitZ = 5.0f;
+    private float paddleLimitMaxZ = 5.0f;
+    private float paddleLimitMinZ = -5.0f;
+    private float tempLimitZMax;
+    private float tempLimitZMin;
 
     private Vector3 up = new Vector3(1, 0, 0);
 
@@ -57,7 +60,11 @@ public class PaddleBase : NetworkBehaviour {
         {
             float paddleColliderHalfSize = 1f;
             paddleColliderHalfSize = GetComponent<MeshCollider>().bounds.size.y/2; //collision precise
-            paddleLimitZ = hit.point.z - paddleColliderHalfSize;
+            paddleLimitMaxZ = hit.point.z - paddleColliderHalfSize;
+            paddleLimitMinZ = -paddleLimitMaxZ;
+
+            tempLimitZMax = paddleLimitMaxZ;
+            tempLimitZMin = paddleLimitMinZ;
         }
         
         
@@ -72,6 +79,30 @@ public class PaddleBase : NetworkBehaviour {
 	{
 		this.thrust = thrust;
 	}
+
+    public void Obstruct(GameObject obj, bool isCleanup=false)
+    {
+        if (!isCleanup)
+        {
+            float paddleColliderHalfSize = GetComponent<MeshCollider>().bounds.size.y / 2;
+            float z = obj.transform.position.z;
+            float myZ = transform.position.z;
+            if(myZ > z)
+            {
+                paddleLimitMinZ = z + paddleColliderHalfSize;
+            }
+            else
+            {
+                paddleLimitMaxZ = z - paddleColliderHalfSize;
+            }
+            
+        }
+        else
+        {
+            paddleLimitMaxZ = tempLimitZMax;
+            paddleLimitMinZ = tempLimitZMin;
+        }
+    }
 
 	// +ve for "up"
     protected void MovePaddles(float dir)
@@ -98,15 +129,15 @@ public class PaddleBase : NetworkBehaviour {
 
     internal void FixedUpdate()
     {
-        
+
         // Clamp Z if we're outside an arbitrary value
         //  Assumed symettric table
-        if(transform.position.z < -paddleLimitZ || transform.position.z > paddleLimitZ)
+        if(transform.position.z < paddleLimitMinZ || transform.position.z > paddleLimitMaxZ)
         {
             transform.position = new Vector3(
                 transform.position.x,
                 transform.position.y,
-                Mathf.Clamp(transform.position.z, -paddleLimitZ, paddleLimitZ)
+                Mathf.Clamp(transform.position.z, paddleLimitMinZ, paddleLimitMaxZ)
                 );
         }
     }
