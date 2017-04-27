@@ -189,6 +189,14 @@ public class PaddleNetworking : NetworkBehaviour {
 
     }
 
+    [ClientRpc]
+    public void RpcObstructMe(float z, bool isCleanup)
+    {
+        //Only applies to players
+        Player p = GetComponent<Player>();
+        p.Obstruct(z, isCleanup);
+    }
+
     /***
      * player inputs
      * ****/

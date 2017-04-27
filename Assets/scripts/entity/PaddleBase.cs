@@ -10,9 +10,12 @@ using UnityEngine.UI;
 /// </summary>
 
 public class PaddleBase : NetworkBehaviour {
-	
+
     private float thrust = 10.0f;
-    private float paddleLimitZ = 5.0f;
+    private float paddleLimitMaxZ = 5.0f;
+    private float paddleLimitMinZ = -5.0f;
+    private float currentLimitZMax = 5;
+    private float currentLimitZMin = -5;
 
     private Vector3 up = new Vector3(1, 0, 0);
 
@@ -22,33 +25,49 @@ public class PaddleBase : NetworkBehaviour {
     public int playerIndex;
 
     protected List<SuperPowerBase> myPowers = new List<SuperPowerBase>();
-    public string currentPowerName="";
+    public string currentPowerName = "";
     protected Text powerText;
 
     protected Dictionary<string, bool> remoteInputs = new Dictionary<string, bool>();
     protected float messageTimer = 0.3f;
     protected float timeToNextMessage;
 
-    
+
     public virtual void Start()
-	{
-		rigidBody = GetComponent<Rigidbody>();
+    {
+        rigidBody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
 
-        
+
         PaddleNetworking[] playerList = GameObject.FindObjectsOfType<PaddleNetworking>();
-        int index = 0;  
+        int index = 0;
         foreach (PaddleNetworking player in playerList)
         {
-            if(player.gameObject==gameObject)
+            if (player.gameObject == gameObject)
             {
                 playerIndex = index;
             }
             ++index;
 
         }
-        
+
         currentPowerName = "";
+
+        RaycastHit hit;
+        LayerMask mask = 1 << 10;   //wall
+        Vector3 offset = new Vector3(0, .5f, 0);//spawner is in the floor -_-
+        if (Physics.Raycast(transform.position + offset, Vector3.forward, out hit, 10, mask))
+        {
+            float paddleColliderHalfSize = 1f;
+            paddleColliderHalfSize = GetComponent<MeshCollider>().bounds.size.y/2; //collision precise
+            paddleLimitMaxZ = hit.point.z - paddleColliderHalfSize;
+            paddleLimitMinZ = -paddleLimitMaxZ; //Assume symmetric...todo:another raycast opposite direction
+        }
+        currentLimitZMax = paddleLimitMaxZ;
+        currentLimitZMin = paddleLimitMinZ;
+
+
+
     }
 
     private void OnEnable()
@@ -61,6 +80,37 @@ public class PaddleBase : NetworkBehaviour {
 		this.thrust = thrust;
 	}
 
+    //Disallow paddle movement beyond positional point z
+    //  z is the location of the center of the obstruction object
+    //  paddle movement returns to normal when obstruct is called
+    //  again but with isCleanup=true
+    public void Obstruct(float z=0, bool isCleanup=false)
+    {
+       if (!isCleanup)
+        {
+            float paddleColliderHalfSize = GetComponent<MeshCollider>().bounds.size.y / 2;
+            float myZ = transform.position.z;
+            //support more obstructs later
+            //  reset both pairs of numbers
+            currentLimitZMax = paddleLimitMaxZ;
+            currentLimitZMin = paddleLimitMinZ;
+            if(myZ > z)
+            {
+                currentLimitZMin= z + paddleColliderHalfSize;
+            }
+            else
+            {
+                currentLimitZMax= z - paddleColliderHalfSize;
+            }
+            
+        }
+        else
+        {
+            currentLimitZMax = paddleLimitMaxZ;
+            currentLimitZMin = paddleLimitMinZ;
+        }
+    }
+
 	// +ve for "up"
     protected void MovePaddles(float dir)
     {
@@ -70,9 +120,8 @@ public class PaddleBase : NetworkBehaviour {
         {
 
             //Stop momentum caused by switching controllers
-            Vector3 zero = new Vector3(0, 0, 0);
-            rigidBody.velocity = zero;
-            rigidBody.angularVelocity = zero;
+            rigidBody.velocity = Vector3.zero;
+            rigidBody.angularVelocity = Vector3.zero;
 
             // Invert for one side
             if (transform.position.x < 0) dir *= -1;
@@ -87,13 +136,15 @@ public class PaddleBase : NetworkBehaviour {
 
     internal void FixedUpdate()
     {
+
         // Clamp Z if we're outside an arbitrary value
-        if(transform.position.z < -paddleLimitZ || transform.position.z > paddleLimitZ)
+        //  Assumed symettric table
+        if(transform.position.z < currentLimitZMin || transform.position.z > currentLimitZMax)
         {
             transform.position = new Vector3(
                 transform.position.x,
                 transform.position.y,
-                Mathf.Clamp(transform.position.z, -paddleLimitZ, paddleLimitZ)
+                Mathf.Clamp(transform.position.z, currentLimitZMin, currentLimitZMax)
                 );
         }
     }

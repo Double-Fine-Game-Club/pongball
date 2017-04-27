@@ -7,16 +7,17 @@ public class Obstruct : SuperPowerBase {
 
     public static string obstruction = "entities/powers/obstruction";
     GameObject obstacle;
+    List<PaddleBase> targets = new List<PaddleBase>();
    
 	// Use this for initialization
 	void Start () {
-        duration = 8;
+        duration = 5;
         powerName = "Obstruct";
     }
 
     private void OnEnable()
     {
-        duration = 8;
+        duration = 5;
         powerName = "Obstruct";
     }
 
@@ -40,12 +41,14 @@ public class Obstruct : SuperPowerBase {
                 if(p.gameObject != this.gameObject)
                 {
                     obstacle.transform.position = p.transform.position;
-                    break;
+                    p.Obstruct(obstacle.transform.position.z);
+                    targets.Add(p);
                 }
             }
             if (NetworkServer.active)
             {
                 NetworkServer.Spawn(obstacle);
+                ObstructClient();
             }
                 
         }
@@ -57,11 +60,26 @@ public class Obstruct : SuperPowerBase {
 
     override protected void CleanUp()
     {
+        foreach(PaddleBase p in targets)
+        {
+            p.Obstruct(0, true);
+        }
         if (isHost)
         {
+            ObstructClient(true);
             Object.Destroy(obstacle);
         }
         
         base.CleanUp();
     }
+
+    protected void ObstructClient(bool isCleanup=false)
+    {
+        if (!isHost || !NetworkManager.singleton.isNetworkActive) return;
+
+        PaddleNetworking pn = targets[0].GetComponent<PaddleNetworking>();
+        pn.RpcObstructMe(obstacle.transform.position.z, isCleanup);
+
+    }
+
 }
