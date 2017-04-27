@@ -7,12 +7,22 @@ public class LogoSwitcher : MonoBehaviour
     public GameObject[] logoArray;
     private int randomLogo;
     private int currentLogo = 0;
+	public float timer = 0;
 
     void Start()
     {
         RandomLogo();
         //Debug.Log(logoArray.Length);
     }
+
+	public void Update(){
+		//update logo switcher
+		timer += Time.deltaTime;
+		if(timer > 10){
+			NextLogo();
+			timer = 0;
+		}
+	}
 
     public void RandomLogo()
     {
@@ -29,7 +39,7 @@ public class LogoSwitcher : MonoBehaviour
         logoArray[currentLogo].SetActive(false);
         if (currentLogo < logoArray.Length-1)
         {
-        currentLogo++;
+        	currentLogo++;
         }
         else
         {
