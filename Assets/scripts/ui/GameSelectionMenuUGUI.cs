@@ -50,13 +50,13 @@ public class GameSelectionMenuUGUI : MonoBehaviour {
     public void BackButton(string selectionType)
     {
         indexLength = loadAssets.GetCount(selectionType) - 1;
-        if (currentIndex[selectionType] < indexLength)
+        if (currentIndex[selectionType] > 0)
         {
-            currentIndex[selectionType] = indexLength;
+            currentIndex[selectionType]--;
         }
         else
         {
-            currentIndex[selectionType]--;
+            currentIndex[selectionType] = indexLength;
         }
         SetSelectionText(selectionType, loadAssets.GetName(selectionType, currentIndex[selectionType]));
     }
