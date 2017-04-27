@@ -11,13 +11,13 @@ public class Obstruct : SuperPowerBase {
    
 	// Use this for initialization
 	void Start () {
-        duration = 8;
+        duration = 5;
         powerName = "Obstruct";
     }
 
     private void OnEnable()
     {
-        duration = 8;
+        duration = 5;
         powerName = "Obstruct";
     }
 
