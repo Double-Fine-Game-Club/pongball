@@ -56,6 +56,7 @@ public class PaddleBase : NetworkBehaviour {
         if (Physics.Raycast(transform.position + offset, Vector3.forward, out hit, 10, mask))
         {
             float paddleColliderHalfSize = 1f;
+            paddleColliderHalfSize = GetComponent<MeshCollider>().bounds.size.y/2; //collision precise
             paddleLimitZ = hit.point.z - paddleColliderHalfSize;
         }
         
@@ -81,9 +82,8 @@ public class PaddleBase : NetworkBehaviour {
         {
 
             //Stop momentum caused by switching controllers
-            Vector3 zero = new Vector3(0, 0, 0);
-            rigidBody.velocity = zero;
-            rigidBody.angularVelocity = zero;
+            rigidBody.velocity = Vector3.zero;
+            rigidBody.angularVelocity = Vector3.zero;
 
             // Invert for one side
             if (transform.position.x < 0) dir *= -1;
@@ -100,6 +100,7 @@ public class PaddleBase : NetworkBehaviour {
     {
         
         // Clamp Z if we're outside an arbitrary value
+        //  Assumed symettric table
         if(transform.position.z < -paddleLimitZ || transform.position.z > paddleLimitZ)
         {
             transform.position = new Vector3(
