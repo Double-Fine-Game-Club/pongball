@@ -32,7 +32,7 @@ public class Score : NetworkBehaviour
 	private int bumperValue = 5;
 	private int rolloverValue = 1;
 
-    private int gameWinValue = 250;
+    private int gameWinValue = 300;
     private bool gameWinState = false;
     private float gameWinCountdown = 0; // Wait a while when showing game win text
 
