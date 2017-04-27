@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameMenuHandlerUGUI : MonoBehaviour {
     /// <summary>
@@ -14,6 +15,7 @@ public class GameMenuHandlerUGUI : MonoBehaviour {
     public GameObject instructionPanel;
 	public GameObject clientWaitPanel;
 	public GameObject backgroundPanel;
+	private List<GameObject> panelStack;
     
     [SerializeField]
     private Text instruction;
@@ -21,10 +23,14 @@ public class GameMenuHandlerUGUI : MonoBehaviour {
     private bool offlineSelected;
     private bool singlePlayerSelected;
 
+
     // Use this for initialization
     void Start () {
         offlineSelected = false;
         singlePlayerSelected = false;
+
+		panelStack = new List<GameObject>();
+		panelStack.Add(localOrOnlinePanel);
 	}
     
     //merp was going to do something better, like this, but decided the other way was quicker to program, atm. - sjm
@@ -32,14 +38,27 @@ public class GameMenuHandlerUGUI : MonoBehaviour {
     {
     }
 
+	public void PreviousPanel()
+	{
+		if (panelStack.Count > 1 && panelStack[panelStack.Count - 1].activeSelf == true)
+		{
+			panelStack[panelStack.Count - 1].SetActive(false);
+			panelStack[panelStack.Count - 2].SetActive(true);
+			panelStack.RemoveAt(panelStack.Count - 1);
+		}
+		else if (panelStack.Count == 1)
+		{
+			SceneManager.LoadScene("MainMenu");
+		}
+	}
 
     public void OnlineOrLocalPanel()
-    {
-
+	{
         if (localOrOnlinePanel.activeSelf == false)
         {
             CloseAllPanels();
-            localOrOnlinePanel.SetActive(true);
+			localOrOnlinePanel.SetActive(true);
+			panelStack.Add(localOrOnlinePanel);
 
         }
         else if (localOrOnlinePanel.activeSelf == true)
@@ -49,13 +68,14 @@ public class GameMenuHandlerUGUI : MonoBehaviour {
     }
 
     public void LocalPanel()
-    {
+	{
         offlineSelected = true;
 
         if (singleOrMultiPanel.activeSelf == false)
         {
             CloseAllPanels();
-            singleOrMultiPanel.SetActive(true);
+			singleOrMultiPanel.SetActive(true);
+			panelStack.Add(singleOrMultiPanel);
         }
         else if (singleOrMultiPanel.activeSelf == true)
         {
@@ -65,11 +85,12 @@ public class GameMenuHandlerUGUI : MonoBehaviour {
 
 
     public void OnlinePanel()
-    {
+	{
         if (onlinePanel.activeSelf == false)
         {
             CloseAllPanels();
-            onlinePanel.SetActive(true);
+			onlinePanel.SetActive(true);
+			panelStack.Add(onlinePanel);
         }
         else if (onlinePanel.activeSelf == true)
         {
@@ -78,14 +99,15 @@ public class GameMenuHandlerUGUI : MonoBehaviour {
     }
 
     public void LevelSelectionPanel(bool singlePlayer)
-    {
+	{
         // Store whether single player was selected as reference for InstructionPanel().
         singlePlayerSelected = singlePlayer;
 
         if (levelSelectionPanel.activeSelf == false)
         {
             CloseAllPanels();
-            levelSelectionPanel.SetActive(true);
+			levelSelectionPanel.SetActive(true);
+			panelStack.Add(levelSelectionPanel);
         }
         else if (levelSelectionPanel.activeSelf == true)
         {
@@ -94,11 +116,12 @@ public class GameMenuHandlerUGUI : MonoBehaviour {
     }
 
     public void InstructionPanel()
-    {
+	{
         if (instructionPanel.activeSelf == false)
         {
             CloseAllPanels();
-            instructionPanel.SetActive(true);
+			instructionPanel.SetActive(true);
+			panelStack.Add(instructionPanel);
         }
         else if (instructionPanel.activeSelf == true)
         {
@@ -138,6 +161,7 @@ public class GameMenuHandlerUGUI : MonoBehaviour {
 		{
 			CloseAllPanels();
 			clientWaitPanel.SetActive(true);
+			panelStack.Add(clientWaitPanel);
 		}
 		else if (clientWaitPanel.activeSelf == true)
 		{
