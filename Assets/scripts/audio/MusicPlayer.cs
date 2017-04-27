@@ -13,7 +13,23 @@ public class MusicPlayer : MonoBehaviour {
     {
         musicArray = Resources.LoadAll<AudioClip>("audio/music");
         RandomSong();
-        StartCoroutine(PlayMusic());
+        //StartCoroutine(PlayMusic());
+        if (!musicSource.isPlaying)
+        {
+        
+            musicSource.clip = musicArray[currentSong];
+            musicSource.Play();
+            currentSong++;
+        }
+        /*
+        int i = 0;
+        foreach (AudioClip song in musicArray)
+        {
+
+            Debug.Log("musicArray" + i + ": Unity thinks length is " + song.length);
+            Debug.Log("musicArray" + i + ": actual length is " + song.samples/song.frequency);
+        }
+        */
     }
 
     void Update()
@@ -32,7 +48,7 @@ public class MusicPlayer : MonoBehaviour {
     }
 
 
-    IEnumerator PlayMusic()
+    /*IEnumerator PlayMusic()
     {
         while (musicIsPlaying == true)
         {
@@ -48,11 +64,22 @@ public class MusicPlayer : MonoBehaviour {
                 currentSong = 0;
             }
         }
-    }
+        
+    }*/
 
     public void PlayNextSong()
     {
-        StopCoroutine(PlayMusic());
+        if (currentSong < musicArray.Length - 1)
+        {
+            currentSong++;
+        }
+        else
+        {
+            currentSong = 0;
+        }
+        musicSource.Stop();
+
+        /*StopCoroutine(PlayMusic());
         if (currentSong < musicArray.Length - 1)
         {
             currentSong++;
@@ -62,19 +89,20 @@ public class MusicPlayer : MonoBehaviour {
             currentSong = 0;
         }
         StartCoroutine(PlayMusic());
+        */
 
     }
 
-    public void StartMusic()
+   /* public void StartMusic()
     {
         StartCoroutine(PlayMusic());
-    }
+    }*/
 
-    public void StopMusic()
+    /*public void StopMusic()
     {
         musicIsPlaying = false;
         //can also use StopCoroutine(PlayMusic());
-    }
+    }*/
 
     public void PauseMusic()
     {
