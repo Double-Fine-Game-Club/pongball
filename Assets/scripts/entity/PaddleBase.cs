@@ -10,7 +10,7 @@ using UnityEngine.UI;
 /// </summary>
 
 public class PaddleBase : NetworkBehaviour {
-	
+
     private float thrust = 10.0f;
     private float paddleLimitZ = 5.0f;
 
@@ -22,33 +22,44 @@ public class PaddleBase : NetworkBehaviour {
     public int playerIndex;
 
     protected List<SuperPowerBase> myPowers = new List<SuperPowerBase>();
-    public string currentPowerName="";
+    public string currentPowerName = "";
     protected Text powerText;
 
     protected Dictionary<string, bool> remoteInputs = new Dictionary<string, bool>();
     protected float messageTimer = 0.3f;
     protected float timeToNextMessage;
 
-    
+
     public virtual void Start()
-	{
-		rigidBody = GetComponent<Rigidbody>();
+    {
+        rigidBody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
 
-        
+
         PaddleNetworking[] playerList = GameObject.FindObjectsOfType<PaddleNetworking>();
-        int index = 0;  
+        int index = 0;
         foreach (PaddleNetworking player in playerList)
         {
-            if(player.gameObject==gameObject)
+            if (player.gameObject == gameObject)
             {
                 playerIndex = index;
             }
             ++index;
 
         }
-        
+
         currentPowerName = "";
+
+        RaycastHit hit;
+        LayerMask mask = 1 << 10;   //wall
+        Vector3 offset = new Vector3(0, .5f, 0);//spawner is in the floor -_-
+        if (Physics.Raycast(transform.position + offset, Vector3.forward, out hit, 10, mask))
+        {
+            float paddleColliderHalfSize = 1f;
+            paddleLimitZ = hit.point.z - paddleColliderHalfSize;
+        }
+        
+        
     }
 
     private void OnEnable()
@@ -87,6 +98,7 @@ public class PaddleBase : NetworkBehaviour {
 
     internal void FixedUpdate()
     {
+        
         // Clamp Z if we're outside an arbitrary value
         if(transform.position.z < -paddleLimitZ || transform.position.z > paddleLimitZ)
         {
