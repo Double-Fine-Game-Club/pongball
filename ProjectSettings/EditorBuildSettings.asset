@@ -12,11 +12,14 @@ EditorBuildSettings:
     path: Assets/tables/BaseTable.unity
     guid: f45a33469dd0b714b96b3a4b351bbe07
   - enabled: 1
-    path: Assets/tables/Table01.unity
+    path: Assets/tables/Bumpout.unity
     guid: 6b061c905875c6744b0db0c02baa3b8b
   - enabled: 1
-    path: Assets/tables/Table02.unity
+    path: Assets/tables/Flippers.unity
     guid: 06675c8c913684895a5bf9f12892b00b
   - enabled: 1
     path: Assets/tables/Table_kednar.unity
     guid: c4b97de82ff38485d942e19bf9054d9c
+  - enabled: 1
+    path: Assets/tables/Empty.unity
+    guid: 00000000000000000000000000000000
