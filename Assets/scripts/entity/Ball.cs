@@ -7,12 +7,14 @@ using UnityEngine.UI;
 
 public class Ball : NetworkBehaviour {
 
+    public float collisionForceMultiplier = 2.5f;
+    public float minimumVelocity = 10;
+    public float maximumVelocity = 200;
+
     private Rigidbody rigidBody = null;
     private new Renderer renderer = null;
     private TrailRenderer trailRenderer = null;
     private Vector3 startingPosition = Vector3.zero;
-    float minimumVelocity = 5;
-    float maximumVelocity = 200;
 
     private Coroutine delayCoroutine = null;
     public float spawnDelay = 3f;
@@ -72,7 +74,7 @@ public class Ball : NetworkBehaviour {
 
     public void UnClampSpeed()
     {
-        minimumVelocity = 5;
+        minimumVelocity = 10;
         maximumVelocity = 200;
     }
 
@@ -187,7 +189,7 @@ public class Ball : NetworkBehaviour {
 		if (other.gameObject.tag == "Paddle" || other.gameObject.tag == "Bumper")
 		{
 			//Debug.Log ("Adding force to ball");
-			rigidBody.AddForce (rigidBody.velocity.normalized * 2.5f);
+			rigidBody.AddForce (rigidBody.velocity.normalized * collisionForceMultiplier);
 			if (other.gameObject.tag == "Bumper")
 			{
 				if (OnTriggerEnterBumper != null)

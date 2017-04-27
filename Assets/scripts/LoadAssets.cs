@@ -14,11 +14,11 @@ public class LoadAssets : MonoBehaviour {
 	{ "kednar", false }
   	};
     public Dictionary<string, bool> tableNames = new Dictionary<string, bool>() {
-        { "Table_Clean", false },
-        { "Table01", false },
-        { "Table02", false },
+        { "Empty", false },
+        { "Bumpout", false },
+        { "Flippers", false },
         { "Speedster", false },
-	{ "Table_kednar", false }
+        { "Table_kednar", false }
 	};
 	public Dictionary<string, bool> paddleNames = new Dictionary<string, bool>() {
 		    { "tron", false },
