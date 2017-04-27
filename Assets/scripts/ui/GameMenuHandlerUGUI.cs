@@ -112,23 +112,23 @@ public class GameMenuHandlerUGUI : MonoBehaviour {
         // If multiplayer selected (online or offline): 
         if (!singlePlayerSelected)
         {
-            instruction.text += "LEFT PLAYER ";
+            instruction.text += "RIGHT PLAYER CONTROLS:\n";
         }
 
-        instruction.text += "CONTROLS:\n";
-        instruction.text += "W or E = move up\n";
-        instruction.text += "S = move down\n";
-        instruction.text += "Left Shift = activate power\n";
-        instruction.text += "Left Ctrl = hit animation (currently no effect on gameplay) and flippers\n\n";
+        instruction.text += "Up = move up\n";
+        instruction.text += "Down = move down\n";
+        instruction.text += "Right Shift = activate power\n";
+        instruction.text += "Right Ctrl = hit animation (currently no effect on gameplay) and flippers\n\n";
 
         // If multiplayer selected (online or offline): 
         if (!singlePlayerSelected)
         {
-            instruction.text += "RIGHT PLAYER CONTROLS:\n";
-            instruction.text += "Up = move up\n";
-            instruction.text += "Down = move down\n";
-            instruction.text += "Right Shift = activate power\n";
-            instruction.text += "Right Ctrl = hit animation (currently no effect on gameplay) and flippers\n\n";
+            instruction.text += "LEFT PLAYER\n";
+            instruction.text += "CONTROLS:\n";
+            instruction.text += "W or E = move up\n";
+            instruction.text += "S = move down\n";
+            instruction.text += "Left Shift = activate power\n";
+            instruction.text += "Left Ctrl = hit animation (currently no effect on gameplay) and flippers\n\n";
         }
     }
 

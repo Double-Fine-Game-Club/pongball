@@ -391,23 +391,23 @@ public class LoadAssets : MonoBehaviour {
 		// If local make the first paddle player controlled
 		if (!NetworkManager.singleton.isNetworkActive)
 		{
-			bots[0].gameObject.GetComponent<Player>().enabled = true;
-			bots[0].enabled = false;
-			bots[0].gameObject.GetComponent<Remote>().enabled = false;
+			bots[1].gameObject.GetComponent<Player>().enabled = true;
+			bots[1].enabled = false;
+			bots[1].gameObject.GetComponent<Remote>().enabled = false;
 
 			if (isSinglePlayer)
 			{
 				// Set player 2 to be a bot if singleplayer
-				bots[1].gameObject.GetComponent<Player>().enabled = false;
-				bots[1].enabled = true;
-				bots[1].gameObject.GetComponent<Remote>().enabled = false;
+				bots[0].gameObject.GetComponent<Player>().enabled = false;
+				bots[0].enabled = true;
+				bots[0].gameObject.GetComponent<Remote>().enabled = false;
 			}
 			else
 			{
 				// Set player 2 to be a player if not singleplayer
-				bots[1].gameObject.GetComponent<Player>().enabled = true;
-				bots[1].enabled = false;
-				bots[1].gameObject.GetComponent<Remote>().enabled = false;
+				bots[0].gameObject.GetComponent<Player>().enabled = true;
+				bots[0].enabled = false;
+				bots[0].gameObject.GetComponent<Remote>().enabled = false;
 			}
 		}
 		// if networked make the host control paddle 0 and the client control paddle 1
