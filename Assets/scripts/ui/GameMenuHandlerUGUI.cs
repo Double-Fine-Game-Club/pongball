@@ -11,16 +11,22 @@ public class GameMenuHandlerUGUI : MonoBehaviour {
     public GameObject singleOrMultiPanel;
     public GameObject onlinePanel;
 	public GameObject levelSelectionPanel;
+    public GameObject instructionPanel;
 	public GameObject clientWaitPanel;
 	public GameObject backgroundPanel;
+    
+    [SerializeField]
+    private Text instruction;
 
+    private bool offlineSelected;
+    private bool singlePlayerSelected;
 
-	// Use this for initialization
-	void Start () {
-		
+    // Use this for initialization
+    void Start () {
+        offlineSelected = false;
+        singlePlayerSelected = false;
 	}
-
-
+    
     //merp was going to do something better, like this, but decided the other way was quicker to program, atm. - sjm
     void Function(string menu)
     {
@@ -44,6 +50,8 @@ public class GameMenuHandlerUGUI : MonoBehaviour {
 
     public void LocalPanel()
     {
+        offlineSelected = true;
+
         if (singleOrMultiPanel.activeSelf == false)
         {
             CloseAllPanels();
@@ -69,8 +77,11 @@ public class GameMenuHandlerUGUI : MonoBehaviour {
         }
     }
 
-    public void LevelSelectionPanel()
+    public void LevelSelectionPanel(bool singlePlayer)
     {
+        // Store whether single player was selected as reference for InstructionPanel().
+        singlePlayerSelected = singlePlayer;
+
         if (levelSelectionPanel.activeSelf == false)
         {
             CloseAllPanels();
@@ -82,7 +93,46 @@ public class GameMenuHandlerUGUI : MonoBehaviour {
         }
     }
 
-	public void ClientWaitPanel()
+    public void InstructionPanel()
+    {
+        if (instructionPanel.activeSelf == false)
+        {
+            CloseAllPanels();
+            instructionPanel.SetActive(true);
+        }
+        else if (instructionPanel.activeSelf == true)
+        {
+            instructionPanel.SetActive(false);
+        }
+
+        instruction.text = "Score goals and earn the most points! ";
+        instruction.text += "The points given for each goal (the number at the top) increases as the ball hits bumpers or rolls over lightpads. ";
+        instruction.text += "A different power is given to each player every 20 seconds.\n\n";
+
+        // If multiplayer selected (online or offline): 
+        if (!singlePlayerSelected)
+        {
+            instruction.text += "LEFT PLAYER ";
+        }
+
+        instruction.text += "CONTROLS:\n";
+        instruction.text += "Y = move up\n";
+        instruction.text += "H = move down\n";
+        instruction.text += "Z = activate power\n";
+        instruction.text += "Q = hit animation (currently no effect on gameplay)\n\n";
+
+        // If multiplayer selected (online or offline): 
+        if (!singlePlayerSelected)
+        {
+            instruction.text += "RIGHT PLAYER CONTROLS:\n";
+            instruction.text += "Up = move up\n";
+            instruction.text += "Down = move down\n";
+            instruction.text += "Left Alt = activate power\n";
+            instruction.text += "Space = hit animation (currently no effect on gameplay)\n\n";
+        }
+    }
+
+    public void ClientWaitPanel()
 	{
 		if (clientWaitPanel.activeSelf == false)
 		{
@@ -101,6 +151,7 @@ public class GameMenuHandlerUGUI : MonoBehaviour {
         singleOrMultiPanel.SetActive(false);
         onlinePanel.SetActive(false);
         levelSelectionPanel.SetActive(false);
+        instructionPanel.SetActive(false);
     }
 
 	public void CloseUI()
