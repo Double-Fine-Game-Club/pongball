@@ -46,11 +46,11 @@ public class CreditsParser : MonoBehaviour {
 	{
 		//Load the names from the main repo's git contributors and split it into a list based on newlines
 		TextAsset ta = Resources.Load<TextAsset>("credits/credits-git");
-		List<string> namesList = ta.text.Split("\n"[0]).ToList();
+		List<string> namesList = ta.text.Replace("\r\n", "\n").Replace("\r","\n").Split("\n"[0]).ToList();
 
 		//Load the names from the assets repo's git contributors and split it into a list based on newlines
 		ta = Resources.Load<TextAsset>("credits/credits-assets-git");
-		var assetsNames = ta.text.Split("\n"[0]);
+		var assetsNames = ta.text.Replace("\r\n", "\n").Replace("\r","\n").Split("\n"[0]);
 
 		//Loop through and any names in the assets repo list that aren't already present
 		foreach (string s in assetsNames)
@@ -64,7 +64,7 @@ public class CreditsParser : MonoBehaviour {
 
 		//Load the names/details from the credits-extra file and split it into a list based on newlines
 		ta = Resources.Load<TextAsset>("credits/credits-extra");
-		List<string> extra = ta.text.Split("\n"[0]).ToList();
+		List<string> extra = ta.text.Replace("\r\n", "\n").Replace("\r","\n").Split("\n"[0]).ToList();
 
 		//Loop throught and find lines that aren't already present
 		foreach (string s in extra)
