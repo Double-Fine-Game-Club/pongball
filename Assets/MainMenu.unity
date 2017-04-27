@@ -1012,6 +1012,16 @@ Prefab:
       propertyPath: BypassReverbZones
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 82037660747357440, guid: ea331ca223fa449558937bb4ee734ca0,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82037660747357440, guid: ea331ca223fa449558937bb4ee734ca0,
+        type: 2}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114137415635821844, guid: ea331ca223fa449558937bb4ee734ca0, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ea331ca223fa449558937bb4ee734ca0, type: 2}
