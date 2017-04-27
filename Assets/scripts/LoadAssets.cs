@@ -9,28 +9,28 @@ public class LoadAssets : MonoBehaviour {
 
     // TODO: Can we display dictionaries in the editor??
     public Dictionary<string, bool> variantNames = new Dictionary<string, bool>() {
-        { "lightsoda", false },
-        { "kgunn", false },
-	{ "kednar", false }
-  	};
-    public Dictionary<string, bool> tableNames = new Dictionary<string, bool>() {
-        { "Empty", false },
-        { "Bumpout", false },
-        { "Flippers", false },
-        { "Speedster", false },
-        { "Table_kednar", false }
+		{ "lightsoda", false },
+		{ "kgunn", false },
+		{ "kednar", false }
+	};
+	public Dictionary<string, bool> tableNames = new Dictionary<string, bool>() {
+		{ "Empty", false },
+		{ "Bumpout", false },
+		{ "Flippers", false },
+		{ "Speedster", false },
+		{ "Table_kednar", false }
 	};
 	public Dictionary<string, bool> paddleNames = new Dictionary<string, bool>() {
-		    { "tron", false },
-		    { "robot blue", false },
-        { "robot green", false },
-        { "robot red", false },
-        { "robot yellow", false }
-  };
+		{ "tron", false },
+		{ "robot blue", false },
+		{ "robot green", false },
+		{ "robot red", false },
+		{ "robot yellow", false }
+	};
 
 	public GameObject[] playerPrefabs;
 
-    private string[] activeVariants;
+	private string[] activeVariants;
 	private bool finishedLoading;
 
 	public bool bundlesLoaded;
