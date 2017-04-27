@@ -80,13 +80,22 @@ public class PaddleBase : NetworkBehaviour {
 		this.thrust = thrust;
 	}
 
-    public void Obstruct(GameObject obj, bool isCleanup=false)
+    //Disallow paddle movement beyond positional point z
+    //  z is the location of the center of the obstruction object
+    //  paddle movement returns to normal when obstruct is called
+    //  again but with isCleanup=true
+    public void Obstruct(float z=0, bool isCleanup=false)
     {
+        Debug.Log("Z=" + z + "; isCleanup=" + isCleanup);
+        Debug.Log("max=" + tempLimitZMax + "; min=" + tempLimitZMin);
         if (!isCleanup)
         {
             float paddleColliderHalfSize = GetComponent<MeshCollider>().bounds.size.y / 2;
-            float z = obj.transform.position.z;
             float myZ = transform.position.z;
+            //support more obstructs later
+            //  reset both pairs of numbers
+            tempLimitZMax = paddleLimitMaxZ = 5;
+            tempLimitZMin = paddleLimitMinZ = -5;
             if(myZ > z)
             {
                 paddleLimitMinZ = z + paddleColliderHalfSize;

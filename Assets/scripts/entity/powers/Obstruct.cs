@@ -41,14 +41,14 @@ public class Obstruct : SuperPowerBase {
                 if(p.gameObject != this.gameObject)
                 {
                     obstacle.transform.position = p.transform.position;
-                    p.Obstruct(obstacle);
+                    p.Obstruct(obstacle.transform.position.z);
                     targets.Add(p);
-                    
                 }
             }
             if (NetworkServer.active)
             {
                 NetworkServer.Spawn(obstacle);
+                ObstructClient();
             }
                 
         }
@@ -62,13 +62,24 @@ public class Obstruct : SuperPowerBase {
     {
         foreach(PaddleBase p in targets)
         {
-            p.Obstruct(obstacle, true);
+            p.Obstruct(0, true);
         }
         if (isHost)
         {
+            ObstructClient(true);
             Object.Destroy(obstacle);
         }
         
         base.CleanUp();
     }
+
+    protected void ObstructClient(bool isCleanup=false)
+    {
+        if (!isHost || !NetworkManager.singleton.isNetworkActive) return;
+
+        PaddleNetworking pn = targets[0].GetComponent<PaddleNetworking>();
+        pn.RpcObstructMe(obstacle.transform.position.z, isCleanup);
+
+    }
+
 }
