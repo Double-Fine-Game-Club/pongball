@@ -14,8 +14,8 @@ public class PaddleBase : NetworkBehaviour {
     private float thrust = 10.0f;
     private float paddleLimitMaxZ = 5.0f;
     private float paddleLimitMinZ = -5.0f;
-    private float tempLimitZMax;
-    private float tempLimitZMin;
+    private float currentLimitZMax = 5;
+    private float currentLimitZMin = -5;
 
     private Vector3 up = new Vector3(1, 0, 0);
 
@@ -61,13 +61,13 @@ public class PaddleBase : NetworkBehaviour {
             float paddleColliderHalfSize = 1f;
             paddleColliderHalfSize = GetComponent<MeshCollider>().bounds.size.y/2; //collision precise
             paddleLimitMaxZ = hit.point.z - paddleColliderHalfSize;
-            paddleLimitMinZ = -paddleLimitMaxZ;
-
-            tempLimitZMax = paddleLimitMaxZ;
-            tempLimitZMin = paddleLimitMinZ;
+            paddleLimitMinZ = -paddleLimitMaxZ; //Assume symmetric...todo:another raycast opposite direction
         }
-        
-        
+        currentLimitZMax = paddleLimitMaxZ;
+        currentLimitZMin = paddleLimitMinZ;
+
+
+
     }
 
     private void OnEnable()
@@ -86,30 +86,28 @@ public class PaddleBase : NetworkBehaviour {
     //  again but with isCleanup=true
     public void Obstruct(float z=0, bool isCleanup=false)
     {
-        Debug.Log("Z=" + z + "; isCleanup=" + isCleanup);
-        Debug.Log("max=" + tempLimitZMax + "; min=" + tempLimitZMin);
-        if (!isCleanup)
+       if (!isCleanup)
         {
             float paddleColliderHalfSize = GetComponent<MeshCollider>().bounds.size.y / 2;
             float myZ = transform.position.z;
             //support more obstructs later
             //  reset both pairs of numbers
-            tempLimitZMax = paddleLimitMaxZ = 5;
-            tempLimitZMin = paddleLimitMinZ = -5;
+            currentLimitZMax = paddleLimitMaxZ;
+            currentLimitZMin = paddleLimitMinZ;
             if(myZ > z)
             {
-                paddleLimitMinZ = z + paddleColliderHalfSize;
+                currentLimitZMin= z + paddleColliderHalfSize;
             }
             else
             {
-                paddleLimitMaxZ = z - paddleColliderHalfSize;
+                currentLimitZMax= z - paddleColliderHalfSize;
             }
             
         }
         else
         {
-            paddleLimitMaxZ = tempLimitZMax;
-            paddleLimitMinZ = tempLimitZMin;
+            currentLimitZMax = paddleLimitMaxZ;
+            currentLimitZMin = paddleLimitMinZ;
         }
     }
 
@@ -141,12 +139,12 @@ public class PaddleBase : NetworkBehaviour {
 
         // Clamp Z if we're outside an arbitrary value
         //  Assumed symettric table
-        if(transform.position.z < paddleLimitMinZ || transform.position.z > paddleLimitMaxZ)
+        if(transform.position.z < currentLimitZMin || transform.position.z > currentLimitZMax)
         {
             transform.position = new Vector3(
                 transform.position.x,
                 transform.position.y,
-                Mathf.Clamp(transform.position.z, paddleLimitMinZ, paddleLimitMaxZ)
+                Mathf.Clamp(transform.position.z, currentLimitZMin, currentLimitZMax)
                 );
         }
     }
