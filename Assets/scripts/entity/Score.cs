@@ -99,7 +99,7 @@ public class Score : NetworkBehaviour
         //
         // TODO: Very rudimentary implementation of a game win state. Fix.
         //
-        if (score1 >= gameWinValue || score2 >= gameWinValue && !gameWinState)
+        if ((score1 >= gameWinValue || score2 >= gameWinValue) && gameWinState == false)
         {
             // Set game win state
             gameWinState = true;
@@ -108,6 +108,7 @@ public class Score : NetworkBehaviour
 
             // Update and show win text
             CountdownText.enabled = true;
+            CountdownText.color = Color.white; // fix for this getting very transparent at times
             CountdownText.text = "Player " + (score1 > score2 ? "1" : "2") + " wins!";
 
             // Pause all game objects
