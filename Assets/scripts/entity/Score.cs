@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
@@ -30,8 +32,12 @@ public class Score : NetworkBehaviour
 	private int bumperValue = 5;
 	private int rolloverValue = 1;
 
-	// Use this for initialization
-	void Start ()
+    private int gameWinValue = 250;
+    private bool gameWinState = false;
+    private float gameWinCountdown = 0; // Wait a while when showing game win text
+
+    // Use this for initialization
+    void Start ()
 	{
 		score1 = 0;
 		score2 = 0;
@@ -81,14 +87,92 @@ public class Score : NetworkBehaviour
 		}
 	}
 
-	// Only increase the score on the server or in local
-	public void OnTriggerEnterGoal1()
+    private void Update()
+    {
+        CheckGameWinState();
+    }
+
+    private void CheckGameWinState()
+    {
+        if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count == 0) return;
+
+        //
+        // TODO: Very rudimentary implementation of a game win state. Fix.
+        //
+        if (score1 >= gameWinValue || score2 >= gameWinValue && !gameWinState)
+        {
+            // Set game win state
+            gameWinState = true;
+
+            Time.timeScale = 0;
+
+            // Update and show win text
+            CountdownText.enabled = true;
+            CountdownText.text = "Player " + (score1 > score2 ? "1" : "2") + " wins!";
+
+            // Pause all game objects
+            UnityEngine.Object[] objects = GameObject.FindObjectsOfType(typeof(GameObject));
+            foreach (GameObject go in objects)
+            {
+                go.SendMessage("OnPauseGame", SendMessageOptions.DontRequireReceiver);
+            }
+
+            // Set countdown timer
+            gameWinCountdown = 100;
+        }
+        else if (gameWinState)
+        {
+            // Show the win text for a while before accepting input
+            if(gameWinCountdown > 0)
+            {
+                gameWinCountdown -= 1;
+                return;
+            }
+
+            // should only update once
+            CountdownText.text = "Player " + (score1 > score2 ? "1" : "2") + " wins!";
+            CountdownText.text += "\nPress any key to continue";
+
+            if (Input.anyKey)
+            {
+                Time.timeScale = 1;
+
+                // Destroy all active balls
+                List<GameObject> balls = new List<GameObject>(GameObject.FindGameObjectsWithTag("Ball"));
+                balls.ForEach(b => Destroy(b));
+
+                // Reset score
+                score1 = score2 = 0;
+
+                // Hide coutdown text
+                CountdownText.enabled = false;
+
+                // Unpause all game objects
+                UnityEngine.Object[] objects = GameObject.FindObjectsOfType(typeof(GameObject));
+                foreach (GameObject go in objects)
+                {
+                    go.SendMessage("OnResumeGame", SendMessageOptions.DontRequireReceiver);
+                }
+
+                // Unset game win state
+                gameWinState = false;
+
+                // Trigger a reset
+                OnTriggerReset();
+            }
+        }
+    }
+
+    // Only increase the score on the server or in local
+    public void OnTriggerEnterGoal1()
 	{
 		if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count == 0) return;
 
 		//Debug.Log("Score.OnTriggerEnterGoal1()");
 		score1+= currentGoalValue;
 		currentGoalValue = baseGoalValue;
+
+        ResetBall();
 	}
 
 	public void OnTriggerEnterGoal2()
@@ -98,9 +182,19 @@ public class Score : NetworkBehaviour
 		//Debug.Log("Score.OnTriggerEnterGoal2()");
 		score2 += currentGoalValue;
 		currentGoalValue = baseGoalValue;
-	}
 
-	public void OnTriggerEnterBumper()
+        ResetBall();
+    }
+
+    private void ResetBall()
+    {
+        // HACK to make win state work
+        CheckGameWinState();
+        if (gameWinState) return; 
+        GameObject.FindGameObjectWithTag("Ball").GetComponent<Ball>().ResetBall();
+    }
+
+    public void OnTriggerEnterBumper()
 	{
 		currentGoalValue += bumperValue;
 	}
@@ -140,6 +234,8 @@ public class Score : NetworkBehaviour
 
 	public void OnTriggerReset()
 	{
+        if (gameWinState) return;
+
 		if (countdownCoroutine != null)
 		{
 			StopCoroutine(countdownCoroutine);

@@ -137,11 +137,12 @@ public class Ball : NetworkBehaviour {
             //Gotta play the sound before resetting
             SoundManager.instance.PlaySingle(GetComponent<SFXBall>().goalUp);
 
-			// Respawn ball at center if on the server or local
-			ResetBall();
+            // Respawn ball at center if on the server or local
+            // HACK moved to score to make win state work
+            //ResetBall();
 
-			// Only handle scoring server-side of local
-			if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count == 0)
+            // Only handle scoring server-side of local
+            if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count == 0)
 				return;
 
         
