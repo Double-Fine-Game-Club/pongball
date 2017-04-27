@@ -77,7 +77,8 @@ public class MusicPlayer : MonoBehaviour {
         {
             currentSong = 0;
         }
-        musicSource.Stop();
+        musicSource.clip = musicArray[currentSong];
+        musicSource.Play();
 
         /*StopCoroutine(PlayMusic());
         if (currentSong < musicArray.Length - 1)
