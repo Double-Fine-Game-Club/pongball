@@ -1075,6 +1075,26 @@ Prefab:
       propertyPath: sfxSlider
       value: 
       objectReference: {fileID: 370348685}
+    - target: {fileID: 82037660747357440, guid: ea331ca223fa449558937bb4ee734ca0,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 82610879947610586, guid: ea331ca223fa449558937bb4ee734ca0,
+        type: 2}
+      propertyPath: BypassReverbZones
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82037660747357440, guid: ea331ca223fa449558937bb4ee734ca0,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82037660747357440, guid: ea331ca223fa449558937bb4ee734ca0,
+        type: 2}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114137415635821844, guid: ea331ca223fa449558937bb4ee734ca0, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ea331ca223fa449558937bb4ee734ca0, type: 2}
@@ -3783,6 +3803,31 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1490119337}
+--- !u!1 &1491808097 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1300611100889412, guid: ea331ca223fa449558937bb4ee734ca0,
+    type: 2}
+  m_PrefabInternal: {fileID: 370583068}
+--- !u!114 &1491808098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1491808097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd44898254437fc42b610fbb15767d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSource: {fileID: 1491808099}
+  musicArray: []
+  musicIsPlaying: 1
+  currentSong: 0
+--- !u!82 &1491808099 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 82037660747357440, guid: ea331ca223fa449558937bb4ee734ca0,
+    type: 2}
+  m_PrefabInternal: {fileID: 370583068}
 --- !u!1 &1503194413
 GameObject:
   m_ObjectHideFlags: 0
