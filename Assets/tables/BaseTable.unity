@@ -408,7 +408,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 25
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 0
@@ -731,7 +731,7 @@ Prefab:
     - target: {fileID: 114113526841220524, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
       propertyPath: m_FontData.m_FontSize
-      value: 30
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 114113526841220524, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
@@ -741,7 +741,7 @@ Prefab:
     - target: {fileID: 114038928921635930, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
       propertyPath: m_FontData.m_FontSize
-      value: 30
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 114038928921635930, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
@@ -841,32 +841,32 @@ Prefab:
     - target: {fileID: 114113526841220524, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114113526841220524, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114113526841220524, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114038928921635930, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114038928921635930, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114038928921635930, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114113526841220524, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
@@ -897,6 +897,16 @@ Prefab:
         type: 2}
       propertyPath: m_FontData.m_AlignByGeometry
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114113526841220524, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
+        type: 2}
+      propertyPath: m_Text
+      value: Table
+      objectReference: {fileID: 0}
+    - target: {fileID: 114522982717396378, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6df2edcea087a4bb1bfcae7c3ce421b1, type: 2}
@@ -1097,7 +1107,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 25
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 0
@@ -1171,7 +1181,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 25
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 0
@@ -1245,7 +1255,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 25
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 0
@@ -1324,7 +1334,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 25
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 0
@@ -1398,7 +1408,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 25
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 0
@@ -1727,7 +1737,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 25
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 0
@@ -2282,7 +2292,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 25
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 0
@@ -2418,7 +2428,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 25
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 0
@@ -2492,7 +2502,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 25
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 0
@@ -2688,7 +2698,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 25
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 0
@@ -2762,7 +2772,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 25
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 0
@@ -2969,7 +2979,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 25
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 0
@@ -3573,7 +3583,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 25
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 0
@@ -3893,7 +3903,7 @@ Prefab:
     - target: {fileID: 114113526841220524, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
       propertyPath: m_Text
-      value: 'Variant:'
+      value: Variant
       objectReference: {fileID: 0}
     - target: {fileID: 224207069336465860, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
@@ -3923,7 +3933,7 @@ Prefab:
     - target: {fileID: 114113526841220524, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
       propertyPath: m_FontData.m_FontSize
-      value: 30
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 114113526841220524, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
@@ -3933,7 +3943,7 @@ Prefab:
     - target: {fileID: 114038928921635930, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
       propertyPath: m_FontData.m_FontSize
-      value: 30
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 114038928921635930, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
@@ -4033,32 +4043,32 @@ Prefab:
     - target: {fileID: 114113526841220524, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114113526841220524, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114113526841220524, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114038928921635930, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114038928921635930, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114038928921635930, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114113526841220524, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
@@ -4089,6 +4099,11 @@ Prefab:
         type: 2}
       propertyPath: m_FontData.m_AlignByGeometry
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114522982717396378, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6df2edcea087a4bb1bfcae7c3ce421b1, type: 2}
@@ -4271,7 +4286,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 25
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 0
@@ -4919,7 +4934,7 @@ Prefab:
     - target: {fileID: 114113526841220524, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
       propertyPath: m_Text
-      value: 'Paddles:'
+      value: Paddles
       objectReference: {fileID: 0}
     - target: {fileID: 224207069336465860, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
@@ -4949,7 +4964,7 @@ Prefab:
     - target: {fileID: 114038928921635930, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
       propertyPath: m_FontData.m_FontSize
-      value: 30
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 114038928921635930, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
@@ -4959,7 +4974,7 @@ Prefab:
     - target: {fileID: 114113526841220524, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
       propertyPath: m_FontData.m_FontSize
-      value: 30
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 114113526841220524, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
@@ -5059,32 +5074,32 @@ Prefab:
     - target: {fileID: 114038928921635930, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114038928921635930, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114038928921635930, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114113526841220524, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114113526841220524, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114113526841220524, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114038928921635930, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
         type: 2}
@@ -5115,6 +5130,11 @@ Prefab:
         type: 2}
       propertyPath: m_FontData.m_AlignByGeometry
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114522982717396378, guid: 6df2edcea087a4bb1bfcae7c3ce421b1,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6df2edcea087a4bb1bfcae7c3ce421b1, type: 2}
@@ -5175,7 +5195,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 25
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 0
@@ -5249,7 +5269,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 25
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 0
@@ -5445,7 +5465,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 25
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 0
@@ -5658,7 +5678,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 25
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 0
@@ -5949,7 +5969,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 25
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 0
@@ -6330,7 +6350,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 25
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 0
@@ -6404,7 +6424,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 25
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 0
@@ -6927,7 +6947,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 25
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 0
@@ -7359,7 +7379,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 25
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 0
