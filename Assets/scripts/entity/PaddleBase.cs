@@ -65,9 +65,6 @@ public class PaddleBase : NetworkBehaviour {
         }
         currentLimitZMax = paddleLimitMaxZ;
         currentLimitZMin = paddleLimitMinZ;
-
-
-
     }
 
     private void OnEnable()

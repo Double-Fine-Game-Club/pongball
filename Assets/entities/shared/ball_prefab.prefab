@@ -243,6 +243,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33036343a7633174eaf9a91ff631cbed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collisionForceMultiplier: 2.5
+  minimumVelocity: 10
+  maximumVelocity: 200
   spawnDelay: 3
 --- !u!114 &114232668124787028
 MonoBehaviour:
@@ -288,10 +291,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TransformSyncMode: 3
-  m_SendInterval: 0.11111111
+  m_SendInterval: 0.045454547
   m_SyncRotationAxis: 7
-  m_RotationSyncCompression: 0
-  m_SyncSpin: 0
+  m_RotationSyncCompression: 2
+  m_SyncSpin: 1
   m_MovementTheshold: 0.001
   m_VelocityThreshold: 0.0001
   m_SnapThreshold: 5

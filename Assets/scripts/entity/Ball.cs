@@ -38,6 +38,7 @@ public class Ball : NetworkBehaviour {
             rigidBody = GetComponent<Rigidbody>();
             startingPosition = transform.position;
         }
+
         ResetBall();
     }
 
