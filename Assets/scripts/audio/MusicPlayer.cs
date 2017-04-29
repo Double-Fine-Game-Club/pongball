@@ -8,12 +8,15 @@ public class MusicPlayer : MonoBehaviour {
     public AudioClip[] musicArray;
     public bool musicIsPlaying = true;
     public int currentSong;
+    private IEnumerator coroutine;
 
     void Start()
     {
+       
         musicArray = Resources.LoadAll<AudioClip>("audio/music");
         RandomSong();
-        StartCoroutine(PlayMusic());
+        coroutine = PlayMusic();
+        StartCoroutine(coroutine);
     }
 
     void Update()
@@ -52,7 +55,7 @@ public class MusicPlayer : MonoBehaviour {
 
     public void PlayNextSong()
     {
-        StopCoroutine(PlayMusic());
+        StopCoroutine(coroutine);
         if (currentSong < musicArray.Length - 1)
         {
             currentSong++;
@@ -61,7 +64,8 @@ public class MusicPlayer : MonoBehaviour {
         {
             currentSong = 0;
         }
-        StartCoroutine(PlayMusic());
+        coroutine = PlayMusic();
+        StartCoroutine(coroutine);
 
     }
 
