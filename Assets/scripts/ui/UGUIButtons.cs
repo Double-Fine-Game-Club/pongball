@@ -58,12 +58,27 @@ public class UGUIButtons : MonoBehaviour {
         {
             aboutPanel.SetActive(false);
         }
-    }
+	}
 
     public void QuitButton()
+	{
+		//this should probably open a menu confirming your selection
+		Application.Quit();
+	}
+
+    public void ForumButton()
     {
-        //this should probably open a menu confirming your selection
-        Application.Quit();
+        Application.OpenURL("https://forums.doublefine.com/forum/80-pongball/");
+    }
+
+    public void GithubButton()
+    {
+        Application.OpenURL("https://github.com/Double-Fine-Game-Club/pongball");
+    }
+
+    public void UpdatesButton()
+    {
+        Application.OpenURL("https://github.com/Double-Fine-Game-Club/pongball/releases");
     }
 
     private void CloseAllPanels()
