@@ -40,7 +40,8 @@ public class Obstruct : SuperPowerBase {
             {
                 if(p.gameObject != this.gameObject)
                 {
-                    obstacle.transform.position = p.transform.position;
+                    float direction = FindClosestWall(p.transform.position);
+                    obstacle.transform.position = p.transform.position + new Vector3(0, 0, direction) ;
                     p.Obstruct(obstacle.transform.position.z);
                     targets.Add(p);
                 }
@@ -71,6 +72,25 @@ public class Obstruct : SuperPowerBase {
         }
         
         base.CleanUp();
+    }
+
+    //return +1 for above or -1 for below
+    private float FindClosestWall(Vector3 point)
+    {
+        point += new Vector3(0, 1, 0);  //To make the flippers table work
+        LayerMask mask = 1 << 10;   //wall
+        RaycastHit hit;
+        float hit1, hit2;
+        Physics.Raycast(point, new Vector3(0, 0, 1), out hit, 10, mask);
+        hit1 = Mathf.Abs(hit.distance);
+        Physics.Raycast(point, new Vector3(0, 0, -1), out hit, 10, mask);
+        hit2 = Mathf.Abs(hit.distance);
+        Debug.Log(hit1);
+        Debug.Log(hit2);
+        float direction = 1;
+        direction = hit1 < hit2 ? direction : -direction;
+        Debug.Log(direction);
+        return direction;
     }
 
     protected void ObstructClient(bool isCleanup=false)
