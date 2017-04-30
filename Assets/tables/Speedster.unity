@@ -359,6 +359,7 @@ GameObject:
   - component: {fileID: 522783419}
   - component: {fileID: 522783418}
   - component: {fileID: 522783417}
+  - component: {fileID: 522783422}
   m_Layer: 0
   m_Name: MainBoostPadButtonForward
   m_TagString: Button
@@ -443,6 +444,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &522783422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 522783416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33429fe7e83564085a2effb72c0b0721, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &667322431
 Prefab:
   m_ObjectHideFlags: 0
@@ -1153,6 +1165,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boostEnabled: 0
   boost: {fileID: 227080476}
+--- !u!114 &951431242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 951431238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33429fe7e83564085a2effb72c0b0721, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1154908909
 Prefab:
   m_ObjectHideFlags: 0
@@ -1375,6 +1398,7 @@ GameObject:
   - component: {fileID: 1184430041}
   - component: {fileID: 1184430040}
   - component: {fileID: 1184430039}
+  - component: {fileID: 1184430044}
   m_Layer: 0
   m_Name: MainBoostPadButtonBackward
   m_TagString: Button
@@ -1459,6 +1483,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1184430044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1184430038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33429fe7e83564085a2effb72c0b0721, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1189642327
 Prefab:
   m_ObjectHideFlags: 0
@@ -1513,6 +1548,7 @@ GameObject:
   - component: {fileID: 1247739332}
   - component: {fileID: 1247739331}
   - component: {fileID: 1247739330}
+  - component: {fileID: 1247739335}
   m_Layer: 0
   m_Name: GateButtonForward
   m_TagString: Button
@@ -1597,6 +1633,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 41.776, z: 0}
+--- !u!114 &1247739335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1247739329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33429fe7e83564085a2effb72c0b0721, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1276079348
 Prefab:
   m_ObjectHideFlags: 0
@@ -1940,6 +1987,7 @@ GameObject:
   - component: {fileID: 2133022985}
   - component: {fileID: 2133022984}
   - component: {fileID: 2133022983}
+  - component: {fileID: 2133022988}
   m_Layer: 0
   m_Name: GateButtonBackward
   m_TagString: Button
@@ -2024,3 +2072,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: -41.776, z: 0}
+--- !u!114 &2133022988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2133022982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33429fe7e83564085a2effb72c0b0721, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
