@@ -11,15 +11,17 @@ using UnityEngine.UI;
 public class Player : PaddleBase {
     //use this in inspector on your prefab to assign player?  Will that work?  Idfk.  *crosses fingers* -sjm
     public int playerNum = 1;
+    [Range(0.7f, 1.0f)]
+    public float paddleSpeed;
 
-	// Use this for initialization
-	public override void Start()
+    // Use this for initialization
+    public override void Start()
     {
         //playerNum = 1;
 		base.Start();
-		
-		// Give the player faster movement
-		SetThrust(20);
+        paddleSpeed = .85f;
+        // Give the player faster movement
+        SetThrust(20);
     }
 
     private new void FixedUpdate()
@@ -44,7 +46,8 @@ public class Player : PaddleBase {
 
         if (vaxis != 0)
         {
-            MovePaddles(vaxis);
+            MovePaddles(vaxis * paddleSpeed);
+            //Debug.Log(vaxis * paddleSpeed);
         }
 
         // If Fire1 is pressed, trigger pull animation
