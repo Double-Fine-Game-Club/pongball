@@ -26,6 +26,7 @@ public class Score : NetworkBehaviour
 	[SerializeField]
 	private Text ballValueText;
 
+    bool isHost = true;
 	private Coroutine countdownCoroutine = null;
 	public Text CountdownText;
 	private int baseGoalValue = 50;
@@ -47,14 +48,16 @@ public class Score : NetworkBehaviour
 	// I believe the event subscription method wasn't working because this occurs before ball instantitation
 	public void OnEnable()
 	{
+        isHost = (!NetworkManager.singleton.isNetworkActive || NetworkServer.connections.Count > 0);
 		Ball.OnTriggerReset += OnTriggerReset;
-		if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count == 0) return;
+		if (!isHost) return;
 
 		Debug.Log("Score.OnEnable()");
 		Ball.OnTriggerEnterGoal1 += OnTriggerEnterGoal1;
 		Ball.OnTriggerEnterGoal2 += OnTriggerEnterGoal2;
 		Ball.OnTriggerEnterBumper += OnTriggerEnterBumper;
 		Ball.OnTriggerEnterRollover += OnTriggerEnterRollover;
+
 	}
 
 	void OnDisable()
@@ -94,7 +97,7 @@ public class Score : NetworkBehaviour
 
     private void CheckGameWinState()
     {
-        if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count == 0) return;
+        //if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count == 0) return;
 
         //
         // TODO: Very rudimentary implementation of a game win state. Fix.
@@ -104,12 +107,15 @@ public class Score : NetworkBehaviour
             // Set game win state
             gameWinState = true;
 
+            //Setting timescale to zero prevents fixedupdate from being called and score UI from being updated. Let's force that now
+            FixedUpdate();
+
             Time.timeScale = 0;
 
             // Update and show win text
             CountdownText.enabled = true;
             CountdownText.color = Color.white; // fix for this getting very transparent at times
-            CountdownText.text = "Player " + (score1 > score2 ? "1" : "2") + " wins!";
+            CountdownText.text = (score1 > score2 ? "Left" : "Right") + " Player wins!";
 
             // Pause all game objects
             UnityEngine.Object[] objects = GameObject.FindObjectsOfType(typeof(GameObject));
@@ -131,36 +137,48 @@ public class Score : NetworkBehaviour
             }
 
             // should only update once
-            CountdownText.text = "Player " + (score1 > score2 ? "1" : "2") + " wins!";
-            CountdownText.text += "\nPress any key to continue";
+			CountdownText.text = (score1 > score2 ? "Left" : "Right") + " Player wins!";
 
-            if (Input.anyKey)
+            if (isHost)
             {
-                Time.timeScale = 1;
+                CountdownText.text += "\nPress any key to continue";
 
-                // Destroy all active balls
-                List<GameObject> balls = new List<GameObject>(GameObject.FindGameObjectsWithTag("Ball"));
-                balls.ForEach(b => Destroy(b));
-
-                // Reset score
-                score1 = score2 = 0;
-
-                // Hide coutdown text
-                CountdownText.enabled = false;
-
-                // Unpause all game objects
-                UnityEngine.Object[] objects = GameObject.FindObjectsOfType(typeof(GameObject));
-                foreach (GameObject go in objects)
+                if (Input.anyKey)
                 {
-                    go.SendMessage("OnResumeGame", SendMessageOptions.DontRequireReceiver);
+                    Time.timeScale = 1;
+
+                    // Destroy all active balls
+                    List<GameObject> balls = new List<GameObject>(GameObject.FindGameObjectsWithTag("Ball"));
+                    balls.ForEach(b => Destroy(b));
+
+                    // Reset score
+                    score1 = score2 = 0;
+
+                    // Hide coutdown text
+                    CountdownText.enabled = false;
+
+                    // Unpause all game objects
+                    UnityEngine.Object[] objects = GameObject.FindObjectsOfType(typeof(GameObject));
+                    foreach (GameObject go in objects)
+                    {
+                        go.SendMessage("OnResumeGame", SendMessageOptions.DontRequireReceiver);
+                    }
+
+                    // Unset game win state
+                    gameWinState = false;
+
+                    // Trigger a reset
+                    OnTriggerReset();
                 }
-
-                // Unset game win state
-                gameWinState = false;
-
-                // Trigger a reset
-                OnTriggerReset();
             }
+        }
+        if(gameWinState && score1==0 && score2==0)
+        {
+            //End Win state on client
+            //score is network updated but winstate is not
+            Time.timeScale = 1;
+            gameWinState = false;
+            CountdownText.text = "3";
         }
     }
 
@@ -241,6 +259,18 @@ public class Score : NetworkBehaviour
 		{
 			StopCoroutine(countdownCoroutine);
 		}
-		countdownCoroutine = StartCoroutine(Countdown());
-	}
+        countdownCoroutine = StartCoroutine(Countdown());
+
+        if (NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count > 0)
+        {
+            RpcClientCountdown();
+        }
+
+    }
+
+    [ClientRpc]
+    void RpcClientCountdown()
+    {
+        StartCoroutine(Countdown());
+    }
 }
