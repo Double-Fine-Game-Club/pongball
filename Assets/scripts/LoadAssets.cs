@@ -345,7 +345,7 @@ public class LoadAssets : MonoBehaviour {
 
            
 
-            if (GameObject.FindGameObjectsWithTag("Score").Length <= 0)
+            //if (GameObject.FindGameObjectsWithTag("Score").Length <= 0)
 			{
 				GameObject scoreManager = GameObject.Instantiate(NetworkManager.singleton.spawnPrefabs[1]);
 
