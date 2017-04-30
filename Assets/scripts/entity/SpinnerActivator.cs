@@ -21,10 +21,12 @@ public class SpinnerActivator : MonoBehaviour
         if (boostEnabled == true)
         {
             ActivateBoost();
+            GetComponent<ObstacleNetworking>().ActivateFromServer();
         }
         else if (boostEnabled == false)
         {
             DeactivateBoost();
+            GetComponent<ObstacleNetworking>().DeactivateFromServer();
         }
     }
 
