@@ -123,8 +123,7 @@ public class GameMenuHandlerUGUI : MonoBehaviour {
         // If multiplayer selected (online or offline): 
         if (!singlePlayerSelected)
         {
-            instruction.text += "LEFT PLAYER\n";
-            instruction.text += "CONTROLS:\n";
+            instruction.text += "LEFT PLAYER CONTROLS:\n";
             instruction.text += "W or E = move up\n";
             instruction.text += "S = move down\n";
             instruction.text += "Left Shift = activate power\n";
