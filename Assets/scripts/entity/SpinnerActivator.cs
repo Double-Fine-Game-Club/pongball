@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class SpinnerActivator : MonoBehaviour
 {
@@ -11,33 +12,40 @@ public class SpinnerActivator : MonoBehaviour
     {
         boost.GetComponent<BoostPadForce>().boostEnabled = false;
         boost.GetComponent<BoostPad>().lightDisabled();
+    }
 
+    private void Awake()
+    {
         GetComponent<ObstacleNetworking>().ActivateFromServer += ActivateBoost;
         GetComponent<ObstacleNetworking>().DeactivateFromServer += DeactivateBoost;
     }
 
     void OnCollisionEnter(Collision col)
     {
-        if (boostEnabled == true)
+        if (!NetworkManager.singleton.isNetworkActive || NetworkServer.connections.Count > 0)
         {
-            ActivateBoost();
-            GetComponent<ObstacleNetworking>().ActivateFromServer();
-        }
-        else if (boostEnabled == false)
-        {
-            DeactivateBoost();
-            GetComponent<ObstacleNetworking>().DeactivateFromServer();
+            //Host only
+            if (boostEnabled == false)
+            {
+                ActivateBoost();
+                GetComponent<ObstacleNetworking>().ActivateFromServer();
+            }
+            else if (boostEnabled == true)
+            {
+                DeactivateBoost();
+                GetComponent<ObstacleNetworking>().DeactivateFromServer();
+            }
         }
     }
 
-    void ActivateBoost()
+    void DeactivateBoost()
     {
         boost.GetComponent<BoostPadForce>().boostEnabled = false;
         boost.GetComponent<BoostPad>().lightDisabled();
         boostEnabled = false;
     }
 
-    void DeactivateBoost()
+    void ActivateBoost()
     {
         boost.GetComponent<BoostPadForce>().boostEnabled = true;
         boost.GetComponent<BoostPad>().lightEnabled();
