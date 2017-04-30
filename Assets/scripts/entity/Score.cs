@@ -104,12 +104,15 @@ public class Score : NetworkBehaviour
             // Set game win state
             gameWinState = true;
 
+            //Setting timescale to zero prevents fixedupdate from being called and score UI from being updated. Let's force that now
+            FixedUpdate();
+
             Time.timeScale = 0;
 
             // Update and show win text
             CountdownText.enabled = true;
             CountdownText.color = Color.white; // fix for this getting very transparent at times
-            CountdownText.text = "Player " + (score1 > score2 ? "1" : "2") + " wins!";
+            CountdownText.text = (score1 > score2 ? "Left" : "Right") + " Player wins!";
 
             // Pause all game objects
             UnityEngine.Object[] objects = GameObject.FindObjectsOfType(typeof(GameObject));
@@ -131,7 +134,7 @@ public class Score : NetworkBehaviour
             }
 
             // should only update once
-            CountdownText.text = "Player " + (score1 > score2 ? "1" : "2") + " wins!";
+			CountdownText.text = (score1 > score2 ? "Left" : "Right") + " Player wins!";
             CountdownText.text += "\nPress any key to continue";
 
             if (Input.anyKey)
