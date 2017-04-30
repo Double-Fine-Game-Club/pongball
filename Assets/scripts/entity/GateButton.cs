@@ -7,7 +7,18 @@ public class GateButton : MonoBehaviour
     public bool directionIsForward;
     public GameObject gate;
 
+    void Awake()
+    {
+            GetComponent<ObstacleNetworking>().ActivateFromServer += OperateGate;
+            GetComponent<ObstacleNetworking>().DeactivateFromServer += OperateGate;
+    }
+
     void OnCollisionEnter(Collision col)
+    {
+        OperateGate();
+        GetComponent<ObstacleNetworking>().ActivateOnServer();
+    }
+    void OperateGate()
     {
         if (directionIsForward == true)
         {
@@ -17,8 +28,6 @@ public class GateButton : MonoBehaviour
         {
             gate.GetComponent<GateOperator>().MoveGateBackward();
         }
-
-         
     }
 
 }

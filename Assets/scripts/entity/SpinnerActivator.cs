@@ -12,24 +12,33 @@ public class SpinnerActivator : MonoBehaviour
         boost.GetComponent<BoostPadForce>().boostEnabled = false;
         boost.GetComponent<BoostPad>().lightDisabled();
 
+        GetComponent<ObstacleNetworking>().ActivateFromServer += ActivateBoost;
+        GetComponent<ObstacleNetworking>().DeactivateFromServer += DeactivateBoost;
     }
 
     void OnCollisionEnter(Collision col)
     {
         if (boostEnabled == true)
         {
-            boost.GetComponent<BoostPadForce>().boostEnabled = false;
-            boost.GetComponent<BoostPad>().lightDisabled();
-            boostEnabled = false;
+            ActivateBoost();
         }
         else if (boostEnabled == false)
         {
-            boost.GetComponent<BoostPadForce>().boostEnabled = true;
-            boost.GetComponent<BoostPad>().lightEnabled();
-            boostEnabled = true;
+            DeactivateBoost();
         }
-
-
     }
 
+    void ActivateBoost()
+    {
+        boost.GetComponent<BoostPadForce>().boostEnabled = false;
+        boost.GetComponent<BoostPad>().lightDisabled();
+        boostEnabled = false;
+    }
+
+    void DeactivateBoost()
+    {
+        boost.GetComponent<BoostPadForce>().boostEnabled = true;
+        boost.GetComponent<BoostPad>().lightEnabled();
+        boostEnabled = true;
+    }
 }
