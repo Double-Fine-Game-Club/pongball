@@ -143,15 +143,16 @@ public class GameMenuHandlerUGUI : MonoBehaviour {
 			clientWaitPanel.SetActive(false);
 		}
 	}
-	
-    private void CloseAllPanels()
+
+	private void CloseAllPanels()
     {
         localOrOnlinePanel.SetActive(false);
         singleOrMultiPanel.SetActive(false);
         onlinePanel.SetActive(false);
         levelSelectionPanel.SetActive(false);
         instructionPanel.SetActive(false);
-    }
+		clientWaitPanel.SetActive(false);
+	}
 
 	public void CloseUI()
 	{
