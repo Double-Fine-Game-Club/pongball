@@ -24,12 +24,12 @@ public class SpinnerActivator : MonoBehaviour
 
     private void OnEnable()
     {
-        Score.OnLevelReset += OnLevelReset;
+        Score.OnTriggerResetObstacles += OnLevelReset;
     }
 
     private void OnDisable()
     {
-        Score.OnLevelReset += OnLevelReset;
+        Score.OnTriggerResetObstacles += OnLevelReset;
     }
 
     private void OnLevelReset()
