@@ -12,15 +12,14 @@ public class MyBuildPostprocessor
         //TODO: Find out why this crashes the Unity editor!
         //BuildScript.BuildTargetAssetBundles();
 
-        string targetPath;
+        string targetPath = pathToBuiltProject.Substring(0, pathToBuiltProject.LastIndexOf('/') + 1);
+        FileUtil.CopyFileOrDirectory(Application.dataPath + "/../README.md", targetPath + "/README.md");
+
         if (Utility.GetPlatformName() == "OSX")
         {
             targetPath = pathToBuiltProject + "/";
         }
-        else
-        {
-            targetPath = pathToBuiltProject.Substring(0, pathToBuiltProject.LastIndexOf('/') + 1);
-        }
+
         var sourcePath = Application.dataPath + "/../AssetBundles/" + Utility.GetPlatformForAssetBundles(EditorUserBuildSettings.activeBuildTarget);
         Debug.Log("Copying AssetBundles to " + targetPath);
         FileUtil.DeleteFileOrDirectory(targetPath + "AssetBundles");
