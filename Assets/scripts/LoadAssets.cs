@@ -360,7 +360,7 @@ public class LoadAssets : MonoBehaviour {
 			foreach (Transform spawnPosition in NetworkManager.singleton.startPositions)
 			{
 				Transform paddlePos = spawnPosition;
-				int paddleIndex = Mathf.FloorToInt(Random.Range(0, playerPrefabs.Length) );
+				//int paddleIndex = Mathf.FloorToInt(Random.Range(0, playerPrefabs.Length) );
 				var paddlePrefab = playerPrefabs[GetIndexAtDictionaryKey(GetActiveFromDictionary(paddleNames), paddleNames)];
 				GameObject paddle = GameObject.Instantiate(paddlePrefab, paddlePos);
 				if(playerIndex==0)
@@ -372,7 +372,7 @@ public class LoadAssets : MonoBehaviour {
 				if (NetworkManager.singleton.isNetworkActive)
 				{
 					NetworkServer.Spawn(paddle);
-					paddle.GetComponent<PaddleNetworking>().SetPaddleIndex(paddleIndex);
+					paddle.GetComponent<PaddleNetworking>().SetPaddleIndex(playerIndex);
 				}
 
 				playerIndex++;
@@ -380,7 +380,7 @@ public class LoadAssets : MonoBehaviour {
 				//this should change one Player scripts playerNum to 1 and one to 2 in order to allow 2 players
 				// Doesn't seem to be working. atm.
 				paddle.GetComponent<Player>().playerNum = playerIndex;
-				Debug.Log("paddleIndex is "+ paddleIndex);
+				//Debug.Log("paddleIndex is "+ paddleIndex);
 			}
 		}
 

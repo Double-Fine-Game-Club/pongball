@@ -93,7 +93,7 @@ public class PaddleNetworking : NetworkBehaviour {
 	// Callback for when a message is received
 	void OnReceiveClientId(NetworkMessage netMsg)
 	{
-		// Only handle the message as the server
+        // Only handle the message as the server
 		if (NetworkServer.connections.Count > 0)
 		{
 			// Parse the message into the client id and paddle index
@@ -101,61 +101,71 @@ public class PaddleNetworking : NetworkBehaviour {
 			string[] parts = msg.Split('.');
 			int clientId = int.Parse(parts[0]);
 			int index = int.Parse(parts[1]);
-
-			// Find the paddle of the given index
-			foreach (PaddleNetworking paddle in GameObject.FindObjectsOfType<PaddleNetworking>())
+            // Find the paddle of the given index
+            foreach (PaddleNetworking paddle in GameObject.FindObjectsOfType<PaddleNetworking>())
 			{
-				if (paddle.GetPaddleIndex() == index)
+                if (paddle.GetPaddleIndex() == index)
 				{
-					// Set the id to the given client id
-					paddle.SetClientId(clientId);
-				}
+                    // Set the id to the given client id
+                    if (paddle.SetClientId(clientId))
+                    {
+                        break;
+                    }
+                }
 			}
 		}
 	}
 
 	// Set the client id controlling this paddle
-	public void SetClientId(int clientId)
+	public bool SetClientId(int clientId)
 	{
-		// If the paddle is being controlled by AI (does not override other client possession)
-		if (paddleClientId == PADDLE_AI && clientId != PADDLE_AI)
+        bool isSuccess = false;
+        // If the paddle is being controlled by AI (does not override other client possession)
+        if (paddleClientId == PADDLE_AI && clientId != PADDLE_AI)
 		{
 			// Disable the AI for this paddle on the server
 			GetComponent<SimpleAI>().enabled = false;
             GetComponent<Remote>().enabled = true;
 
-			// Find the client which is taking possession
-			foreach (NetworkConnection conn in NetworkServer.connections)
+            // Find the client which is taking possession
+            foreach (NetworkConnection conn in NetworkServer.connections)
 			{
 				if (conn.connectionId == clientId)
 				{
 					// Assign that client control over the paddle
 					GetComponent<NetworkIdentity>().AssignClientAuthority(conn);
-					break;
+                    isSuccess = true;
+                    break;
 				}
 			}
 		}
 		// If the paddle is being controlled by a client
 		else if (paddleClientId != PADDLE_AI && clientId == PADDLE_AI)
 		{
-			// Find the client which has possession
-			foreach (NetworkConnection conn in NetworkServer.connections)
+            // Find the client which has possession
+            foreach (NetworkConnection conn in NetworkServer.connections)
 			{
 				if (conn.connectionId == paddleClientId)
 				{
 					// Remove the client's control over the paddle
 					GetComponent<NetworkIdentity>().RemoveClientAuthority(conn);
-					break;
+                    isSuccess = true;
+                    break;
 				}
 			}
 
 			// Enabled the AI for this paddle on the server
 			GetComponent<SimpleAI>().enabled = true;
             GetComponent<Remote>().enabled = false;
-		}
+        }
+        else
+        {
+            Debug.Log("Failed to set clientID");
+        }
 
 		// Update the client id on the server (is replicated on clients)
 		paddleClientId = clientId;
+        return isSuccess;
 	}
 
     /****
