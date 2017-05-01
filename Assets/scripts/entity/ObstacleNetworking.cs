@@ -10,10 +10,13 @@ public class ObstacleNetworking : MonoBehaviour
 	public delegate void ActivateCallback();
 	public ActivateCallback ActivateFromServer;
 
-	public delegate void DeactivateCallback();
-	public ActivateCallback DeactivateFromServer;
+    public delegate void DeactivateCallback();
+    public ActivateCallback DeactivateFromServer;
 
-	void Update () 
+    public delegate void ResetCallback();
+    public ResetCallback ResetFromServer;
+
+    void Update () 
 	{
 		// Get the obstacle manager
 		if (obstacleManager == null)
@@ -43,4 +46,14 @@ public class ObstacleNetworking : MonoBehaviour
 			Debug.Log("deactivate on server");
 		}
 	}
+
+    public void ResetOnServer()
+    {
+        if (NetworkManager.singleton.isNetworkActive)
+        {
+            obstacleManager.ResetObstacle(this);
+
+            Debug.Log("deactivate on server");
+        }
+    }
 }

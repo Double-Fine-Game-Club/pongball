@@ -37,6 +37,9 @@ public class Score : NetworkBehaviour
     private bool gameWinState = false;
     private float gameWinCountdown = 0; // Wait a while when showing game win text
 
+    public delegate void TriggerResetObstaclesDelegate();
+    public static event TriggerResetObstaclesDelegate OnTriggerResetObstacles;
+
     // Use this for initialization
     void Start ()
 	{
@@ -191,6 +194,9 @@ public class Score : NetworkBehaviour
 		score1+= currentGoalValue;
 		currentGoalValue = baseGoalValue;
 
+        if (OnTriggerResetObstacles != null)
+            OnTriggerResetObstacles();
+
         ResetBall();
 	}
 
@@ -201,6 +207,9 @@ public class Score : NetworkBehaviour
 		//Debug.Log("Score.OnTriggerEnterGoal2()");
 		score2 += currentGoalValue;
 		currentGoalValue = baseGoalValue;
+
+        if (OnTriggerResetObstacles != null)
+            OnTriggerResetObstacles();
 
         ResetBall();
     }
