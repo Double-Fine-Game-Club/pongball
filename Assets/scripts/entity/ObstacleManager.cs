@@ -7,19 +7,21 @@ using UnityEngine.Networking.NetworkSystem;
 public class ObstacleManager : NetworkBehaviour 
 {
 	private short ACTIVATE_MESSAGE = 1100;
-	private short DEACTIVATE_MESSAGE = 1101;
+    private short DEACTIVATE_MESSAGE = 1101;
+    private short RESET_MESSAGE = 1102;
 
-	public ObstacleNetworking[] obstacles;
+    public ObstacleNetworking[] obstacles;
 
 	[ServerCallback]
 	void Start () 
 	{
 		// Register the message handlers on the server
 		NetworkServer.RegisterHandler(ACTIVATE_MESSAGE, OnReceiveActivateMessage);
-		NetworkServer.RegisterHandler(DEACTIVATE_MESSAGE, OnReceiveDeactivateMessage);
-	}
+        NetworkServer.RegisterHandler(DEACTIVATE_MESSAGE, OnReceiveDeactivateMessage);
+        NetworkServer.RegisterHandler(RESET_MESSAGE, OnReceiveResetMessage);
+    }
 
-	void Update () 
+    void Update () 
 	{
 		// Fill the obstacle list once the table is spawned
 		if (obstacles.Length == 0 && Object.FindObjectOfType<ObstacleNetworking>() != null)
@@ -35,15 +37,21 @@ public class ObstacleManager : NetworkBehaviour
 		NetworkManager.singleton.client.connection.Send(ACTIVATE_MESSAGE, msg);
 	}
 
-	// Deactivate the obstacle on the server
-	public void DeactivateObstacle(ObstacleNetworking obstacle)
-	{
-		IntegerMessage msg = new IntegerMessage(GetObstacleIndex(obstacle));
-		NetworkManager.singleton.client.connection.Send(DEACTIVATE_MESSAGE, msg);
-	}
+    // Deactivate the obstacle on the server
+    public void DeactivateObstacle(ObstacleNetworking obstacle)
+    {
+        IntegerMessage msg = new IntegerMessage(GetObstacleIndex(obstacle));
+        NetworkManager.singleton.client.connection.Send(DEACTIVATE_MESSAGE, msg);
+    }
 
-	// Callback for when an activate message is received
-	[Server]
+    public void ResetObstacle(ObstacleNetworking obstacle)
+    {
+        IntegerMessage msg = new IntegerMessage(GetObstacleIndex(obstacle));
+        NetworkManager.singleton.client.connection.Send(RESET_MESSAGE, msg);
+    }
+
+    // Callback for when an activate message is received
+    [Server]
 	void OnReceiveActivateMessage(NetworkMessage netMsg)
 	{
 		// Retrieve the obstacle index
@@ -52,18 +60,28 @@ public class ObstacleManager : NetworkBehaviour
 		RpcActivateObstacle(obstacleIndex);
 	}
 
-	// Callback for when a deactivate message is received
-	[Server]
-	void OnReceiveDeactivateMessage(NetworkMessage netMsg)
-	{
-		// Retrieve the obstacle index
-		int obstacleIndex = netMsg.ReadMessage<IntegerMessage>().value;
+    // Callback for when a deactivate message is received
+    [Server]
+    void OnReceiveDeactivateMessage(NetworkMessage netMsg)
+    {
+        // Retrieve the obstacle index
+        int obstacleIndex = netMsg.ReadMessage<IntegerMessage>().value;
 
-		RpcDeactivateObstacle(obstacleIndex);
-	}
+        RpcDeactivateObstacle(obstacleIndex);
+    }
 
-	// Activate the obstacle on all clients
-	[ClientRpc]
+    // Callback for when a reset message is received
+    [Server]
+    void OnReceiveResetMessage(NetworkMessage netMsg)
+    {
+        // Retrieve the obstacle index
+        int obstacleIndex = netMsg.ReadMessage<IntegerMessage>().value;
+
+        RpcResetObstacle(obstacleIndex);
+    }
+
+    // Activate the obstacle on all clients
+    [ClientRpc]
 	public void RpcActivateObstacle(int obstacleIndex)
 	{
 		ObstacleNetworking obstacle = obstacles[obstacleIndex];
@@ -74,20 +92,32 @@ public class ObstacleManager : NetworkBehaviour
 		}
 	}
 
-	// Deactivate the obstacle on all clients
-	[ClientRpc]
-	public void RpcDeactivateObstacle(int obstacleIndex)
-	{
-		ObstacleNetworking obstacle = obstacles[obstacleIndex];
+    // Deactivate the obstacle on all clients
+    [ClientRpc]
+    public void RpcDeactivateObstacle(int obstacleIndex)
+    {
+        ObstacleNetworking obstacle = obstacles[obstacleIndex];
 
-		if (obstacle != null)
-		{
-			obstacle.DeactivateFromServer();
-		}
-	}
+        if (obstacle != null)
+        {
+            obstacle.DeactivateFromServer();
+        }
+    }
 
-	// Find the index of the obstacle
-	public int GetObstacleIndex(ObstacleNetworking obstacle)
+    // Reset the obstacle on all clients
+    [ClientRpc]
+    public void RpcResetObstacle(int obstacleIndex)
+    {
+        ObstacleNetworking obstacle = obstacles[obstacleIndex];
+
+        if (obstacle != null)
+        {
+            obstacle.ResetFromServer();
+        }
+    }
+
+    // Find the index of the obstacle
+    public int GetObstacleIndex(ObstacleNetworking obstacle)
 	{
 		int obstacleIndex = 0;
 

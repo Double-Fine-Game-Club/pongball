@@ -37,6 +37,9 @@ public class Score : NetworkBehaviour
     private bool gameWinState = false;
     private float gameWinCountdown = 0; // Wait a while when showing game win text
 
+    public delegate void LevelResetDelegate();
+    public static event LevelResetDelegate OnLevelReset;
+
     // Use this for initialization
     void Start ()
 	{
@@ -163,6 +166,9 @@ public class Score : NetworkBehaviour
                     {
                         go.SendMessage("OnResumeGame", SendMessageOptions.DontRequireReceiver);
                     }
+
+                    if (OnLevelReset != null)
+                        OnLevelReset();
 
                     // Unset game win state
                     gameWinState = false;
