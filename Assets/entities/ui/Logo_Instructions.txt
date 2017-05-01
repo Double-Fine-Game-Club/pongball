@@ -1,7 +1,0 @@
-To add a new logo to the logo switcher:
-1. place your new logo in this folder
-2. set the texture type to Sprite
-3. create a new image in the MainMenu scene and add it as a child to the Logo Button
-4. Find the Logo Switcher script on the ScriptHolder object, in the scene
-5. increase the size of the Logo Array.  Drag your image object from the scene to the new element slot.
-You're done!
