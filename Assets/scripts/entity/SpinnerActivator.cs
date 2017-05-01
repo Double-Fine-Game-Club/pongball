@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -18,8 +19,25 @@ public class SpinnerActivator : MonoBehaviour
     {
         GetComponent<ObstacleNetworking>().ActivateFromServer += ActivateBoost;
         GetComponent<ObstacleNetworking>().DeactivateFromServer += DeactivateBoost;
+        GetComponent<ObstacleNetworking>().ResetFromServer += DeactivateBoost;
     }
-    
+
+    private void OnEnable()
+    {
+        Score.OnLevelReset += OnLevelReset;
+    }
+
+    private void OnDisable()
+    {
+        Score.OnLevelReset += OnLevelReset;
+    }
+
+    private void OnLevelReset()
+    {
+        DeactivateBoost();
+        GetComponent<ObstacleNetworking>().ResetOnServer();
+    }
+
     void OnCollisionEnter(Collision col)
     {
         if (!NetworkManager.singleton.isNetworkActive || NetworkServer.connections.Count > 0)
