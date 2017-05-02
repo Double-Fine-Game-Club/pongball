@@ -9,9 +9,9 @@ using UnityEngine.UI;
 /// </summary>
 
 public class Player : PaddleBase {
-    //use this in inspector on your prefab to assign player?  Will that work?  Idfk.  *crosses fingers* -sjm
+    
     public int playerNum = 1;
-    [Range(0.7f, 1.0f)]
+    [Range(0.4f, 1.3f)]
     public float paddleSpeed;
 
     // Use this for initialization
