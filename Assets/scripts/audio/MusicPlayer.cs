@@ -26,6 +26,11 @@ public class MusicPlayer : MonoBehaviour {
             PlayNextSong();
         }
 
+        if (Input.GetKeyDown("t"))
+        {
+            IsPlayingTest();
+        }
+
     }
 
     public void RandomSong()
@@ -85,5 +90,9 @@ public class MusicPlayer : MonoBehaviour {
         musicSource.Pause();
     }
 
+    public void IsPlayingTest()
+    {
+        Debug.Log("Music Source is playing == " + musicSource.isPlaying);
+    }
 }
 
