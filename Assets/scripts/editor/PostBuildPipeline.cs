@@ -13,6 +13,10 @@ public class MyBuildPostprocessor
         //BuildScript.BuildTargetAssetBundles();
 
         string targetPath = pathToBuiltProject.Substring(0, pathToBuiltProject.LastIndexOf('/') + 1);
+        if (File.Exists(targetPath + "/README.md"))
+        {
+            FileUtil.DeleteFileOrDirectory(targetPath + "/README.md");
+        }
         FileUtil.CopyFileOrDirectory(Application.dataPath + "/../README.md", targetPath + "/README.md");
 
         if (Utility.GetPlatformName() == "OSX")
