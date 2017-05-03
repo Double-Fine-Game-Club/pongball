@@ -45,8 +45,9 @@ public class MusicPlayer : MonoBehaviour {
         while (musicIsPlaying == true)
         {
             musicSource.clip = musicArray[currentSong];
-            musicSource.Play();
-            yield return new WaitForSeconds(musicSource.clip.length);
+            musicSource.Play;
+            //This should really be instantiated at runtime and then accessed from an array for better garbage collection, but... - sjm
+            yield return new WaitForSecondsRealtime(musicSource.clip.length);
             if (currentSong < musicArray.Length - 1)
             {
                 currentSong++;
