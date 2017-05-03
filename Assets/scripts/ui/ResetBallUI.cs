@@ -23,10 +23,12 @@ public class ResetBallUI : NetworkBehaviour {
         {
             ResetBallPosition();
         }
-        if (GUILayout.Button("Exit to menu"))
+
+        //This is kinda busted at the moment. It doesn't allow variants to be reset and doesn't clear event bindings. Commening out for now - Cheese
+        /*if (GUILayout.Button("Exit to menu"))
         {
             ExitToMenu();
-        }
+        }*/
         GUILayout.EndArea();
     }
 
