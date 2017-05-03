@@ -17,6 +17,7 @@ public class MusicPlayer : MonoBehaviour {
         RandomSong();
         coroutine = PlayMusic();
         StartCoroutine(coroutine);
+
     }
 
     void Update()
@@ -24,11 +25,6 @@ public class MusicPlayer : MonoBehaviour {
         if (Input.GetKeyDown("n"))
         {
             PlayNextSong();
-        }
-
-        if (Input.GetKeyDown("t"))
-        {
-            IsPlayingTest();
         }
 
     }
@@ -45,7 +41,7 @@ public class MusicPlayer : MonoBehaviour {
         while (musicIsPlaying == true)
         {
             musicSource.clip = musicArray[currentSong];
-            musicSource.Play;
+            musicSource.Play();
             //This should really be instantiated at runtime and then accessed from an array for better garbage collection, but... - sjm
             yield return new WaitForSecondsRealtime(musicSource.clip.length);
             if (currentSong < musicArray.Length - 1)
@@ -91,9 +87,5 @@ public class MusicPlayer : MonoBehaviour {
         musicSource.Pause();
     }
 
-    public void IsPlayingTest()
-    {
-        Debug.Log("Music Source is playing == " + musicSource.isPlaying);
-    }
 }
 
