@@ -18,8 +18,8 @@ EditorBuildSettings:
     path: Assets/tables/Flippers.unity
     guid: 06675c8c913684895a5bf9f12892b00b
   - enabled: 1
-    path: Assets/tables/Table_kednar.unity
+    path: Assets/tables/Hillock.unity
     guid: c4b97de82ff38485d942e19bf9054d9c
   - enabled: 1
     path: Assets/tables/Empty.unity
-    guid: 00000000000000000000000000000000
+    guid: 85e6ac86063220741ba36d66825261b9
