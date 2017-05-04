@@ -18,7 +18,7 @@ public class LoadAssets : MonoBehaviour {
 		{ "Bumpout", false },
 		{ "Flippers", false },
 		{ "Speedster", false },
-		{ "Table_kednar", false }
+		{ "Hillock", false }
 	};
 	public Dictionary<string, bool> paddleNames = new Dictionary<string, bool>() {
 		{ "tron", false },
