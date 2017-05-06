@@ -203,7 +203,7 @@ namespace AssetBundles
 	#endif
 	
 			var go = new GameObject("AssetBundleManager", typeof(AssetBundleManager));
-			DontDestroyOnLoad(go);
+			//DontDestroyOnLoad(go);
 		
 	#if UNITY_EDITOR	
 			// If we're in Editor simulation mode, we don't need the manifest assetBundle.

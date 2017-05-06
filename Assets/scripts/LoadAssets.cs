@@ -167,7 +167,7 @@ public class LoadAssets : MonoBehaviour {
     protected IEnumerator Initialize()
     {
         // Don't destroy this gameObject as we depend on it to run the loading script.
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         AssetBundleManager.BaseDownloadingURL = "file:///" + Application.dataPath + "/../AssetBundles/" + AssetBundles.Utility.GetPlatformName() + "/";
 
