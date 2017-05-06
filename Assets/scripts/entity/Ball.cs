@@ -8,8 +8,10 @@ using UnityEngine.UI;
 public class Ball : NetworkBehaviour {
 
     public float collisionForceMultiplier = 2.5f;
-    public float minimumVelocity = 10;
-    public float maximumVelocity = 200;
+    [Range(7f, 10f)]
+    public float minimumVelocity;
+    [Range(150f, 200f)]
+    public float maximumVelocity;
 
     private Rigidbody rigidBody = null;
     private new Renderer renderer = null;
@@ -31,6 +33,9 @@ public class Ball : NetworkBehaviour {
     // Use this for initialization
     void Start()
     {
+        minimumVelocity = 9.0f;
+        maximumVelocity = 175f;
+
         renderer = GetComponent<Renderer>();
         trailRenderer = GetComponent<TrailRenderer>();
         if (!(NetworkManager.singleton.isNetworkActive && NetworkServer.connections.Count == 0))
